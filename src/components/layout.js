@@ -18,7 +18,7 @@ class Template extends React.Component {
     return (
       <Container>
         <Navigation />
-        <Announcement title="Announcement" content="Test announcement"></Announcement>
+        {/* <Announcement title="Announcement" content="Test announcement"></Announcement> */}
         {children}
       </Container>
     )
