@@ -19,7 +19,11 @@ class PageTemplate extends React.Component {
           {page.contentModules.map((contentModule) => (
             <Copy
               visualStyle={contentModule.visualStyle}
-              copy={contentModule.copy.childMarkdownRemark.html}
+              copy={
+                contentModule.copy &&
+                contentModule.copy.childMarkdownRemark &&
+                contentModule.copy.childMarkdownRemark.html
+              }
             ></Copy>
           ))}
 

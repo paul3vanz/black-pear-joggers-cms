@@ -74,7 +74,6 @@ exports.createPages = ({ graphql, actions }) => {
         const pages = result.data.allContentfulLayout.edges
 
         pages.forEach((page) => {
-          console.log(page);
           createPage({
             path: `/${page.node.slug}/`,
             component: templates.page,
