@@ -1,0 +1,35 @@
+{
+    "name": "bpj-cms",
+    "version": "1.0.0",
+    "description": "Worcester's friendly running club",
+    "main": "index.js",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "generate-types": "contentful-typescript-codegen --output @types/generated/contentful.d.ts"
+    },
+    "author": "Paul Evans",
+    "license": "ISC",
+    "devDependencies": {
+        "@mapbox/stylelint-processor-arbitrary-tags": "^0.3.0",
+        "contentful-import": "^7.9.4",
+        "contentful-typescript-codegen": "^3.2.1",
+        "node-sass": "^4.14.1",
+        "styled-jsx-plugin-sass": "^1.0.0",
+        "stylelint": "^13.6.1",
+        "stylelint-config-css-modules": "^2.2.0",
+        "stylelint-config-standard": "^20.0.0",
+        "typescript": "^3.9.7"
+    },
+    "dependencies": {
+        "@contentful/rich-text-react-renderer": "^14.1.1",
+        "contentful": "^7.14.6",
+        "dotenv": "^8.2.0",
+        "next": "^9.5.2",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "sass": "^1.26.10",
+        "styled-jsx-plugin-stylelint": "^0.1.0"
+    }
+}
