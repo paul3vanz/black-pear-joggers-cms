@@ -19,6 +19,7 @@
         "contentful-import": "^7.9.4",
         "contentful-typescript-codegen": "^3.2.1",
         "node-sass": "^4.14.1",
+        "prettier-plugin-organize-imports": "^1.1.1",
         "styled-jsx-plugin-sass": "^1.0.0",
         "stylelint": "^13.6.1",
         "stylelint-config-css-modules": "^2.2.0",

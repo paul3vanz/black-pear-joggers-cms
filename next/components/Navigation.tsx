@@ -4,21 +4,18 @@ import Link from 'next/link';
 import styles from './Navigation.module.scss';
 
 const Navigation = () => {
-    const [menuOpen, setMenuOpen] = useState(true);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     return (
         <div>
             <a
                 onClick={() => setMenuOpen(!menuOpen)}
                 className={styles.hamburger}
-                href="javascript:void(0)">
+                href="#">
                 <span>Open navigation menu</span>
             </a>
 
-            <nav
-                className={`${styles.nav} ${
-                    menuOpen ? `${styles.nav}--active` : ''
-                }`}>
+            <nav className={styles.nav} data-expanded={menuOpen}>
                 <ul>
                     <li>
                         <Link href="https://bpj.org.uk/membership/">

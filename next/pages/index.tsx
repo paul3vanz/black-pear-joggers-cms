@@ -1,18 +1,15 @@
-import { getLayoutBySlug } from '../core/api';
-import Layout from '../components/Layout';
-import Stack from '../components/Stack';
-import Container from '../components/Container';
-import {
-    ILayoutCopy,
-    ILayoutHeroImage,
-    ILayoutHighlightedCourse,
-} from '../@types/generated/contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { getLayoutBySlug } from '../core/api';
 import CopyStack from '../components/CopyStack';
+import Head from 'next/head';
+import Layout from '../components/Layout';
 
 export default function Home(props: Props) {
     return (
         <div>
+            <Head>
+                <title>Test</title>
+            </Head>
             <Layout>
                 {props.layout.map((layout) => (
                     <CopyStack
