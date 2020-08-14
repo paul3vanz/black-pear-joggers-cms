@@ -1,4 +1,4 @@
-import { createClient } from 'contentful';
+import { createClient, Entry, EntryCollection } from 'contentful';
 import { ILayout, ILayoutFields } from '../@types/generated/contentful';
 
 const client = createClient({
@@ -81,11 +81,34 @@ export async function getPostAndMorePosts(slug, preview) {
     };
 }
 
-export async function getLayoutBySlug(slug: string, preview: boolean) {
+export async function getAllLayout(preview: boolean): Promise<any> {
+    const pages = await getClient(preview).getEntries<ILayoutFields>({
+        content_type: 'layout',
+    });
+
+    return pages.items;
+}
+
+export async function getLayoutBySlug(
+    slug: string,
+    preview: boolean
+): Promise<{
+    slug: string;
+    title: string;
+    layout: any;
+    contentModules: any;
+}> {
     const layout = await getClient(preview).getEntries<ILayoutFields>({
         content_type: 'layout',
         'fields.slug': slug,
     });
 
-    return layout.items.map((item) => item.fields.contentModules)[0];
+    return {
+        slug: 'membership',
+        title: 'Membership',
+        layout: layout,
+        contentModules: layout.items.map(
+            (item) => item.fields.contentModules
+        )[0],
+    };
 }
