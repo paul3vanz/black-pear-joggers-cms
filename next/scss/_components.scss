@@ -1,0 +1,151 @@
+.c-image-wrapper {
+  display: flex;
+  line-height: 0;
+
+  div {
+    width: 100%;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+
+  &.invalid {
+    color: #f00;
+    font-weight: bold;
+  }
+}
+
+input,
+select {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #eee;
+  border-radius: 3px;
+
+  .showValidation &.ng-invalid {
+    border: 1px solid #fdd;
+    background-color: #fee;
+  }
+}
+
+button {
+  margin-left: auto;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  background-color: #000;
+  color: #fff;
+}
+
+ol li {
+  display: flex;
+  margin-bottom: 0.5rem;
+  counter-increment: list;
+
+  &::before {
+    content: counter(list);
+    display: inline-flex;
+    flex: 0 0 20px;
+    justify-content: center;
+    height: 20px;
+    margin-right: 10px;
+    margin-bottom: 0.5rem;
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+
+.c-event-list,
+.cards {
+  display: flex;
+  margin: 2rem -1rem 1rem;
+
+  @include nb-respond-to('max-xs') {
+    flex-direction: column;
+  }
+
+  li,
+  .card {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin: 0 1rem 1rem;
+    padding: 1rem;
+    border-radius: 3px;
+    background-color: #fff;
+    text-align: center;
+  }
+
+  &__date {
+    font-size: 18px;
+  }
+
+  &__time {
+    font-size: 18px;
+  }
+
+  &__description {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    font-size: 12px;
+    text-align: left;
+  }
+}
+
+table {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+
+  th {
+    text-align: left;
+  }
+
+  th,
+  td {
+    padding: 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    @include nb-respond-to('sm') {
+      padding: 8px;
+
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+
+  tr:last-child * {
+    border-bottom: none;
+  }
+
+  &.table--light th,
+  &.table--light td {
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &.table--centered th,
+  &.table--centered td {
+    text-align: center;
+  }
+}
+
+.c-badge {
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: #fff;
+}
