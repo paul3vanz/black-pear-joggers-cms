@@ -1,0 +1,16 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #222;
+    color: #fff;
+}
+
+.logo {
+    margin-right: 20px;
+
+    img {
+        height: 60px;
+    }
+}

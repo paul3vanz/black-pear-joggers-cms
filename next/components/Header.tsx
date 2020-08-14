@@ -1,9 +1,11 @@
 import Navigation from './Navigation';
 import Link from 'next/link';
 
+import styles from './Header.module.scss';
+
 const Header = () => (
-    <header>
-        <div className="logo">
+    <header className={styles.header}>
+        <div className={styles.logo}>
             <Link href="/">
                 <a>
                     <img
@@ -16,24 +18,7 @@ const Header = () => (
 
         <Navigation></Navigation>
 
-        <style jsx>{`
-            header {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: 20px;
-                background-color: #222;
-                color: #fff;
-            }
-
-            .logo {
-                margin-right: 20px;
-            }
-
-            .logo img {
-                height: 60px;
-            }
-        `}</style>
+        <style jsx>{``}</style>
     </header>
 );
 
