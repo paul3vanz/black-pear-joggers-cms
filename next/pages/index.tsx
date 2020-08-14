@@ -11,7 +11,9 @@ export default function Home(
 ) {
     return (
         <div>
-            <Head>{/* <title>{props.layout.fields}</title> */}</Head>
+            <Head>
+                <title>Black Pear Joggers</title>
+            </Head>
 
             <Layout>
                 {props.contentModules.map((contentModule) => (
