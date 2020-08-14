@@ -13,7 +13,7 @@ const Layout = (props) => (
             <link
                 href="https://fonts.gstatic.com"
                 rel="preconnect"
-                crossorigin
+                crossOrigin="anonymous"
             />
             <link
                 href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap"
