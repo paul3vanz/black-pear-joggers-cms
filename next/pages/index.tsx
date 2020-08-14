@@ -1,38 +1,41 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { getLayoutBySlug } from '../core/api';
+import { InferGetStaticPropsType } from 'next';
 import CopyStack from '../components/CopyStack';
 import Head from 'next/head';
 import Layout from '../components/Layout';
+import { ILayoutCopy } from '../@types/generated/contentful';
 
-export default function Home(props: Props) {
+export default function Home(
+    props: InferGetStaticPropsType<typeof getStaticProps>
+) {
     return (
         <div>
-            <Head>
-                <title>Test</title>
-            </Head>
+            <Head>{/* <title>{props.layout.fields}</title> */}</Head>
+
             <Layout>
-                {props.layout.map((layout) => (
+                {props.contentModules.map((contentModule) => (
                     <CopyStack
-                        key={layout.sys.id}
-                        id={layout.sys.id}
-                        visualStyle={layout.fields.visualStyle}>
-                        {documentToReactComponents(layout.fields.content)}
+                        key={contentModule.sys.id}
+                        id={contentModule.sys.id}
+                        visualStyle={
+                            (contentModule as ILayoutCopy).fields.visualStyle
+                        }>
+                        {documentToReactComponents(
+                            (contentModule as ILayoutCopy).fields.content
+                        )}
                     </CopyStack>
                 ))}
             </Layout>
+            {/* <pre>{JSON.stringify(props, null, '   ')}</pre> */}
         </div>
     );
 }
 
 export async function getStaticProps({ preview = false }) {
-    const layout = await getLayoutBySlug('membership', true);
+    const contentModules = await getLayoutBySlug('membership', true);
 
     return {
-        props: { preview, layout },
+        props: { preview, contentModules },
     };
-}
-
-interface Props {
-    preview: boolean;
-    layout: any;
 }

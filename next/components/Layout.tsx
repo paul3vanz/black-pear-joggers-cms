@@ -54,7 +54,7 @@ const Layout = (props) => (
             }
 
             a {
-                color: #f89829;
+                color: #222;
                 font-weight: 700;
             }
         `}</style>

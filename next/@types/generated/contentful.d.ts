@@ -4,450 +4,454 @@ import { Asset, Entry } from 'contentful';
 import { Document } from '@contentful/rich-text-types';
 
 export interface IBlogPostFields {
-  /** Title */
-  title: string;
+    /** Title */
+    title: string;
 
-  /** Slug */
-  slug: string;
+    /** Slug */
+    slug: string;
 
-  /** Hero Image */
-  heroImage: Asset;
+    /** Hero Image */
+    heroImage: Asset;
 
-  /** Description */
-  description: string;
+    /** Description */
+    description: string;
 
-  /** Body */
-  body: string;
+    /** Body */
+    body: string;
 
-  /** Author */
-  author?: IPerson | undefined;
+    /** Author */
+    author?: IPerson | undefined;
 
-  /** Publish Date */
-  publishDate: string;
+    /** Publish Date */
+    publishDate: string;
 
-  /** Tags */
-  tags?: ('general' | 'javascript' | 'static-sites')[] | undefined;
+    /** Tags */
+    tags?: ('general' | 'javascript' | 'static-sites')[] | undefined;
 }
 
 export interface IBlogPost extends Entry<IBlogPostFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: 'blogPost';
-        linkType: 'ContentType';
-        type: 'Link';
-      };
+    sys: {
+        id: string;
+        type: string;
+        createdAt: string;
+        updatedAt: string;
+        locale: string;
+        contentType: {
+            sys: {
+                id: 'blogPost';
+                linkType: 'ContentType';
+                type: 'Link';
+            };
+        };
     };
-  };
 }
 
 export interface ICategoryFields {
-  /** Title */
-  title: string;
+    /** Title */
+    title: string;
 
-  /** Slug */
-  slug: string;
+    /** Slug */
+    slug: string;
 }
 
 /** Categories can be applied to Courses and Lessons. Assigning Multiple categories is also possible. */
 
 export interface ICategory extends Entry<ICategoryFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: 'category';
-        linkType: 'ContentType';
-        type: 'Link';
-      };
+    sys: {
+        id: string;
+        type: string;
+        createdAt: string;
+        updatedAt: string;
+        locale: string;
+        contentType: {
+            sys: {
+                id: 'category';
+                linkType: 'ContentType';
+                type: 'Link';
+            };
+        };
     };
-  };
 }
 
 export interface ICourseFields {
-  /** Title */
-  title: string;
+    /** Title */
+    title: string;
 
-  /** Slug */
-  slug: string;
+    /** Slug */
+    slug: string;
 
-  /** Image */
-  image: Asset;
+    /** Image */
+    image: Asset;
 
-  /** Short Description */
-  shortDescription: string;
+    /** Short Description */
+    shortDescription: string;
 
-  /** Description */
-  description: string;
+    /** Description */
+    description: string;
 
-  /** Duration */
-  duration?: number | undefined;
+    /** Duration */
+    duration?: number | undefined;
 
-  /** Skill Level */
-  skillLevel: 'beginner' | 'intermediate' | 'advanced';
+    /** Skill Level */
+    skillLevel: 'beginner' | 'intermediate' | 'advanced';
 
-  /** Lessons */
-  lessons: ILesson[];
+    /** Lessons */
+    lessons: ILesson[];
 
-  /** Categories */
-  categories: ICategory[];
+    /** Categories */
+    categories: ICategory[];
 }
 
 /** A series of lessons designed to teach sets of concepts that enable students to master Contentful. */
 
 export interface ICourse extends Entry<ICourseFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: 'course';
-        linkType: 'ContentType';
-        type: 'Link';
-      };
+    sys: {
+        id: string;
+        type: string;
+        createdAt: string;
+        updatedAt: string;
+        locale: string;
+        contentType: {
+            sys: {
+                id: 'course';
+                linkType: 'ContentType';
+                type: 'Link';
+            };
+        };
     };
-  };
 }
 
 export interface ILayoutFields {
-  /** Title */
-  title: string;
+    /** Title */
+    title: string;
 
-  /** Slug */
-  slug: string;
+    /** Slug */
+    slug: string;
 
-  /** Content Modules */
-  contentModules: (ILayoutCopy | ILayoutHeroImage | ILayoutHighlightedCourse)[];
+    /** Content Modules */
+    contentModules: (
+        | ILayoutCopy
+        | ILayoutHeroImage
+        | ILayoutHighlightedCourse
+    )[];
 }
 
 /** A page consisting of freely configurable and rearrangeable content modules. */
 
 export interface ILayout extends Entry<ILayoutFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: 'layout';
-        linkType: 'ContentType';
-        type: 'Link';
-      };
+    sys: {
+        id: string;
+        type: string;
+        createdAt: string;
+        updatedAt: string;
+        locale: string;
+        contentType: {
+            sys: {
+                id: 'layout';
+                linkType: 'ContentType';
+                type: 'Link';
+            };
+        };
     };
-  };
 }
 
 export interface ILayoutCopyFields {
-  /** Title */
-  title: string;
+    /** Title */
+    title: string;
 
-  /** Headline */
-  headline?: string | undefined;
+    /** Headline */
+    headline?: string | undefined;
 
-  /** Copy */
-  copy?: string | undefined;
+    /** Content */
+    content?: Document | undefined;
 
-  /** CTA Title */
-  ctaTitle?: string | undefined;
+    /** CTA Title */
+    ctaTitle?: string | undefined;
 
-  /** CTA Link */
-  ctaLink?: string | undefined;
+    /** CTA Link */
+    ctaLink?: string | undefined;
 
-  /** Visual Style */
-  visualStyle?: 'Default' | 'Emphasized' | undefined;
+    /** Visual Style */
+    visualStyle?: 'Default' | 'Emphasized' | undefined;
 }
 
 /** A block of text with a headline and a call to action to be shown on the landing page. */
 
 export interface ILayoutCopy extends Entry<ILayoutCopyFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: 'layoutCopy';
-        linkType: 'ContentType';
-        type: 'Link';
-      };
+    sys: {
+        id: string;
+        type: string;
+        createdAt: string;
+        updatedAt: string;
+        locale: string;
+        contentType: {
+            sys: {
+                id: 'layoutCopy';
+                linkType: 'ContentType';
+                type: 'Link';
+            };
+        };
     };
-  };
 }
 
 export interface ILayoutHeroImageFields {
-  /** Title */
-  title: string;
+    /** Title */
+    title: string;
 
-  /** Headline */
-  headline?: string | undefined;
+    /** Headline */
+    headline?: string | undefined;
 
-  /** Background Image */
-  backgroundImage?: Asset | undefined;
+    /** Background Image */
+    backgroundImage?: Asset | undefined;
 }
 
 /** A hero image and header text. */
 
 export interface ILayoutHeroImage extends Entry<ILayoutHeroImageFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: 'layoutHeroImage';
-        linkType: 'ContentType';
-        type: 'Link';
-      };
+    sys: {
+        id: string;
+        type: string;
+        createdAt: string;
+        updatedAt: string;
+        locale: string;
+        contentType: {
+            sys: {
+                id: 'layoutHeroImage';
+                linkType: 'ContentType';
+                type: 'Link';
+            };
+        };
     };
-  };
 }
 
 export interface ILayoutHighlightedCourseFields {
-  /** Title */
-  title: string;
+    /** Title */
+    title: string;
 
-  /** Course */
-  course: ICourse;
+    /** Course */
+    course: ICourse;
 }
 
 /** A curated selection of highlighted courses. */
 
 export interface ILayoutHighlightedCourse
-  extends Entry<ILayoutHighlightedCourseFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: 'layoutHighlightedCourse';
-        linkType: 'ContentType';
-        type: 'Link';
-      };
+    extends Entry<ILayoutHighlightedCourseFields> {
+    sys: {
+        id: string;
+        type: string;
+        createdAt: string;
+        updatedAt: string;
+        locale: string;
+        contentType: {
+            sys: {
+                id: 'layoutHighlightedCourse';
+                linkType: 'ContentType';
+                type: 'Link';
+            };
+        };
     };
-  };
 }
 
 export interface ILessonFields {
-  /** Title */
-  title: string;
+    /** Title */
+    title: string;
 
-  /** Slug */
-  slug: string;
+    /** Slug */
+    slug: string;
 
-  /** Modules */
-  modules: (ILessonCodeSnippets | ILessonCopy | ILessonImage)[];
+    /** Modules */
+    modules: (ILessonCodeSnippets | ILessonCopy | ILessonImage)[];
 }
 
 /** A educational lesson, representing one section of a course. */
 
 export interface ILesson extends Entry<ILessonFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: 'lesson';
-        linkType: 'ContentType';
-        type: 'Link';
-      };
+    sys: {
+        id: string;
+        type: string;
+        createdAt: string;
+        updatedAt: string;
+        locale: string;
+        contentType: {
+            sys: {
+                id: 'lesson';
+                linkType: 'ContentType';
+                type: 'Link';
+            };
+        };
     };
-  };
 }
 
 export interface ILessonCodeSnippetsFields {
-  /** Title */
-  title: string;
+    /** Title */
+    title: string;
 
-  /** cURL */
-  curl?: string | undefined;
+    /** cURL */
+    curl?: string | undefined;
 
-  /** DotNet */
-  dotNet?: string | undefined;
+    /** DotNet */
+    dotNet?: string | undefined;
 
-  /** Javascript */
-  javascript?: string | undefined;
+    /** Javascript */
+    javascript?: string | undefined;
 
-  /** Java */
-  java?: string | undefined;
+    /** Java */
+    java?: string | undefined;
 
-  /** Java-android */
-  javaAndroid?: string | undefined;
+    /** Java-android */
+    javaAndroid?: string | undefined;
 
-  /** Php */
-  php?: string | undefined;
+    /** Php */
+    php?: string | undefined;
 
-  /** Python */
-  python?: string | undefined;
+    /** Python */
+    python?: string | undefined;
 
-  /** Ruby */
-  ruby?: string | undefined;
+    /** Ruby */
+    ruby?: string | undefined;
 
-  /** Swift */
-  swift?: string | undefined;
+    /** Swift */
+    swift?: string | undefined;
 }
 
 /** A code snippet module supporting all platforms to be used in a lesson. */
 
 export interface ILessonCodeSnippets extends Entry<ILessonCodeSnippetsFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: 'lessonCodeSnippets';
-        linkType: 'ContentType';
-        type: 'Link';
-      };
+    sys: {
+        id: string;
+        type: string;
+        createdAt: string;
+        updatedAt: string;
+        locale: string;
+        contentType: {
+            sys: {
+                id: 'lessonCodeSnippets';
+                linkType: 'ContentType';
+                type: 'Link';
+            };
+        };
     };
-  };
 }
 
 export interface ILessonCopyFields {
-  /** Title */
-  title: string;
+    /** Title */
+    title: string;
 
-  /** Copy */
-  copy: string;
+    /** Copy */
+    copy: string;
 }
 
 /** A markdown module to be used in a lesson. */
 
 export interface ILessonCopy extends Entry<ILessonCopyFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: 'lessonCopy';
-        linkType: 'ContentType';
-        type: 'Link';
-      };
+    sys: {
+        id: string;
+        type: string;
+        createdAt: string;
+        updatedAt: string;
+        locale: string;
+        contentType: {
+            sys: {
+                id: 'lessonCopy';
+                linkType: 'ContentType';
+                type: 'Link';
+            };
+        };
     };
-  };
 }
 
 export interface ILessonImageFields {
-  /** Title */
-  title: string;
+    /** Title */
+    title: string;
 
-  /** Image */
-  image: Asset;
+    /** Image */
+    image: Asset;
 
-  /** Caption */
-  caption?: string | undefined;
+    /** Caption */
+    caption?: string | undefined;
 }
 
 /** An image to be used as a module in a lesson. */
 
 export interface ILessonImage extends Entry<ILessonImageFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: 'lessonImage';
-        linkType: 'ContentType';
-        type: 'Link';
-      };
+    sys: {
+        id: string;
+        type: string;
+        createdAt: string;
+        updatedAt: string;
+        locale: string;
+        contentType: {
+            sys: {
+                id: 'lessonImage';
+                linkType: 'ContentType';
+                type: 'Link';
+            };
+        };
     };
-  };
 }
 
 export interface IPersonFields {
-  /** Name */
-  name: string;
+    /** Name */
+    name: string;
 
-  /** Title */
-  title: string;
+    /** Title */
+    title: string;
 
-  /** Company */
-  company: string;
+    /** Company */
+    company: string;
 
-  /** Short Bio */
-  shortBio: string;
+    /** Short Bio */
+    shortBio: string;
 
-  /** Email */
-  email?: string | undefined;
+    /** Email */
+    email?: string | undefined;
 
-  /** Phone */
-  phone?: string | undefined;
+    /** Phone */
+    phone?: string | undefined;
 
-  /** Facebook */
-  facebook?: string | undefined;
+    /** Facebook */
+    facebook?: string | undefined;
 
-  /** Twitter */
-  twitter?: string | undefined;
+    /** Twitter */
+    twitter?: string | undefined;
 
-  /** Github */
-  github?: string | undefined;
+    /** Github */
+    github?: string | undefined;
 
-  /** Image */
-  image?: Asset | undefined;
+    /** Image */
+    image?: Asset | undefined;
 }
 
 export interface IPerson extends Entry<IPersonFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: 'person';
-        linkType: 'ContentType';
-        type: 'Link';
-      };
+    sys: {
+        id: string;
+        type: string;
+        createdAt: string;
+        updatedAt: string;
+        locale: string;
+        contentType: {
+            sys: {
+                id: 'person';
+                linkType: 'ContentType';
+                type: 'Link';
+            };
+        };
     };
-  };
 }
 
 export type CONTENT_TYPE =
-  | 'blogPost'
-  | 'category'
-  | 'course'
-  | 'layout'
-  | 'layoutCopy'
-  | 'layoutHeroImage'
-  | 'layoutHighlightedCourse'
-  | 'lesson'
-  | 'lessonCodeSnippets'
-  | 'lessonCopy'
-  | 'lessonImage'
-  | 'person';
+    | 'blogPost'
+    | 'category'
+    | 'course'
+    | 'layout'
+    | 'layoutCopy'
+    | 'layoutHeroImage'
+    | 'layoutHighlightedCourse'
+    | 'lesson'
+    | 'lessonCodeSnippets'
+    | 'lessonCopy'
+    | 'lessonImage'
+    | 'person';
 
 export type LOCALE_CODE = 'en-US';
 
