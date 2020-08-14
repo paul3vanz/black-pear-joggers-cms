@@ -7,7 +7,7 @@ import {
     ILayoutHeroImage,
     ILayoutHighlightedCourse,
 } from '../@types/generated/contentful';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import CopyStack from '../components/CopyStack';
 
 export default function Home(props: Props) {
@@ -20,15 +20,8 @@ export default function Home(props: Props) {
                     <CopyStack
                         key={layout.sys.id}
                         id={layout.sys.id}
-                        visualStyle={layout.fields.visualStyle}
-                    >
-                        <div
-                            dangerouslySetInnerHTML={{
-                                __html: documentToHtmlString(
-                                    layout.fields.content
-                                ),
-                            }}
-                        ></div>
+                        visualStyle={layout.fields.visualStyle}>
+                        {documentToReactComponents(layout.fields.content)}
                     </CopyStack>
                 ))}
             </Layout>
