@@ -11,7 +11,12 @@ const Layout = (props) => (
                 href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
             />
             <link
-                href="https://fonts.googleapis.com/css?family=Open+Sans"
+                href="https://fonts.gstatic.com"
+                rel="preconnect"
+                crossorigin
+            />
+            <link
+                href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap"
                 rel="stylesheet"
             />
         </Head>
