@@ -13,6 +13,11 @@ export default function Home(
         <div>
             <Head>
                 <title>Black Pear Joggers</title>
+
+                <meta
+                    name="description"
+                    content="Worcester's friendly running club"
+                />
             </Head>
 
             <Layout>
