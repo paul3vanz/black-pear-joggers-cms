@@ -11,8 +11,6 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import CopyStack from '../components/CopyStack';
 
 export default function Home(props: Props) {
-    console.log(props.layout);
-
     return (
         <div>
             <Layout>
@@ -31,8 +29,6 @@ export default function Home(props: Props) {
 
 export async function getStaticProps({ preview = false }) {
     const layout = await getLayoutBySlug('membership', true);
-
-    console.log(JSON.stringify(layout));
 
     return {
         props: { preview, layout },
