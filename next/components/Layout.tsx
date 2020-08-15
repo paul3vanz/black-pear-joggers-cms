@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Navigation from './Navigation';
 import Header from './Header';
+import Footer from './Footer';
 
 const Layout = (props) => (
     <div className="layout">
@@ -21,9 +22,13 @@ const Layout = (props) => (
             />
         </Head>
 
-        <Header></Header>
+        <div className="container">
+            <Header></Header>
 
-        {props.children}
+            <main>{props.children}</main>
+        </div>
+
+        <Footer></Footer>
 
         <style jsx global>{`
             * {
@@ -38,9 +43,16 @@ const Layout = (props) => (
             }
 
             body {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
                 margin: 0;
                 font-size: 0.9rem;
                 color: #222;
+            }
+
+            .container {
+                flex: 1;
             }
 
             h1,

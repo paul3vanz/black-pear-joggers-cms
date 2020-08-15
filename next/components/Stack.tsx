@@ -1,4 +1,4 @@
-const Stack = ({ children, visualStyle }) => (
+const Stack = ({ children, visualStyle }: Props) => (
     <section>
         {children}
 
@@ -10,5 +10,10 @@ const Stack = ({ children, visualStyle }) => (
         `}</style>
     </section>
 );
+
+interface Props {
+    children: any;
+    visualStyle?: string;
+}
 
 export default Stack;

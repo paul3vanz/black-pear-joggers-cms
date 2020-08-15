@@ -18,7 +18,7 @@ const Navigation = () => {
             <nav className={styles.nav} data-expanded={menuOpen}>
                 <ul>
                     <li>
-                        <Link href="https://bpj.org.uk/membership/">
+                        <Link href="/membership/">
                             <a>Membership</a>
                         </Link>
                     </li>

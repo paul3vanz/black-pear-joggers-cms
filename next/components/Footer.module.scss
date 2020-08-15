@@ -1,0 +1,19 @@
+.footer {
+    padding: 20px;
+    background-color: #222;
+    color: #fff;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+
+    li {
+        margin-right: 20px;
+    }
+
+    a {
+        color: #fff;
+    }
+}
