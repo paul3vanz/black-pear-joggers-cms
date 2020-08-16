@@ -13,6 +13,7 @@ import { ILayoutCopy } from '../../../../../@types/generated/contentful';
 import { ParsedUrlQuery } from 'querystring';
 
 import moment from 'moment-mini';
+import Frontmatter from '../../../../../components/Frontmatter';
 
 export default function Home(
     props: InferGetStaticPropsType<typeof getStaticProps>
@@ -29,11 +30,16 @@ export default function Home(
             </Head>
 
             <Layout>
+                <Frontmatter
+                    title={props.blogPost.fields.title}
+                    description={props.blogPost.fields.description}
+                    publishDate={props.blogPost.fields.publishDate}
+                    heroImageUrl={
+                        props.blogPost.fields.heroImage.fields.file.url
+                    }></Frontmatter>
                 <CopyStack>
-                    {console.log(props)}
-                    <h1>{props.blogPost.fields.title}</h1>
                     <div className="post">
-                        {JSON.stringify(props.blogPost.fields.body)}
+                        {documentToReactComponents(props.blogPost.fields.body)}
                     </div>
                 </CopyStack>
             </Layout>
@@ -63,7 +69,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const blogPost = await getBlogPostBySlug(params.slug, false);
+    const blogPost = await getBlogPostBySlug(params.post, false);
 
     return {
         props: { ...blogPost },

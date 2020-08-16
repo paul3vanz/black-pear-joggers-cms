@@ -17,7 +17,7 @@ export interface IBlogPostFields {
     description: string;
 
     /** Body */
-    body: string;
+    body?: Document | undefined;
 
     /** Author */
     author?: IPerson | undefined;
