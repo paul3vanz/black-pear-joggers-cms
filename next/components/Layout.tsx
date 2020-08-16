@@ -43,12 +43,15 @@ const Layout = (props) => (
             }
 
             body {
-                display: flex;
-                flex-direction: column;
-                min-height: 100vh;
                 margin: 0;
                 font-size: 0.9rem;
                 color: #222;
+            }
+
+            .layout {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
             }
 
             .container {

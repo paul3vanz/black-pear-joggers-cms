@@ -1,5 +1,9 @@
 import { createClient, Entry, EntryCollection } from 'contentful';
-import { ILayout, ILayoutFields } from '../@types/generated/contentful';
+import {
+    ILayout,
+    ILayoutFields,
+    IBlogPostFields,
+} from '../@types/generated/contentful';
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -81,9 +85,34 @@ export async function getPostAndMorePosts(slug, preview) {
     };
 }
 
+export async function getAllBlogPosts(preview: boolean): Promise<any> {
+    const blogPosts = await getClient(preview).getEntries<IBlogPostFields>({
+        content_type: 'blogPost',
+        order: '-fields.publishDate',
+    });
+
+    return blogPosts.items;
+}
+
+export async function getBlogPostBySlug(slug: string, preview: boolean) {
+    const blogPost = await getClient(preview).getEntries<IBlogPostFields>({
+        content_type: 'blogPost',
+        'fields.slug[in]': slug,
+    });
+
+    console.log(blogPost.items);
+
+    return {
+        slug: 'membership',
+        title: 'Membership',
+        blogPost: blogPost.items[0],
+    };
+}
+
 export async function getAllLayout(preview: boolean): Promise<any> {
     const pages = await getClient(preview).getEntries<ILayoutFields>({
         content_type: 'layout',
+        order: 'fields.slug',
     });
 
     return pages.items;

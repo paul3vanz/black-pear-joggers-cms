@@ -1,15 +1,7 @@
-const Container = ({ children }) => (
-    <div className="container">
-        {children}
+import styles from './Container.module.scss';
 
-        <style jsx>{`
-            .container {
-                margin: 0 auto;
-                max-width: 72rem;
-                padding: 0 1rem;
-            }
-        `}</style>
-    </div>
+const Container = ({ children }) => (
+    <div className={styles.container}>{children}</div>
 );
 
 export default Container;
