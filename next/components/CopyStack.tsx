@@ -5,10 +5,12 @@ const CopyStack = (props) => {
     return (
         <section>
             <Stack visualStyle={props.visualStyle}>
-                <Container>{props.children}</Container>
-            </Stack>
+                <Container>
+                    {props.headline && <h2>{props.headline}</h2>}
 
-            <style jsx>{``}</style>
+                    {props.children}
+                </Container>
+            </Stack>
         </section>
     );
 };

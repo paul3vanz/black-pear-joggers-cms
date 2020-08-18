@@ -38,13 +38,13 @@ const Layout = (props) => (
             html {
                 -webkit-font-smoothing: antialiased;
                 font-family: Open Sans, sans-serif;
-                font-size: 90%;
+                font-size: 14px;
                 line-height: 1.5;
             }
 
             body {
                 margin: 0;
-                font-size: 0.9rem;
+                font-size: 1rem;
                 color: #222;
             }
 

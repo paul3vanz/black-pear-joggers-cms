@@ -1,0 +1,19 @@
+.stack {
+    padding: 2rem 0;
+
+    &.light {
+        background-color: #eee;
+    }
+
+    &.bright {
+        background-color: #f89829;
+    }
+
+    &.dark {
+        background-color: #222;
+
+        &.dark * {
+            color: #fff;
+        }
+    }
+}

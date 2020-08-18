@@ -1,7 +1,12 @@
+@import '../scss/settings';
+@import '../scss/tools';
+@import '../scss/utilities';
+
 .footer {
     padding: 20px;
     background-color: #222;
     color: #fff;
+    text-align: center;
 }
 
 .links {
@@ -9,8 +14,16 @@
     justify-content: center;
     list-style-type: none;
 
+    @include nb-respond-to('max-sm') {
+        flex-direction: column;
+    }
+
     li {
         margin-right: 20px;
+
+        @include nb-respond-to('max-md') {
+            margin-bottom: 10px;
+        }
     }
 
     a {

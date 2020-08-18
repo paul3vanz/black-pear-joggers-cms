@@ -1,13 +1,11 @@
-const Stack = ({ children, visualStyle }: Props) => (
-    <section>
-        {children}
+import styles from './Stack.module.scss';
 
-        <style jsx>{`
-            section {
-                padding: 2rem 0;
-                background-color: ${visualStyle === 'Emphasized' && '#f89829'};
-            }
-        `}</style>
+const Stack = ({ children, visualStyle }: Props) => (
+    <section
+        className={[styles.stack, styles[visualStyle?.toLowerCase()]].join(
+            ' '
+        )}>
+        {children}
     </section>
 );
 

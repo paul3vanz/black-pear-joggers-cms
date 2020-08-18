@@ -8,6 +8,10 @@ export default function Frontmatter(props: {
     description: string;
     publishDate: string;
     heroImageUrl: string;
+    author: {
+        name: string;
+        avatarUrl: string;
+    };
 }) {
     return (
         <div className={styles.frontmatter}>
@@ -15,12 +19,25 @@ export default function Frontmatter(props: {
                 <Container>
                     <h1>{props.title}</h1>
 
-                    <p
-                        title={moment(props.publishDate).format(
-                            'dddd Do MMMM YYYY hh:mma'
-                        )}>
-                        {moment(props.publishDate).format('Do MMMM YYYY')}
-                    </p>
+                    <div className={styles.authorNameDate}>
+                        {!!props.author && (
+                            <div className={styles.author}>
+                                <div className={styles.avatar}>
+                                    <img src={props.author.avatarUrl} alt="" />
+                                </div>
+                                <div className={styles.name}>
+                                    Posted by&nbsp;
+                                    <strong>{props.author.name}</strong>
+                                </div>
+                            </div>
+                        )}
+                        <div
+                            title={moment(props.publishDate).format(
+                                'dddd Do MMMM YYYY hh:mma'
+                            )}>
+                            {moment(props.publishDate).fromNow()}
+                        </div>
+                    </div>
 
                     <p className={styles.description}>{props.description}</p>
                 </Container>

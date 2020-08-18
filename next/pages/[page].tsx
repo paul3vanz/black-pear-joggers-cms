@@ -6,10 +6,12 @@ import Head from 'next/head';
 import Layout from '../components/Layout';
 import { ILayoutCopy } from '../@types/generated/contentful';
 import { ParsedUrlQuery } from 'querystring';
+import Stack from '../components/Stack';
+import Container from '../components/Container';
+import Cards from '../components/Cards';
+import Card from '../components/Card';
 
-export default function Home(
-    props: InferGetStaticPropsType<typeof getStaticProps>
-) {
+export default function Home(props: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
         <div>
             <Head>
@@ -26,15 +28,29 @@ export default function Home(
                                 <CopyStack
                                     key={contentModule.sys.id}
                                     id={contentModule.sys.id}
-                                    visualStyle={
-                                        (contentModule as ILayoutCopy).fields
-                                            .visualStyle
-                                    }>
-                                    {documentToReactComponents(
-                                        (contentModule as ILayoutCopy).fields
-                                            .content
-                                    )}
+                                    headline={contentModule.fields.headline}
+                                    visualStyle={contentModule.fields.visualStyle}>
+                                    {documentToReactComponents(contentModule.fields.content)}
                                 </CopyStack>
+                            );
+                        case 'layoutStackCards':
+                            return (
+                                <Stack visualStyle="light">
+                                    <Container>
+                                        {contentModule.fields.headline && <h2>{contentModule.fields.headline}</h2>}
+                                        <div className="u-push-bottom-md">
+                                            <Cards>
+                                                {contentModule.fields.contentModules.map((card) => (
+                                                    <Card
+                                                        headline={card.title}
+                                                        imageUrl="."
+                                                        content={JSON.stringify(card)}
+                                                        cta={{ title: 'CTA', link: 'test' }}></Card>
+                                                ))}
+                                            </Cards>
+                                        </div>
+                                    </Container>
+                                </Stack>
                             );
                     }
                 })}

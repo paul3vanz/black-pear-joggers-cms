@@ -1,0 +1,11 @@
+.cards {
+    display: flex;
+
+    & > * {
+        flex: 1;
+    }
+
+    & > *:not(:last-child) {
+        margin-right: 1rem;
+    }
+}
