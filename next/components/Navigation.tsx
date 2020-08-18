@@ -8,10 +8,7 @@ const Navigation = () => {
 
     return (
         <div>
-            <a
-                onClick={() => setMenuOpen(!menuOpen)}
-                className={styles.hamburger}
-                href="#">
+            <a onClick={() => setMenuOpen(!menuOpen)} className={styles.hamburger} href="#">
                 <span>Open navigation menu</span>
             </a>
 
@@ -27,27 +24,19 @@ const Navigation = () => {
                         <a href="#">Club Info</a>
                         <ul>
                             <li>
-                                <a href="https://bpj.org.uk/when-we-run/">
-                                    When We Run
-                                </a>
+                                <a href="https://bpj.org.uk/when-we-run/">When We Run</a>
                             </li>
                             <li>
-                                <a href="https://bpj.org.uk/the-history-of-black-pear-joggers/">
-                                    Our History
-                                </a>
+                                <a href="https://bpj.org.uk/the-history-of-black-pear-joggers/">Our History</a>
                             </li>
                             <li>
-                                <a href="https://bpj.org.uk/meet-the-joggers/">
-                                    Meet the Joggers
-                                </a>
+                                <a href="https://bpj.org.uk/meet-the-joggers/">Meet the Joggers</a>
                             </li>
                             <li>
                                 <a href="https://bpj.org.uk/kit/">Kit</a>
                             </li>
                             <li>
-                                <a href="https://bpj.org.uk/charity/">
-                                    Charity
-                                </a>
+                                <a href="https://bpj.org.uk/charity/">Charity</a>
                             </li>
                             <li>
                                 <a href="https://bpj.org.uk/mental-health-and-wellbeing/">
@@ -55,19 +44,13 @@ const Navigation = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="https://bpj.org.uk/london-marathon-club-ballot/">
-                                    London Ballot Places
-                                </a>
+                                <a href="https://bpj.org.uk/london-marathon-club-ballot/">London Ballot Places</a>
                             </li>
                             <li>
-                                <a href="https://bpj.org.uk/leading-a-group/">
-                                    Leading a Group
-                                </a>
+                                <a href="https://bpj.org.uk/leading-a-group/">Leading a Group</a>
                             </li>
                             <li>
-                                <a href="https://bpj.org.uk/social-events/">
-                                    Social Events
-                                </a>
+                                <a href="https://bpj.org.uk/social-events/">Social Events</a>
                             </li>
                         </ul>
                     </li>
@@ -80,49 +63,35 @@ const Navigation = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="https://bpj.org.uk/leagues/cross-country/">
-                                    Cross Country
-                                </a>
+                                <a href="https://bpj.org.uk/leagues/cross-country/">Cross Country</a>
                             </li>
                             <li>
-                                <a href="https://black-pear-joggers.netlify.com/apps/magic-mile/">
-                                    Magic Mile
-                                </a>
+                                <a href="https://black-pear-joggers.netlify.com/apps/magic-mile/">Magic Mile</a>
                             </li>
                             <li>
-                                <a href="https://bpj.org.uk/leagues/parkrun-tours/">
-                                    parkrun tours
-                                </a>
+                                <a href="https://bpj.org.uk/leagues/parkrun-tours/">parkrun tours</a>
                             </li>
                             <li>
-                                <a href="https://black-pear-joggers.netlify.com/apps/club-records/">
-                                    Club Records
-                                </a>
+                                <a href="https://black-pear-joggers.netlify.com/apps/club-records/">Club Records</a>
                             </li>
                             <li>
-                                <a href="https://black-pear-joggers.netlify.com/apps/race-results/">
-                                    Race Results
-                                </a>
+                                <a href="https://black-pear-joggers.netlify.com/apps/race-results/">Race Results</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="https://bpj.org.uk/our-races/">Our Races</a>
+                        <Link href="/our-races/">
+                            <a>Our races</a>
+                        </Link>
                         <ul>
                             <li>
-                                <a href="https://bpj.org.uk/our-races/croome-race/">
-                                    Croome Capability Canter
-                                </a>
+                                <a href="https://bpj.org.uk/our-races/croome-race/">Croome Capability Canter</a>
                             </li>
                             <li>
-                                <a href="https://bpj.org.uk/our-races/wild-race/">
-                                    The Wild One
-                                </a>
+                                <a href="https://bpj.org.uk/our-races/wild-race/">The Wild One</a>
                             </li>
                             <li>
-                                <a href="https://bpj.org.uk/the-virtual-wild-one/">
-                                    The Virtual One
-                                </a>
+                                <a href="https://bpj.org.uk/the-virtual-wild-one/">The Virtual One</a>
                             </li>
                         </ul>
                     </li>
@@ -133,19 +102,13 @@ const Navigation = () => {
                         <a href="#">Contact</a>
                         <ul>
                             <li>
-                                <a href="https://bpj.org.uk/contact-the-club/">
-                                    Contact the Club
-                                </a>
+                                <a href="https://bpj.org.uk/contact-the-club/">Contact the Club</a>
                             </li>
                             <li>
-                                <a href="https://www.facebook.com/groups/blackpearjoggers/">
-                                    Facebook Community
-                                </a>
+                                <a href="https://www.facebook.com/groups/blackpearjoggers/">Facebook Community</a>
                             </li>
                             <li>
-                                <a href="https://bpj.typeform.com/to/pIodcN">
-                                    Incident Report Form
-                                </a>
+                                <a href="https://bpj.typeform.com/to/pIodcN">Incident Report Form</a>
                             </li>
                         </ul>
                     </li>
