@@ -7,12 +7,16 @@
 
     &.bright {
         background-color: #f89829;
+
+        * {
+            color: #fff;
+        }
     }
 
     &.dark {
         background-color: #222;
 
-        &.dark * {
+        * {
             color: #fff;
         }
     }
