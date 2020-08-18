@@ -1,16 +1,11 @@
 import styles from './Card.module.scss';
 import Link from 'next/link';
+import { ReactNode } from 'react';
 
 export default function Card(props: Props) {
     return (
         <div className={styles.card}>
-            {props.imageUrl && (
-                <img
-                    className={styles.image}
-                    src="https://picsum.photos/200/300"
-                    alt={props.imageUrl}
-                />
-            )}
+            {props.imageUrl && <img className={styles.image} src={props.imageUrl} alt={props.imageUrl} />}
             <div className={styles.content}>
                 {(props.headline || props.content) && (
                     <div className={styles.copy}>
@@ -33,7 +28,7 @@ export default function Card(props: Props) {
 interface Props {
     imageUrl?: string;
     headline?: string;
-    content?: string;
+    content?: string | ReactNode;
     cta?: {
         title: string;
         link: string;

@@ -40,12 +40,12 @@ export default function Home(props: InferGetStaticPropsType<typeof getStaticProp
                                         {contentModule.fields.headline && <h2>{contentModule.fields.headline}</h2>}
                                         <div className="u-push-bottom-md">
                                             <Cards>
-                                                {contentModule.fields.contentModules.map((card) => (
+                                                {contentModule.fields.contentModules.map(({ fields }) => (
                                                     <Card
-                                                        headline={card.title}
-                                                        imageUrl="."
-                                                        content={JSON.stringify(card)}
-                                                        cta={{ title: 'CTA', link: 'test' }}></Card>
+                                                        headline={fields.title}
+                                                        imageUrl={fields.image?.fields.file.url}
+                                                        content={documentToReactComponents(fields.content)}
+                                                        cta={{ title: fields.linkTitle, link: fields.link }}></Card>
                                                 ))}
                                             </Cards>
                                         </div>

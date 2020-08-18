@@ -6,20 +6,10 @@ import Footer from './Footer';
 const Layout = (props) => (
     <div className="layout">
         <Head>
-            <link rel="icon" type="image/x-icon" href="favicon.ico" />
-            <link
-                rel="stylesheet"
-                href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-            />
-            <link
-                href="https://fonts.gstatic.com"
-                rel="preconnect"
-                crossOrigin="anonymous"
-            />
-            <link
-                href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap"
-                rel="stylesheet"
-            />
+            <link rel="icon" href="favicon.ico" type="image/x-icon" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap" />
         </Head>
 
         <div className="container">

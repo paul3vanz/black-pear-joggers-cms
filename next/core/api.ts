@@ -1,9 +1,5 @@
 import { createClient, Entry, EntryCollection } from 'contentful';
-import {
-    ILayout,
-    ILayoutFields,
-    IBlogPostFields,
-} from '../@types/generated/contentful';
+import { ILayout, ILayoutFields, IBlogPostFields } from '../@types/generated/contentful';
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -130,14 +126,13 @@ export async function getLayoutBySlug(
     const layout = await getClient(preview).getEntries<ILayoutFields>({
         content_type: 'layout',
         'fields.slug': slug,
+        include: 2,
     });
 
     return {
         slug: 'membership',
         title: 'Membership',
         layout: layout,
-        contentModules: layout.items.map(
-            (item) => item.fields.contentModules
-        )[0],
+        contentModules: layout.items.map((item) => item.fields.contentModules)[0],
     };
 }
