@@ -27,9 +27,9 @@ export default function Home(props: InferGetStaticPropsType<typeof getStaticProp
                             return (
                                 <CopyStack
                                     key={contentModule.sys.id}
-                                    id={contentModule.sys.id}
                                     headline={contentModule.fields.headline}
-                                    visualStyle={contentModule.fields.visualStyle}>
+                                    visualStyle={contentModule.fields.visualStyle}
+                                    styleTags={contentModule.fields.styleTags}>
                                     {documentToReactComponents(contentModule.fields.content)}
                                 </CopyStack>
                             );

@@ -1,18 +1,34 @@
 import Container from './Container';
 import Stack from './Stack';
+import { PropsWithChildren } from 'react';
+import styles from './CopyStack.module.scss';
 
-const CopyStack = (props) => {
+export default function CopyStack(
+    props: PropsWithChildren<{
+        headline?: string;
+        visualStyle?: string;
+        styleTags?: string[];
+    }>
+) {
     return (
-        <section>
+        <section className={styles.copyStack}>
             <Stack visualStyle={props.visualStyle}>
                 <Container>
-                    {props.headline && <h2>{props.headline}</h2>}
+                    <div
+                        className={[
+                            hasTag(props.styleTags, 'alignCenter') && 'u-text-center',
+                            hasTag(props.styleTags, 'listInline') && styles.inlineList,
+                        ].join(' ')}>
+                        {props.headline && <h2>{props.headline}</h2>}
 
-                    {props.children}
+                        {props.children}
+                    </div>
                 </Container>
             </Stack>
         </section>
     );
-};
+}
 
-export default CopyStack;
+function hasTag(tags: string[], tag: string): boolean {
+    return tags?.some((currentTag) => currentTag === tag);
+}
