@@ -25,23 +25,6 @@ export default function Layout({ children }) {
             <Footer></Footer>
 
             <style jsx global>{`
-                * {
-                    box-sizing: border-box;
-                }
-
-                html {
-                    -webkit-font-smoothing: antialiased;
-                    font-family: Open Sans, sans-serif;
-                    font-size: 14px;
-                    line-height: 1.5;
-                }
-
-                body {
-                    margin: 0;
-                    font-size: 1rem;
-                    color: #222;
-                }
-
                 .layout {
                     display: flex;
                     flex-direction: column;

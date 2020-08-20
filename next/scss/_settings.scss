@@ -7,14 +7,37 @@ $nb-spacing-unit-half: ($nb-spacing-unit / 2) !default;
 $nb-spacing-unit-double: ($nb-spacing-unit * 2) !default;
 
 $nb-breakpoint-class: '\\@' !default;
-$nb-breakpoints: (xs: 480px, sm: 720px, md: 960px, lg: 1200px) !default;
+$nb-breakpoints: (
+    xs: 480px,
+    sm: 720px,
+    md: 960px,
+    lg: 1200px,
+) !default;
 
-$nb-root-sizing: (default: 75%, xs: 80%, sm: 85%, md: 90%, lg: 100%) !default;
-$nb-list-spacing: (sm: $nb-spacing-unit-half, md: $nb-spacing-unit) !default;
-$nb-section-spacing: (sm: $nb-spacing-unit, md: $nb-spacing-unit-double) !default;
-$nb-flag-gutter-sizes: (md: $nb-spacing-unit) !default;
+$nb-root-sizing: (
+    default: 75%,
+    xs: 80%,
+    sm: 85%,
+    md: 90%,
+    lg: 100%,
+) !default;
+$nb-list-spacing: (
+    sm: $nb-spacing-unit-half,
+    md: $nb-spacing-unit,
+) !default;
+$nb-section-spacing: (
+    sm: $nb-spacing-unit,
+    md: $nb-spacing-unit-double,
+) !default;
+$nb-flag-gutter-sizes: (
+    md: $nb-spacing-unit,
+) !default;
 $nb-use-grid-zero-font-size: true !default;
-$nb-grid-gutter-sizes: (sm: $nb-spacing-unit-half, md: $nb-spacing-unit, lg: $nb-spacing-unit-double) !default;
+$nb-grid-gutter-sizes: (
+    sm: $nb-spacing-unit-half,
+    md: $nb-spacing-unit,
+    lg: $nb-spacing-unit-double,
+) !default;
 $nb-use-width-offsets: true !default;
 $nb-use-push-offsets: true !default;
 $nb-use-pull-offsets: true !default;
@@ -61,8 +84,11 @@ $nb-offset-fractions: (
     '8/12': 8/12,
     '9/12': 9/12,
     '10/12': 10/12,
-    '11/12': 11/12
-  )
-  !default;
-$nb-push-sizes: (md: $nb-spacing-unit) !default;
-$nb-soft-sizes: (md: $nb-spacing-unit) !default;
+    '11/12': 11/12,
+) !default;
+$nb-push-sizes: (
+    md: $nb-spacing-unit,
+) !default;
+$nb-soft-sizes: (
+    md: $nb-spacing-unit,
+) !default;

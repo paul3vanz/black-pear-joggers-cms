@@ -105,7 +105,7 @@ export async function getBlogPostBySlug(slug: string, preview: boolean) {
     };
 }
 
-export async function getAllLayout(preview: boolean): Promise<any> {
+export async function getAllLayout(preview: boolean): Promise<Entry<ILayoutFields>[]> {
     const pages = await getClient(preview).getEntries<ILayoutFields>({
         content_type: 'layout',
         order: 'fields.slug',
@@ -114,25 +114,12 @@ export async function getAllLayout(preview: boolean): Promise<any> {
     return pages.items;
 }
 
-export async function getLayoutBySlug(
-    slug: string,
-    preview: boolean
-): Promise<{
-    slug: string;
-    title: string;
-    layout: any;
-    contentModules: any;
-}> {
+export async function getLayoutBySlug(slug: string, preview: boolean): Promise<ILayoutFields> {
     const layout = await getClient(preview).getEntries<ILayoutFields>({
         content_type: 'layout',
         'fields.slug': slug,
-        include: 2,
+        include: 3,
     });
 
-    return {
-        slug: 'membership',
-        title: 'Membership',
-        layout: layout,
-        contentModules: layout.items.map((item) => item.fields.contentModules)[0],
-    };
+    return layout.items[0].fields;
 }

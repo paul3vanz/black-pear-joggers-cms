@@ -4,7 +4,7 @@ import { InferGetStaticPropsType, GetStaticPaths } from 'next';
 import CopyStack from '../../../../../components/CopyStack';
 import Head from 'next/head';
 import Layout from '../../../../../components/Layout';
-import { ILayoutCopy } from '../../../../../@types/generated/contentful';
+import { ICopy } from '../../../../../@types/generated/contentful';
 import { ParsedUrlQuery } from 'querystring';
 
 import moment from 'moment-mini';
