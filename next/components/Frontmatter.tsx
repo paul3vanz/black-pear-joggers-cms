@@ -8,6 +8,7 @@ export default function Frontmatter(props: {
     description: string;
     publishDate: string;
     heroImageUrl: string;
+
     author: {
         name: string;
         avatarUrl: string;
@@ -20,7 +21,7 @@ export default function Frontmatter(props: {
                     <h1>{props.title}</h1>
 
                     <div className={styles.authorNameDate}>
-                        {!!props.author && (
+                        {props.author && (
                             <div className={styles.author}>
                                 <div className={styles.avatar}>
                                     <img src={props.author.avatarUrl} alt="" />
@@ -31,10 +32,7 @@ export default function Frontmatter(props: {
                                 </div>
                             </div>
                         )}
-                        <div
-                            title={moment(props.publishDate).format(
-                                'dddd Do MMMM YYYY hh:mma'
-                            )}>
+                        <div title={moment(props.publishDate).format('dddd Do MMMM YYYY hh:mma')}>
                             {moment(props.publishDate).fromNow()}
                         </div>
                     </div>

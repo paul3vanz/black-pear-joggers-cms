@@ -13,7 +13,15 @@ const Stack = (props: PropsWithChildren<Props>) => (
                 <img src={props.backgroundImage} />
             </div>
         )}
-        <div className={styles.content}>{props.children}</div>
+        <div className={styles.content}>
+            {props.heading && (
+                <div className="o-site-wrap">
+                    <h2>{props.heading}</h2>
+                </div>
+            )}
+
+            {props.children}
+        </div>
     </section>
 );
 

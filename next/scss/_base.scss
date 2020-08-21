@@ -1,11 +1,35 @@
 html {
-  min-height: 100%;
+    min-height: 100%;
 
-  @include nb-root-sizing;
+    @include nb-root-sizing;
 }
 
 body {
-  font-size: $nb-base-font-size;
+    font-size: $nb-base-font-size;
+}
+
+h1 {
+    font-size: $nb-base-font-size * 2.25;
+}
+
+h2 {
+    font-size: $nb-base-font-size * 1.75;
+}
+
+h3 {
+    font-size: $nb-base-font-size * 1.5;
+}
+
+h1,
+h2 {
+    font-weight: 800;
+}
+
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
 }
 
 /**
@@ -13,7 +37,6 @@ body {
  * base line-height. This allows us to keep a consistent vertical rhythm.
  */
 h1,
-h2,
 h3,
 h4,
 h5,
@@ -30,7 +53,16 @@ fieldset,
 figure,
 pre,
 hr {
-  margin-bottom: $nb-spacing-unit;
+    margin-bottom: $nb-spacing-unit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: $nb-spacing-unit / 2;
 }
 
 /**
@@ -40,5 +72,5 @@ hr {
 ul,
 ol,
 dd {
-  margin-left: ($nb-spacing-unit * 2);
+    margin-left: ($nb-spacing-unit * 2);
 }

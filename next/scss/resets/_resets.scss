@@ -6,18 +6,18 @@ As per: csswizardry.com/2011/10/reset-restarted
 
 // Setup border-box.
 * {
-  &,
-  &::before,
-  &::after {
-    box-sizing: border-box;
-  }
+    &,
+    &::before,
+    &::after {
+        box-sizing: border-box;
+    }
 }
 
 html {
-  // Better font rendering.
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  line-height: 1.5;
+    // Better font rendering.
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
 }
 
 // The usual.
@@ -43,14 +43,14 @@ th,
 td,
 caption,
 hr {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 // Give a help cursor to elements that give extra info on `:hover`.
 abbr[title],
 dfn[title] {
-  cursor: help;
+    cursor: help;
 }
 
 /*
@@ -58,23 +58,23 @@ dfn[title] {
 2. So that `alt` text is visually offset if images don’t load.
 */
 img {
-  max-width: 100%; // [1]
-  height: auto; // [1]
-  font-style: italic; // [2]
+    max-width: 100%; // [1]
+    height: auto; // [1]
+    font-style: italic; // [2]
 }
 
 //Remove borders from images wrapped in anchors.
 a img {
-  border: 0;
+    border: 0;
 }
 
 // Remove padding and border from buttons.
 button {
-  border: 0;
-  padding: 0;
+    padding: 0;
+    border: 0;
 }
 
 // Give labels elements some cursor interactions...
 label {
-  cursor: pointer;
+    cursor: pointer;
 }

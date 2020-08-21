@@ -81,7 +81,7 @@ export async function getPostAndMorePosts(slug, preview) {
     };
 }
 
-export async function getAllBlogPosts(preview: boolean): Promise<any> {
+export async function getAllBlogPosts(preview: boolean): Promise<Entry<IBlogPostFields>[]> {
     const blogPosts = await getClient(preview).getEntries<IBlogPostFields>({
         content_type: 'blogPost',
         order: '-fields.publishDate',

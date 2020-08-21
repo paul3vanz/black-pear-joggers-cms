@@ -13,7 +13,10 @@ export default function Layout({ children }) {
                     href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
                 />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap" />
+                <link
+                    rel="stylesheet"
+                    href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600;800&amp;display=swap"
+                />
             </Head>
 
             <div className="container">
@@ -33,21 +36,6 @@ export default function Layout({ children }) {
 
                 .container {
                     flex: 1;
-                }
-
-                h1,
-                h2,
-                h3,
-                h4,
-                h5,
-                h6 {
-                    margin: 0 0 1rem 0;
-                    padding: 0;
-                }
-
-                a {
-                    color: #222;
-                    font-weight: 700;
                 }
             `}</style>
         </div>

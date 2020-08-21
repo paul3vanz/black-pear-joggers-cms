@@ -21,7 +21,7 @@ const Navigation = () => {
                     </li>
 
                     <li>
-                        <a href="#">Club Info</a>
+                        <a href="#">Club info</a>
                         <ul>
                             <li>
                                 <a href="https://bpj.org.uk/when-we-run/">When We Run</a>
@@ -55,7 +55,7 @@ const Navigation = () => {
                         </ul>
                     </li>
                     <li>
-                        <a href="#">Racing/Leagues</a>
+                        <a href="#">Racing/leagues</a>
                         <ul>
                             <li>
                                 <a href="https://black-pear-joggers.netlify.com/apps/club-standards/">

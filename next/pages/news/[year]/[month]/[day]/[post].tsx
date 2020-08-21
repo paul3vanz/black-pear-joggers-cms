@@ -36,31 +36,19 @@ export default function Home(props: InferGetStaticPropsType<typeof getStaticProp
                 <CopyStack>
                     <div className="post">{documentToReactComponents(props.blogPost.fields.body)}</div>
                 </CopyStack>
-                <Stack visualStyle="light">
+                <Stack backgroundColour="light">
                     <Container>
-                        <h2>Other news</h2>
+                        <h2 className="u-push-bottom-md">Other news</h2>
+
                         <div className="u-push-bottom-md">
                             <Cards>
-                                <Card
-                                    headline="Post title"
-                                    imageUrl="."
-                                    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tempor nunc, elementum maximus libero."
-                                    cta={{ title: 'CTA', link: 'test' }}></Card>
-                                <Card
-                                    headline="Post title"
-                                    imageUrl="."
-                                    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tempor nunc, elementum maximus libero."
-                                    cta={{ title: 'CTA', link: 'test' }}></Card>
-                                <Card
-                                    headline="Post title"
-                                    imageUrl="."
-                                    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tempor nunc, elementum maximus libero."
-                                    cta={{ title: 'CTA', link: 'test' }}></Card>
-                                <Card
-                                    headline="Post title"
-                                    imageUrl="."
-                                    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tempor nunc, elementum maximus libero."
-                                    cta={{ title: 'CTA', link: 'test' }}></Card>
+                                {props.relatedBlogPosts?.map((post) => (
+                                    <Card
+                                        headline={post.fields.title}
+                                        imageUrl={post.fields.heroImage?.fields.file.url}
+                                        content={post.fields.description}
+                                        link={blogPostUrl(post)}></Card>
+                                ))}
                             </Cards>
                         </div>
                     </Container>
@@ -93,8 +81,21 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     const blogPost = await getBlogPostBySlug(params.post, false);
+    const relatedBlogPosts = await getAllBlogPosts(false);
 
     return {
-        props: { ...blogPost },
+        props: { ...blogPost, relatedBlogPosts },
     };
+}
+
+function blogPostUrl(blogPost): string {
+    const publishDate = moment(blogPost.fields.publishDate);
+
+    return [
+        'news',
+        publishDate.format('YYYY'),
+        publishDate.format('MM'),
+        publishDate.format('DD'),
+        blogPost.fields.slug,
+    ].join('/');
 }
