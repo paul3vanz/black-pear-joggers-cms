@@ -6,13 +6,13 @@ import styles from './CopyStack.module.scss';
 export default function CopyStack(
     props: PropsWithChildren<{
         headline?: string;
-        visualStyle?: string;
+        backgroundColour?: string;
         styleTags?: string[];
     }>
 ) {
     return (
         <section className={styles.copyStack}>
-            <Stack visualStyle={props.visualStyle}>
+            <Stack backgroundColour={props.backgroundColour}>
                 <Container>
                     <div
                         className={[
