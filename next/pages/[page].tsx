@@ -5,9 +5,11 @@ import Head from 'next/head';
 import Layout from '../components/Layout';
 import Stack from '../components/Stack';
 import Container from '../components/Container';
-import { ILayoutFields, IHero, ICopy } from '../@types/generated/contentful';
+import { ILayoutFields, IHero, ICopy, ICard, ICards } from '../@types/generated/contentful';
 import classNames from 'classnames';
 import Hero from '../components/Hero';
+import Cards from '../components/Cards';
+import Card from '../components/Card';
 
 export default function Page(props: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
@@ -43,7 +45,7 @@ export default function Page(props: InferGetStaticPropsType<typeof getStaticProp
                                                             'o-grid__item',
                                                             fields.padding ? 'u-1/2@sm' : null,
                                                         ].join(' ')}
-                                                        key={sys.id}>
+                                                        key={copy.sys.id}>
                                                         {documentToReactComponents(copy.fields.copy)}
                                                     </div>
                                                 </div>
@@ -54,12 +56,26 @@ export default function Page(props: InferGetStaticPropsType<typeof getStaticProp
 
                                             return (
                                                 <Hero
-                                                    key={sys.id}
+                                                    key={hero.sys.id}
                                                     heading={hero.fields.heading}
                                                     copy={documentToReactComponents(hero.fields.copy)}
                                                     link={hero.fields.link}
                                                     linkTitle={hero.fields.linkTitle}
                                                 />
+                                            );
+                                        case 'cards':
+                                            const cards = contentModule as ICards;
+                                            // return JSON.stringify(cards, null, ' ');
+                                            return (
+                                                <Cards key={cards.sys.id}>
+                                                    {cards.fields.cards.map((card) => (
+                                                        <Card
+                                                            headline={card.fields.title}
+                                                            content={documentToReactComponents(card.fields.content)}
+                                                            imageUrl={card.fields.image.fields.file.url}
+                                                            link={card.fields.link}></Card>
+                                                    ))}
+                                                </Cards>
                                             );
                                     }
                                 })}

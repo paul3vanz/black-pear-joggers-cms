@@ -80,6 +80,31 @@ export interface ICard extends Entry<ICardFields> {
     };
 }
 
+export interface ICardsFields {
+    /** Name */
+    name?: string | undefined;
+
+    /** Cards */
+    cards?: ICard[] | undefined;
+}
+
+export interface ICards extends Entry<ICardsFields> {
+    sys: {
+        id: string;
+        type: string;
+        createdAt: string;
+        updatedAt: string;
+        locale: string;
+        contentType: {
+            sys: {
+                id: 'cards';
+                linkType: 'ContentType';
+                type: 'Link';
+            };
+        };
+    };
+}
+
 export interface ICopyFields {
     /** Name */
     name?: string | undefined;
@@ -289,7 +314,7 @@ export interface IStackFields {
     heading?: string | undefined;
 
     /** Content modules */
-    contentModules?: (ICopy | IHero)[] | undefined;
+    contentModules?: (ICards | ICopy | IHero)[] | undefined;
 
     /** Columns */
     columns?: number | undefined;
@@ -324,6 +349,7 @@ export interface IStack extends Entry<IStackFields> {
 export type CONTENT_TYPE =
     | 'blogPost'
     | 'card'
+    | 'cards'
     | 'copy'
     | 'hero'
     | 'layout'
