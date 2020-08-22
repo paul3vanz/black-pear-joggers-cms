@@ -105,6 +105,40 @@ export interface ICopy extends Entry<ICopyFields> {
     };
 }
 
+export interface IHeroFields {
+    /** Name */
+    name?: string | undefined;
+
+    /** Heading */
+    heading?: string | undefined;
+
+    /** Copy */
+    copy?: Document | undefined;
+
+    /** Link */
+    link?: string | undefined;
+
+    /** Link Title */
+    linkTitle?: string | undefined;
+}
+
+export interface IHero extends Entry<IHeroFields> {
+    sys: {
+        id: string;
+        type: string;
+        createdAt: string;
+        updatedAt: string;
+        locale: string;
+        contentType: {
+            sys: {
+                id: 'hero';
+                linkType: 'ContentType';
+                type: 'Link';
+            };
+        };
+    };
+}
+
 export interface ILayoutFields {
     /** Title */
     title: string;
@@ -255,7 +289,7 @@ export interface IStackFields {
     heading?: string | undefined;
 
     /** Content modules */
-    contentModules?: ICopy[] | undefined;
+    contentModules?: (ICopy | IHero)[] | undefined;
 
     /** Columns */
     columns?: number | undefined;
@@ -291,6 +325,7 @@ export type CONTENT_TYPE =
     | 'blogPost'
     | 'card'
     | 'copy'
+    | 'hero'
     | 'layout'
     | 'layoutHeroImage'
     | 'layoutStackCards'

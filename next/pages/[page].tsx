@@ -5,7 +5,9 @@ import Head from 'next/head';
 import Layout from '../components/Layout';
 import Stack from '../components/Stack';
 import Container from '../components/Container';
-import { ILayoutFields } from '../@types/generated/contentful';
+import { ILayoutFields, IHero, ICopy } from '../@types/generated/contentful';
+import classNames from 'classnames';
+import Hero from '../components/Hero';
 
 export default function Page(props: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
@@ -26,11 +28,16 @@ export default function Page(props: InferGetStaticPropsType<typeof getStaticProp
                             backgroundColour={fields.backgroundColour}
                             padding={fields.padding}>
                             <Container>
-                                <div className={['o-grid', fields.columns ? 'o-grid--gutter-lg' : ''].join(' ')}>
-                                    {fields.contentModules?.map((copy) => {
-                                        switch (copy.sys.contentType.sys.id) {
-                                            case 'copy':
-                                                return (
+                                {fields.contentModules?.map((contentModule) => {
+                                    switch (contentModule.sys.contentType.sys.id) {
+                                        case 'copy':
+                                            const copy = contentModule as ICopy;
+                                            return (
+                                                <div
+                                                    className={[
+                                                        'o-grid',
+                                                        fields.columns ? 'o-grid--gutter-lg' : '',
+                                                    ].join(' ')}>
                                                     <div
                                                         className={[
                                                             'o-grid__item',
@@ -39,10 +46,23 @@ export default function Page(props: InferGetStaticPropsType<typeof getStaticProp
                                                         key={sys.id}>
                                                         {documentToReactComponents(copy.fields.copy)}
                                                     </div>
-                                                );
-                                        }
-                                    })}
-                                </div>
+                                                </div>
+                                            );
+
+                                        case 'hero':
+                                            const hero = contentModule as IHero;
+
+                                            return (
+                                                <Hero
+                                                    key={sys.id}
+                                                    heading={hero.fields.heading}
+                                                    copy={documentToReactComponents(hero.fields.copy)}
+                                                    link={hero.fields.link}
+                                                    linkTitle={hero.fields.linkTitle}
+                                                />
+                                            );
+                                    }
+                                })}
                             </Container>
                         </Stack>
                     );
