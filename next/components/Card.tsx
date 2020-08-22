@@ -6,23 +6,33 @@ export default function Card(props: {
     imageUrl?: string;
     headline?: string;
     content?: string | ReactNode;
-    link?: string;
+    link: string;
 }) {
+    const image = <img className={styles.image} src={props.imageUrl} alt={props.imageUrl} />;
+
     return (
         <div className={styles.card}>
             {props.imageUrl && (
                 <div className={styles.cta}>
-                    <Link href={props.link}>
-                        <a>
-                            <img className={styles.image} src={props.imageUrl} alt={props.imageUrl} />
-                        </a>
-                    </Link>
+                    {props.link ? (
+                        <Link href={props.link}>
+                            <a>{image}</a>
+                        </Link>
+                    ) : (
+                        image
+                    )}
                 </div>
             )}
             <div className={styles.content}>
                 {(props.headline || props.content) && (
                     <div className={styles.copy}>
-                        {props.headline && <h3>{props.headline}</h3>}
+                        {props.headline && (
+                            <h3>
+                                <Link href={props.link}>
+                                    <a>{props.headline}</a>
+                                </Link>
+                            </h3>
+                        )}
                         {props.content && <p>{props.content}</p>}
                     </div>
                 )}
