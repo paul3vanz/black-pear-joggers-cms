@@ -84,7 +84,7 @@ export async function getStaticProps({ params }) {
     const relatedBlogPosts = await getAllBlogPosts(false);
 
     return {
-        props: { ...blogPost, relatedBlogPosts },
+        props: { ...blogPost, relatedBlogPosts: relatedBlogPosts.slice(0, 3) },
     };
 }
 
@@ -92,7 +92,7 @@ function blogPostUrl(blogPost): string {
     const publishDate = moment(blogPost.fields.publishDate);
 
     return [
-        'news',
+        '/news',
         publishDate.format('YYYY'),
         publishDate.format('MM'),
         publishDate.format('DD'),
