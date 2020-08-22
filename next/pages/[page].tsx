@@ -48,7 +48,7 @@ export default function Page(props: InferGetStaticPropsType<typeof getStaticProp
                     );
                     // case 'layoutStackCards':
                     //     return (
-                    //         <Stack visualStyle="light">
+                    //         <Stack backgroundColour="light">
                     //             <Container>
                     //                 {contentModule.fields.headline && <h2>{contentModule.fields.headline}</h2>}
                     //                 <div className="u-push-bottom-md">
