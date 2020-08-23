@@ -33,6 +33,7 @@ export default function pageBuilder(props) {
                                             const copy = contentModule as ICopy;
                                             return (
                                                 <div
+                                                    key={copy.sys.id}
                                                     className={[
                                                         'o-grid',
                                                         fields.columns ? 'o-grid--gutter-lg' : '',
@@ -41,8 +42,7 @@ export default function pageBuilder(props) {
                                                         className={[
                                                             'o-grid__item',
                                                             fields.padding ? 'u-1/2@sm' : null,
-                                                        ].join(' ')}
-                                                        key={copy.sys.id}>
+                                                        ].join(' ')}>
                                                         {documentToReactComponents(copy.fields.copy)}
                                                     </div>
                                                 </div>
@@ -67,6 +67,7 @@ export default function pageBuilder(props) {
                                                 <Cards key={cards.sys.id}>
                                                     {cards.fields.cards.map((card) => (
                                                         <Card
+                                                            key={card.sys.id}
                                                             headline={card.fields.title}
                                                             content={documentToReactComponents(card.fields.content)}
                                                             imageUrl={card.fields.image.fields.file.url}

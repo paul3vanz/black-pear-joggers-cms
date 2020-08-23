@@ -33,7 +33,7 @@ export default function Card(props: {
                                 </Link>
                             </h3>
                         )}
-                        {props.content && <p>{props.content}</p>}
+                        {props.content && props.content}
                     </div>
                 )}
             </div>
