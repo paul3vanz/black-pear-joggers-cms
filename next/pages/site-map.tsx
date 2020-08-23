@@ -6,9 +6,7 @@ import Container from '../components/Container';
 import Link from 'next/link';
 import moment from 'moment-mini';
 
-export default function SiteMap(
-    props: InferGetStaticPropsType<typeof getStaticProps>
-) {
+export default function SiteMap(props: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
         <Layout>
             <Stack>
@@ -20,7 +18,7 @@ export default function SiteMap(
                     <ul>
                         {props.pages.map((page) => (
                             <li key={page.sys.id}>
-                                <Link href={page.fields.slug}>
+                                <Link href={page.fields.slug === 'home' ? '/' : page.fields.slug}>
                                     <a>{page.fields.title}</a>
                                 </Link>
                             </li>

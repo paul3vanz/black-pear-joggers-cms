@@ -1,10 +1,16 @@
-.cards {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -2rem;
+@import '../scss/settings';
+@import '../scss/tools';
+@import '../scss/utilities';
 
-    & > * {
-        flex: 1 1 200px;
-        margin: 0 1rem;
+.cards {
+    display: grid;
+    grid-gap: 1rem;
+
+    @include nb-respond-to('xs') {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include nb-respond-to('md') {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
