@@ -8,15 +8,15 @@
 @import 'objects/uniformed-list';
 
 .columns {
-  display: flex;
-  margin-left: -10px;
+    display: flex;
+    margin-left: -10px;
 
-  .column {
-    flex: 1;
-    margin-left: 10px;
+    .column {
+        flex: 1;
+        margin-left: 10px;
 
-    &.double {
-      flex: 2;
+        &.double {
+            flex: 2;
+        }
     }
-  }
 }
