@@ -257,6 +257,65 @@ export interface ILayoutStackCards extends Entry<ILayoutStackCardsFields> {
     };
 }
 
+export interface IListFields {
+    /** Name */
+    name?: string | undefined;
+
+    /** List Item */
+    listItem?: string[] | undefined;
+}
+
+export interface IList extends Entry<IListFields> {
+    sys: {
+        id: string;
+        type: string;
+        createdAt: string;
+        updatedAt: string;
+        locale: string;
+        contentType: {
+            sys: {
+                id: 'list';
+                linkType: 'ContentType';
+                type: 'Link';
+            };
+        };
+    };
+}
+
+export interface ILockUpFields {
+    /** Name */
+    name?: string | undefined;
+
+    /** Image */
+    image?: Asset | undefined;
+
+    /** Image External */
+    imageExternal?: string | undefined;
+
+    /** Content */
+    content?: Document | undefined;
+
+    /** Reverse */
+    reverse?: boolean | undefined;
+}
+
+export interface ILockUp extends Entry<ILockUpFields> {
+    sys: {
+        id: string;
+        type: string;
+        createdAt: string;
+        updatedAt: string;
+        locale: string;
+        contentType: {
+            sys: {
+                id: 'lockUp';
+                linkType: 'ContentType';
+                type: 'Link';
+            };
+        };
+    };
+}
+
 export interface IPersonFields {
     /** Name */
     name: string;
@@ -306,6 +365,37 @@ export interface IPerson extends Entry<IPersonFields> {
     };
 }
 
+export interface IPostsListFields {
+    /** Name */
+    name?: string | undefined;
+
+    /** Copy */
+    copy?: Document | undefined;
+
+    /** filterTags */
+    filterTags?: string[] | undefined;
+
+    /** Show Read More Link */
+    showReadMoreLink?: boolean | undefined;
+}
+
+export interface IPostsList extends Entry<IPostsListFields> {
+    sys: {
+        id: string;
+        type: string;
+        createdAt: string;
+        updatedAt: string;
+        locale: string;
+        contentType: {
+            sys: {
+                id: 'postsList';
+                linkType: 'ContentType';
+                type: 'Link';
+            };
+        };
+    };
+}
+
 export interface IStackFields {
     /** Name */
     name: string;
@@ -314,7 +404,7 @@ export interface IStackFields {
     heading?: string | undefined;
 
     /** Content modules */
-    contentModules?: (ICards | ICopy | IHero)[] | undefined;
+    contentModules?: (ICards | ICopy | IHero | ILockUp | IPostsList)[] | undefined;
 
     /** Columns */
     columns?: number | undefined;
@@ -355,7 +445,10 @@ export type CONTENT_TYPE =
     | 'layout'
     | 'layoutHeroImage'
     | 'layoutStackCards'
+    | 'list'
+    | 'lockUp'
     | 'person'
+    | 'postsList'
     | 'stack';
 
 export type LOCALE_CODE = 'en-GB';

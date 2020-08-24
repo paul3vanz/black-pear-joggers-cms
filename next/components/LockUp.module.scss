@@ -1,0 +1,18 @@
+.lockUp {
+    display: flex;
+    align-items: center;
+
+    .image {
+        flex: 1;
+        margin-right: 2rem;
+
+        img {
+            height: 400px;
+            object-fit: cover;
+        }
+    }
+
+    .content {
+        flex: 1;
+    }
+}

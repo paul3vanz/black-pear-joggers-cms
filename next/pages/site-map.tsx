@@ -5,6 +5,7 @@ import Stack from '../components/Stack';
 import Container from '../components/Container';
 import Link from 'next/link';
 import moment from 'moment-mini';
+import { blogPostUrl } from '../core/helpers';
 
 export default function SiteMap(props: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
@@ -40,18 +41,6 @@ export default function SiteMap(props: InferGetStaticPropsType<typeof getStaticP
             </Stack>
         </Layout>
     );
-}
-
-function blogPostUrl(blogPost): string {
-    const publishDate = moment(blogPost.fields.publishDate);
-
-    return [
-        'news',
-        publishDate.format('YYYY'),
-        publishDate.format('MM'),
-        publishDate.format('DD'),
-        blogPost.fields.slug,
-    ].join('/');
 }
 
 export async function getStaticProps({ params }) {

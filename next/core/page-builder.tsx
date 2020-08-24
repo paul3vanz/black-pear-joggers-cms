@@ -3,10 +3,14 @@ import Head from 'next/head';
 import Layout from '../components/Layout';
 import Stack from '../components/Stack';
 import Container from '../components/Container';
-import { IHero, ICopy, ICards } from '../@types/generated/contentful';
+import { IHero, ICopy, ICards, IPostsList, ILockUp } from '../@types/generated/contentful';
 import Hero from '../components/Hero';
 import Cards from '../components/Cards';
 import Card from '../components/Card';
+import PostsList from '../components/PostsList';
+import { getAllBlogPosts } from './api';
+import { blogPostUrl } from './helpers';
+import LockUp from '../components/LockUp';
 
 export default function pageBuilder(props) {
     return (
@@ -74,6 +78,27 @@ export default function pageBuilder(props) {
                                                             link={card.fields.link}></Card>
                                                     ))}
                                                 </Cards>
+                                            );
+                                        case 'postsList':
+                                            const postsList = contentModule as IPostsList;
+
+                                            const blogPosts = props.blogPosts;
+
+                                            return <PostsList posts={blogPosts} />;
+
+                                        case 'lockUp':
+                                            const lockUp = contentModule as ILockUp;
+
+                                            return (
+                                                <LockUp
+                                                    key={lockUp.sys.id}
+                                                    content={documentToReactComponents(lockUp.fields.content)}
+                                                    image={
+                                                        lockUp.fields.image
+                                                            ? lockUp.fields.image.fields.file.url
+                                                            : lockUp.fields.imageExternal
+                                                    }
+                                                />
                                             );
                                     }
                                 })}

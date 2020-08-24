@@ -10,12 +10,12 @@ const Stack = (props: PropsWithChildren<Props>) => (
         ].join(' ')}>
         {props.backgroundImage && (
             <div className={styles.image}>
-                <img src={props.backgroundImage} />
+                <img src={props.backgroundImage} alt="" />
             </div>
         )}
         <div className={styles.content}>
             {props.heading && (
-                <div className="o-site-wrap">
+                <div className="o-site-wrap o-site-wrap--padding">
                     <h2>{props.heading}</h2>
                 </div>
             )}
