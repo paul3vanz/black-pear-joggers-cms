@@ -1,9 +1,9 @@
 .#{$nb-namespace}o-matrix-list {
-  @include nb-bare-list;
+    @include nb-bare-list;
 }
 
 .#{$nb-namespace}o-matrix-list__item {
-  display: inline-block;
+    display: inline-block;
 }
 
 @include nb-list-spacing('matrix-list', 'left');

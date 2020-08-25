@@ -4,6 +4,7 @@
 @import 'utilities/spacing';
 @import 'utilities/text-align';
 @import 'utilities/hidden';
+@import 'utilities/font-size';
 
 .u-bg-bronze {
     background-color: #c08f67;
@@ -23,4 +24,8 @@
 
 .u-nowrap {
     white-space: nowrap;
+}
+
+.u-text-bold {
+    font-weight: 600;
 }

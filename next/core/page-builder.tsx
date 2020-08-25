@@ -1,16 +1,16 @@
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import Head from 'next/head';
-import Layout from '../components/Layout';
-import Stack from '../components/Stack';
-import Container from '../components/Container';
+import { BLOCKS, INLINES } from '@contentful/rich-text-types';
+import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
 import { IHero, ICopy, ICards, IPostsList, ILockUp } from '../@types/generated/contentful';
-import Hero from '../components/Hero';
 import Cards from '../components/Cards';
+import Container from '../components/Container';
+import Head from 'next/head';
 import Card from '../components/Card';
-import PostsList from '../components/PostsList';
-import { getAllBlogPosts } from './api';
-import { blogPostUrl } from './helpers';
+import Hero from '../components/Hero';
+import Layout from '../components/Layout';
 import LockUp from '../components/LockUp';
+import PostsList from '../components/PostsList';
+import Stack from '../components/Stack';
+import Button from '../components/buttons/Button';
 
 export default function pageBuilder(props) {
     return (
@@ -46,8 +46,11 @@ export default function pageBuilder(props) {
                                                         className={[
                                                             'o-grid__item',
                                                             fields.padding ? 'u-1/2@sm' : null,
+                                                            copy.fields.alignment
+                                                                ? `u-text-${copy.fields.alignment}`
+                                                                : '',
                                                         ].join(' ')}>
-                                                        {documentToReactComponents(copy.fields.copy)}
+                                                        {documentToReactComponents(copy.fields.copy, richTextOptions)}
                                                     </div>
                                                 </div>
                                             );
@@ -75,7 +78,8 @@ export default function pageBuilder(props) {
                                                             headline={card.fields.title}
                                                             content={documentToReactComponents(card.fields.content)}
                                                             imageUrl={card.fields.image.fields.file.url}
-                                                            link={card.fields.link}></Card>
+                                                            link={card.fields.link}
+                                                        />
                                                     ))}
                                                 </Cards>
                                             );
@@ -84,15 +88,20 @@ export default function pageBuilder(props) {
 
                                             const blogPosts = props.blogPosts;
 
-                                            return <PostsList posts={blogPosts} />;
+                                            return <PostsList key={postsList.sys.id} posts={blogPosts} />;
 
                                         case 'lockUp':
                                             const lockUp = contentModule as ILockUp;
 
+                                            console.log(lockUp);
+
                                             return (
                                                 <LockUp
                                                     key={lockUp.sys.id}
-                                                    content={documentToReactComponents(lockUp.fields.content)}
+                                                    content={documentToReactComponents(
+                                                        lockUp.fields.content,
+                                                        richTextOptions
+                                                    )}
                                                     reverse={lockUp.fields.reverse}
                                                     image={
                                                         lockUp.fields.image
@@ -106,27 +115,52 @@ export default function pageBuilder(props) {
                             </Container>
                         </Stack>
                     );
-                    // case 'layoutStackCards':
-                    //     return (
-                    //         <Stack backgroundColour="light">
-                    //             <Container>
-                    //                 {contentModule.fields.headline && <h2>{contentModule.fields.headline}</h2>}
-                    //                 <div className="u-push-bottom-md">
-                    //                     <Cards>
-                    //                         {contentModule.fields.contentModules.map(({ fields }) => (
-                    //                             <Card
-                    //                                 headline={fields.title}
-                    //                                 imageUrl={fields.image?.fields.file.url}
-                    //                                 content={documentToReactComponents(fields.content)}
-                    //                                 cta={{ title: fields.linkTitle, link: fields.link }}></Card>
-                    //                         ))}
-                    //                     </Cards>
-                    //                 </div>
-                    //             </Container>
-                    //         </Stack>
-                    //     );
                 })}
             </Layout>
         </div>
     );
+}
+
+const richTextOptions: Options = {
+    renderNode: {
+        [BLOCKS.EMBEDDED_ASSET]: (node) => {
+            const fields = node.data.target.fields;
+
+            console.log(node);
+
+            switch (node.data.target.fields.file.contentType) {
+                case 'image/png':
+                    return (
+                        <p>
+                            <img src={fields.file.url} alt={fields.title} />
+                        </p>
+                    );
+            }
+        },
+        [INLINES.EMBEDDED_ENTRY]: (node) => renderEntry(node),
+        [BLOCKS.EMBEDDED_ENTRY]: (node) => renderEntry(node),
+    },
+};
+
+function renderEntry(node) {
+    const fields = node.data.target.fields;
+
+    switch (node.data.target.sys.contentType.sys.id) {
+        case 'button':
+            return <Button link={fields.link} title={fields.title} />;
+        case 'list':
+            const listItems = fields.listItem;
+
+            return (
+                <ul className="o-matrix-list-md u-text-bold u-text-center u-soft-top-md u-text-lg">
+                    {listItems.map((listItem, index) => (
+                        <li className="o-matrix-list__item u-push-left-md" key={index}>
+                            {listItem}
+                        </li>
+                    ))}
+                </ul>
+            );
+        default:
+            return <div>Unknown embedded entry</div>;
+    }
 }

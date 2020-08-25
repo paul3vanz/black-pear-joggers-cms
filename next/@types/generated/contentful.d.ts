@@ -46,6 +46,31 @@ export interface IBlogPost extends Entry<IBlogPostFields> {
     };
 }
 
+export interface IButtonFields {
+    /** Title */
+    title?: string | undefined;
+
+    /** Link */
+    link?: string | undefined;
+}
+
+export interface IButton extends Entry<IButtonFields> {
+    sys: {
+        id: string;
+        type: string;
+        createdAt: string;
+        updatedAt: string;
+        locale: string;
+        contentType: {
+            sys: {
+                id: 'button';
+                linkType: 'ContentType';
+                type: 'Link';
+            };
+        };
+    };
+}
+
 export interface ICardFields {
     /** Title */
     title?: string | undefined;
@@ -111,6 +136,9 @@ export interface ICopyFields {
 
     /** Copy */
     copy?: Document | undefined;
+
+    /** Alignment */
+    alignment?: 'left' | 'center' | 'right' | undefined;
 }
 
 export interface ICopy extends Entry<ICopyFields> {
@@ -263,6 +291,9 @@ export interface IListFields {
 
     /** List Item */
     listItem?: string[] | undefined;
+
+    /** styleTags */
+    styleTags?: 'inline'[] | undefined;
 }
 
 export interface IList extends Entry<IListFields> {
@@ -438,6 +469,7 @@ export interface IStack extends Entry<IStackFields> {
 
 export type CONTENT_TYPE =
     | 'blogPost'
+    | 'button'
     | 'card'
     | 'cards'
     | 'copy'
