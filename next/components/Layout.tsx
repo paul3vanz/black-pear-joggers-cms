@@ -25,6 +25,8 @@ export default function Layout({ children }) {
                 <main>{children}</main>
             </div>
 
+            <img src="https://bpj.org.uk/wp-content/uploads/2012/03/montage-2017.jpg" alt="" />
+
             <Footer></Footer>
 
             <style jsx global>{`

@@ -6,17 +6,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 -1rem;
 
     @include nb-respond-to('xs') {
         flex-direction: row;
     }
 
-    .image {
+    .item {
         flex: 1;
+        margin: 0 1rem;
+    }
+
+    .image {
         margin-bottom: 1rem;
 
         @include nb-respond-to('xs') {
-            margin-right: 2rem;
             margin-bottom: 0;
         }
 
@@ -36,8 +40,10 @@
             }
         }
     }
+}
 
-    .content {
-        flex: 1;
+.reverse {
+    @include nb-respond-to('xs') {
+        flex-direction: row-reverse;
     }
 }

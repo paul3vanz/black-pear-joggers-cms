@@ -93,6 +93,7 @@ export default function pageBuilder(props) {
                                                 <LockUp
                                                     key={lockUp.sys.id}
                                                     content={documentToReactComponents(lockUp.fields.content)}
+                                                    reverse={lockUp.fields.reverse}
                                                     image={
                                                         lockUp.fields.image
                                                             ? lockUp.fields.image.fields.file.url
