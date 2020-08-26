@@ -11,26 +11,29 @@ body {
 }
 
 a {
-    color: #f89829;
+    color: #222;
     font-weight: bold;
 }
 
-.o-section-dark {
+.u-bg--dark {
     background: #222;
     color: #fff;
-}
-
-.o-section-light {
-    background: #ccc;
-    color: #fff;
-}
-
-.o-section-bright {
-    background: #f89829;
-    color: #000;
 
     a {
-        color: #000;
+        color: #fff;
+    }
+}
+
+.u-bg--light {
+    background: #eee;
+}
+
+.u-bg--bright {
+    background: #f89829;
+    color: #222;
+
+    a {
+        color: #222;
     }
 }
 

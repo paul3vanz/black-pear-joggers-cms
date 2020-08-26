@@ -1,13 +1,14 @@
 import styles from './Stack.module.scss';
 import { PropsWithChildren } from 'react';
+import classNames from 'classnames';
 
 const Stack = (props: PropsWithChildren<Props>) => (
     <section
-        className={[
-            styles.stack,
-            props.backgroundColour ? styles[props.backgroundColour] : null,
-            props.padding ? styles[`padding-${props.padding}`] : null,
-        ].join(' ')}>
+        className={classNames(
+            'o-section-lg',
+            props.padding === 'larger' && 'o-section-xl',
+            props.backgroundColour && `u-bg--${props.backgroundColour}`
+        )}>
         {props.backgroundImage && (
             <div className={styles.image}>
                 <img src={props.backgroundImage} alt="" />

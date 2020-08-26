@@ -1,16 +1,17 @@
-import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
-import { IHero, ICopy, ICards, IPostsList, ILockUp } from '../@types/generated/contentful';
+import { BLOCKS, INLINES } from '@contentful/rich-text-types';
+import Head from 'next/head';
+import { ICards, ICopy, IHero, ILockUp, IPostsList } from '../@types/generated/contentful';
+import Button from '../components/buttons/Button';
+import Card from '../components/Card';
 import Cards from '../components/Cards';
 import Container from '../components/Container';
-import Head from 'next/head';
-import Card from '../components/Card';
 import Hero from '../components/Hero';
 import Layout from '../components/Layout';
 import LockUp from '../components/LockUp';
 import PostsList from '../components/PostsList';
 import Stack from '../components/Stack';
-import Button from '../components/buttons/Button';
+import classNames from 'classnames';
 
 export default function pageBuilder(props) {
     return (
@@ -31,87 +32,42 @@ export default function pageBuilder(props) {
                             backgroundColour={fields.backgroundColour}
                             padding={fields.padding}>
                             <Container>
-                                {fields.contentModules?.map((contentModule) => {
-                                    switch (contentModule.sys.contentType.sys.id) {
-                                        case 'copy':
-                                            const copy = contentModule as ICopy;
-                                            return (
-                                                <div
-                                                    key={copy.sys.id}
-                                                    className={[
-                                                        'o-grid',
-                                                        fields.columns ? 'o-grid--gutter-lg' : '',
-                                                    ].join(' ')}>
-                                                    <div
-                                                        className={[
-                                                            'o-grid__item',
-                                                            fields.padding ? 'u-1/2@sm' : null,
-                                                            copy.fields.alignment
-                                                                ? `u-text-${copy.fields.alignment}`
-                                                                : '',
-                                                        ].join(' ')}>
-                                                        {documentToReactComponents(copy.fields.copy, richTextOptions)}
-                                                    </div>
-                                                </div>
-                                            );
+                                <div className={classNames('o-grid', fields.columns ? 'o-grid--gutter-lg' : '')}>
+                                    {fields.contentModules?.map((contentModule) => {
+                                        let renderedModule;
 
-                                        case 'hero':
-                                            const hero = contentModule as IHero;
+                                        switch (contentModule.sys.contentType.sys.id) {
+                                            case 'copy':
+                                                renderedModule = renderCopy(contentModule);
+                                                break;
+                                            case 'hero':
+                                                renderedModule = renderHero(contentModule);
+                                                break;
+                                            case 'cards':
+                                                renderedModule = renderCards(contentModule);
+                                                break;
+                                            case 'postsList':
+                                                renderedModule = renderPostsList(contentModule, props.blogPosts);
+                                                break;
+                                            case 'lockUp':
+                                                renderedModule = renderLockUp(contentModule, fields.backgroundColour);
+                                                break;
+                                        }
 
-                                            return (
-                                                <Hero
-                                                    key={hero.sys.id}
-                                                    heading={hero.fields.heading}
-                                                    copy={documentToReactComponents(hero.fields.copy)}
-                                                    link={hero.fields.link}
-                                                    linkTitle={hero.fields.linkTitle}
-                                                />
-                                            );
-                                        case 'cards':
-                                            const cards = contentModule as ICards;
-                                            // return JSON.stringify(cards, null, ' ');
-                                            return (
-                                                <Cards key={cards.sys.id}>
-                                                    {cards.fields.cards.map((card) => (
-                                                        <Card
-                                                            key={card.sys.id}
-                                                            headline={card.fields.title}
-                                                            content={documentToReactComponents(card.fields.content)}
-                                                            imageUrl={card.fields.image.fields.file.url}
-                                                            link={card.fields.link}
-                                                        />
-                                                    ))}
-                                                </Cards>
-                                            );
-                                        case 'postsList':
-                                            const postsList = contentModule as IPostsList;
-
-                                            const blogPosts = props.blogPosts;
-
-                                            return <PostsList key={postsList.sys.id} posts={blogPosts} />;
-
-                                        case 'lockUp':
-                                            const lockUp = contentModule as ILockUp;
-
-                                            console.log(lockUp);
-
-                                            return (
-                                                <LockUp
-                                                    key={lockUp.sys.id}
-                                                    content={documentToReactComponents(
-                                                        lockUp.fields.content,
-                                                        richTextOptions
-                                                    )}
-                                                    reverse={lockUp.fields.reverse}
-                                                    image={
-                                                        lockUp.fields.image
-                                                            ? lockUp.fields.image.fields.file.url
-                                                            : lockUp.fields.imageExternal
-                                                    }
-                                                />
-                                            );
-                                    }
-                                })}
+                                        return (
+                                            <div
+                                                key={contentModule.sys.id}
+                                                className={classNames(
+                                                    'o-grid__item',
+                                                    fields.columns === 2 && 'u-1/2@sm',
+                                                    fields.columns === 3 && 'u-1/3@sm',
+                                                    fields.columns === 4 && 'u-1/4@sm'
+                                                )}>
+                                                {renderedModule}
+                                            </div>
+                                        );
+                                    })}
+                                </div>
                             </Container>
                         </Stack>
                     );
@@ -121,33 +77,33 @@ export default function pageBuilder(props) {
     );
 }
 
-const richTextOptions: Options = {
-    renderNode: {
-        [BLOCKS.EMBEDDED_ASSET]: (node) => {
-            const fields = node.data.target.fields;
+function getRichTextOptions(backgroundColour?: string): Options {
+    return {
+        renderNode: {
+            [BLOCKS.EMBEDDED_ASSET]: (node) => {
+                const fields = node.data.target.fields;
 
-            console.log(node);
-
-            switch (node.data.target.fields.file.contentType) {
-                case 'image/png':
-                    return (
-                        <p>
-                            <img src={fields.file.url} alt={fields.title} />
-                        </p>
-                    );
-            }
+                switch (node.data.target.fields.file.contentType) {
+                    case 'image/png':
+                        return (
+                            <p>
+                                <img src={fields.file.url} alt={fields.title} />
+                            </p>
+                        );
+                }
+            },
+            [INLINES.EMBEDDED_ENTRY]: (node) => renderEmbeddedEntry(node, backgroundColour),
+            [BLOCKS.EMBEDDED_ENTRY]: (node) => renderEmbeddedEntry(node, backgroundColour),
         },
-        [INLINES.EMBEDDED_ENTRY]: (node) => renderEntry(node),
-        [BLOCKS.EMBEDDED_ENTRY]: (node) => renderEntry(node),
-    },
-};
+    };
+}
 
-function renderEntry(node) {
+function renderEmbeddedEntry(node, backgroundColour?: string) {
     const fields = node.data.target.fields;
 
     switch (node.data.target.sys.contentType.sys.id) {
         case 'button':
-            return <Button link={fields.link} title={fields.title} />;
+            return <Button link={fields.link} title={fields.title} backgroundColour={backgroundColour} />;
         case 'list':
             const listItems = fields.listItem;
 
@@ -163,4 +119,53 @@ function renderEntry(node) {
         default:
             return <div>Unknown embedded entry</div>;
     }
+}
+
+function renderCopy(copy: ICopy, alignment?: string, backgroundColour?: string) {
+    return (
+        <div className={classNames(alignment && `u-text-${alignment}`)}>
+            {documentToReactComponents(copy.fields.copy, getRichTextOptions(backgroundColour))}
+        </div>
+    );
+}
+
+function renderHero(hero: IHero) {
+    return (
+        <Hero
+            heading={hero.fields.heading}
+            copy={documentToReactComponents(hero.fields.copy)}
+            link={hero.fields.link}
+            linkTitle={hero.fields.linkTitle}
+        />
+    );
+}
+
+function renderCards(cards: ICards) {
+    return (
+        <Cards>
+            {cards.fields?.cards?.map((card) => (
+                <Card
+                    key={card.sys.id}
+                    headline={card.fields.title}
+                    content={documentToReactComponents(card.fields.content)}
+                    imageUrl={card.fields.image.fields.file.url}
+                    link={card.fields.link}
+                />
+            ))}
+        </Cards>
+    );
+}
+
+function renderPostsList(postsList: IPostsList, posts) {
+    return <PostsList posts={posts} />;
+}
+
+function renderLockUp(lockUp: ILockUp, backgroundColour?: string) {
+    return (
+        <LockUp
+            content={documentToReactComponents(lockUp.fields.content, getRichTextOptions(backgroundColour))}
+            reverse={lockUp.fields.reverse}
+            image={lockUp.fields.image ? lockUp.fields.image.fields.file.url : lockUp.fields.imageExternal}
+        />
+    );
 }

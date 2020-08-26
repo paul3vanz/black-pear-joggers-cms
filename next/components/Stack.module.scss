@@ -1,32 +1,3 @@
-.stack {
-    position: relative;
-    padding: 2rem 0;
-
-    &.padding-larger {
-        padding: 5rem 0;
-    }
-
-    &.light {
-        background-color: #eee;
-    }
-
-    &.bright {
-        background-color: #f89829;
-
-        * {
-            color: #fff;
-        }
-    }
-
-    &.dark {
-        background-color: #222;
-
-        * {
-            color: #fff;
-        }
-    }
-}
-
 .image {
     position: absolute;
     z-index: 1;

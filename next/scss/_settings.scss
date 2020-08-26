@@ -5,6 +5,8 @@ $nb-base-font-size: 1rem !default;
 $nb-spacing-unit: 1rem !default;
 $nb-spacing-unit-half: ($nb-spacing-unit / 2) !default;
 $nb-spacing-unit-double: ($nb-spacing-unit * 2) !default;
+$nb-spacing-unit-triple: ($nb-spacing-unit * 3) !default;
+$nb-spacing-unit-quadruple: ($nb-spacing-unit * 4) !default;
 
 $nb-breakpoint-class: '\\@' !default;
 $nb-breakpoints: (
@@ -28,6 +30,8 @@ $nb-list-spacing: (
 $nb-section-spacing: (
     sm: $nb-spacing-unit,
     md: $nb-spacing-unit-double,
+    lg: $nb-spacing-unit-triple,
+    xl: $nb-spacing-unit-quadruple,
 ) !default;
 $nb-flag-gutter-sizes: (
     md: $nb-spacing-unit,

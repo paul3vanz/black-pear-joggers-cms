@@ -3,12 +3,22 @@
     margin-top: 1rem;
     padding: 0.5rem 1rem;
     transition: background-color 0.2s ease;
-    border: 2px solid #fff;
+    border: 2px solid #222;
     border-radius: 3px;
     font-size: 1.25rem;
 
     &:hover,
     &:focus {
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: transparentize(#222, 0.9);
+    }
+}
+
+.dark {
+    border-color: #fff;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+        background-color: transparentize(#fff, 0.9);
     }
 }

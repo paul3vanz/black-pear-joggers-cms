@@ -4,6 +4,7 @@ import moment from 'moment-mini';
 import { IBlogPostFields } from '../@types/generated/contentful';
 import { Entry } from 'contentful';
 import { blogPostUrl } from '../core/helpers';
+import Button from './buttons/Button';
 
 export default function PostsList(props: { posts: Entry<IBlogPostFields>[] }) {
     return (
@@ -20,9 +21,7 @@ export default function PostsList(props: { posts: Entry<IBlogPostFields>[] }) {
             </ul>
 
             <p>
-                <Link href="/news">
-                    <a>Read more news</a>
-                </Link>
+                <Button link="/news" title="Read more news" />
             </p>
         </div>
     );
