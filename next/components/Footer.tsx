@@ -7,25 +7,27 @@ export default function Footer() {
         <footer className={styles.footer}>
             <ul className={styles.links}>
                 <li>
-                    <a href="https://bpj.org.uk/club-constitution/">
-                        Club Constitution
-                    </a>
+                    <Link href="/club-constitution">
+                        <a>Club constitution</a>
+                    </Link>
                 </li>
                 <li>
-                    <a href="https://bpj.org.uk/health-and-safety-policy-and-risk-assessment/">
-                        Health and Safety Policy
-                    </a>
+                    <Link href="/health-and-safety-policy">
+                        <a>Health and safety policy</a>
+                    </Link>
                 </li>
                 <li>
-                    <a href="https://bpj.org.uk/privacy-policy/">
-                        Privacy Policy
-                    </a>
+                    <Link href="/privacy-policy">
+                        <a>Privacy policy</a>
+                    </Link>
                 </li>
                 <li>
-                    <a href="https://bpj.org.uk/terms-of-use/">Terms of Use</a>
+                    <Link href="/terms-of-use">
+                        <a>Terms of use</a>
+                    </Link>
                 </li>
                 <li>
-                    <Link href="/site-map/">
+                    <Link href="/site-map">
                         <a>Site map</a>
                     </Link>
                 </li>

@@ -12,6 +12,7 @@ import LockUp from '../components/LockUp';
 import PostsList from '../components/PostsList';
 import Stack from '../components/Stack';
 import classNames from 'classnames';
+import Link from 'next/link';
 
 export default function pageBuilder(props) {
     return (
@@ -94,14 +95,16 @@ function getRichTextOptions(backgroundColour?: string): Options {
             },
             [INLINES.EMBEDDED_ENTRY]: (node) => renderEmbeddedEntry(node, backgroundColour),
             [BLOCKS.EMBEDDED_ENTRY]: (node) => renderEmbeddedEntry(node, backgroundColour),
+            [INLINES.ENTRY_HYPERLINK]: (node) => renderEmbeddedEntry(node),
         },
     };
 }
 
 function renderEmbeddedEntry(node, backgroundColour?: string) {
     const fields = node.data.target.fields;
+    const nodeType = node.nodeType;
 
-    switch (node.data.target.sys.contentType.sys.id) {
+    switch (node.nodeType) {
         case 'button':
             return <Button link={fields.link} title={fields.title} backgroundColour={backgroundColour} />;
         case 'list':
@@ -116,8 +119,14 @@ function renderEmbeddedEntry(node, backgroundColour?: string) {
                     ))}
                 </ul>
             );
+        case 'entry-hyperlink':
+            return (
+                <Link href={node.data.target.fields.slug}>
+                    <a>{node.content[0].value}</a>
+                </Link>
+            );
         default:
-            return <div>Unknown embedded entry</div>;
+            return <div>Unhandled embedded entry ({node.nodeType})</div>;
     }
 }
 
