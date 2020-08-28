@@ -145,6 +145,7 @@ function renderEmbeddedEntry(node, backgroundColour?: string) {
     const nodeType = node.nodeType;
 
     switch (node.nodeType) {
+        case 'embedded-entry-block':
         case 'embedded-entry-inline':
             switch (node.data.target.sys.contentType.sys.id) {
                 case 'button':
