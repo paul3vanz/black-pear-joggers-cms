@@ -98,15 +98,36 @@ function getRichTextOptions(backgroundColour?: string): Options {
                     case 'application/pdf':
                         const extension = fields.file.fileName.split('.').pop().toUpperCase();
 
+                        let iconClass;
+
+                        switch (extension) {
+                            case 'PDF':
+                                iconClass = 'fa-file-pdf';
+                                break;
+                            case 'DOC':
+                            case 'DOCX':
+                                iconClass = 'fa-file-word';
+                                break;
+                            case 'XLS':
+                            case 'XLSX':
+                                iconClass = 'fa-file-excel';
+                                break;
+                            default:
+                                iconClass = 'fa-file';
+                                break;
+                        }
+
                         return (
-                            <p>
-                                {/* <pre>{JSON.stringify(fields, null, ' ')}</pre> */}
-                                <Link href={fields.file.url}>
-                                    <a>
-                                        {fields.title} ({extension}, {fileSize(fields.file.details.size)})
-                                    </a>
-                                </Link>
-                            </p>
+                            <div className="o-inline-icon">
+                                <i className={classNames('o-inline-icon__icon fas fa-2x', iconClass)}></i>
+                                <span className="o-inline-icon__text">
+                                    <Link href={fields.file.url}>
+                                        <a>
+                                            {fields.title} ({extension}, {fileSize(fields.file.details.size)})
+                                        </a>
+                                    </Link>
+                                </span>
+                            </div>
                         );
                     default:
                         return <div>Unhandled embedded asset ({contentType})</div>;

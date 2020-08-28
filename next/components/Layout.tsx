@@ -17,6 +17,7 @@ export default function Layout({ children }) {
                     rel="stylesheet"
                     href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600;800&amp;display=swap"
                 />
+                <script src="https://kit.fontawesome.com/97736414dd.js" crossOrigin="anonymous"></script>
             </Head>
 
             <div className="container">
