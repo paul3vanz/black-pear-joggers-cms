@@ -106,20 +106,23 @@ function renderEmbeddedEntry(node, backgroundColour?: string) {
     const nodeType = node.nodeType;
 
     switch (node.nodeType) {
-        case 'button':
-            return <Button link={fields.link} title={fields.title} backgroundColour={backgroundColour} />;
-        case 'list':
-            const listItems = fields.listItem;
+        case 'embedded-entry-inline':
+            switch (node.data.target.sys.contentType.sys.id) {
+                case 'button':
+                    return <Button link={fields.link} title={fields.title} backgroundColour={backgroundColour} />;
+                case 'list':
+                    const listItems = fields.listItem;
 
-            return (
-                <ul className="o-matrix-list-md u-text-bold u-text-center u-soft-top-md u-text-lg">
-                    {listItems.map((listItem, index) => (
-                        <li className="o-matrix-list__item u-push-left-md" key={index}>
-                            {listItem}
-                        </li>
-                    ))}
-                </ul>
-            );
+                    return (
+                        <ul className="o-matrix-list-md u-text-bold u-text-center u-soft-top-md u-text-lg">
+                            {listItems.map((listItem, index) => (
+                                <li className="o-matrix-list__item u-push-left-md" key={index}>
+                                    {listItem}
+                                </li>
+                            ))}
+                        </ul>
+                    );
+            }
         case 'entry-hyperlink':
             return (
                 <Link href={node.data.target.fields.slug}>
