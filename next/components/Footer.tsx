@@ -12,7 +12,7 @@ export default function Footer() {
                     </Link>
                 </li>
                 <li>
-                    <Link href="/health-and-safety-policy">
+                    <Link href="/health-and-safety-policy-and-risk-assessment">
                         <a>Health and safety policy</a>
                     </Link>
                 </li>

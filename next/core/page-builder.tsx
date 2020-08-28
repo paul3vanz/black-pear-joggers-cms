@@ -14,6 +14,7 @@ import Stack from '../components/Stack';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { Alignment } from '../models/alignment.model';
+import { fileSize } from './helpers';
 
 export default function pageBuilder(props) {
     return (
@@ -84,14 +85,31 @@ function getRichTextOptions(backgroundColour?: string): Options {
         renderNode: {
             [BLOCKS.EMBEDDED_ASSET]: (node) => {
                 const fields = node.data.target.fields;
+                const contentType = node.data.target.fields.file.contentType;
 
-                switch (node.data.target.fields.file.contentType) {
+                switch (contentType) {
                     case 'image/png':
                         return (
                             <p>
                                 <img src={fields.file.url} alt={fields.title} />
                             </p>
                         );
+                    case 'application/CDFV2':
+                    case 'application/pdf':
+                        const extension = fields.file.fileName.split('.').pop().toUpperCase();
+
+                        return (
+                            <p>
+                                {/* <pre>{JSON.stringify(fields, null, ' ')}</pre> */}
+                                <Link href={fields.file.url}>
+                                    <a>
+                                        {fields.title} ({extension}, {fileSize(fields.file.details.size)})
+                                    </a>
+                                </Link>
+                            </p>
+                        );
+                    default:
+                        return <div>Unhandled embedded asset ({contentType})</div>;
                 }
             },
             [INLINES.EMBEDDED_ENTRY]: (node) => renderEmbeddedEntry(node, backgroundColour),
