@@ -13,6 +13,7 @@ import PostsList from '../components/PostsList';
 import Stack from '../components/Stack';
 import classNames from 'classnames';
 import Link from 'next/link';
+import { Alignment } from '../models/alignment.model';
 
 export default function pageBuilder(props) {
     return (
@@ -159,6 +160,7 @@ function renderCards(cards: ICards) {
                     content={documentToReactComponents(card.fields.content)}
                     imageUrl={card.fields.image.fields.file.url}
                     link={card.fields.link}
+                    alignment={cards.fields.alignment as Alignment}
                 />
             ))}
         </Cards>

@@ -111,6 +111,9 @@ export interface ICardsFields {
 
     /** Cards */
     cards?: ICard[] | undefined;
+
+    /** Alignment */
+    alignment?: 'left' | 'right' | undefined;
 }
 
 export interface ICards extends Entry<ICardsFields> {

@@ -11,3 +11,7 @@ export function blogPostUrl(blogPost): string {
         blogPost.fields.slug,
     ].join('/');
 }
+
+export function classNames(...classNames): string {
+    return classNames.filter(Boolean).join(' ');
+}

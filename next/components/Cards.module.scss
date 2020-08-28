@@ -3,14 +3,15 @@
 @import '../scss/utilities';
 
 .cards {
-    display: grid;
-    grid-gap: 1rem;
+    display: flex;
+    flex-direction: column;
 
     @include nb-respond-to('xs') {
-        grid-template-columns: repeat(2, 1fr);
+        flex-direction: row;
     }
 
-    @include nb-respond-to('md') {
-        grid-template-columns: repeat(4, 1fr);
+    & > div {
+        flex: 1;
+        margin: 1rem 0.5rem 0;
     }
 }
