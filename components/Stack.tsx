@@ -7,7 +7,7 @@ const Stack = (props: PropsWithChildren<Props>) => (
         <section
             className={classNames(
                 'relative',
-                (props.padding === 'larger' && 'py-32') || 'py-16',
+                (props.padding === 'larger' && 'py-16 sm:py-32') || 'py-12 sm:py-16',
                 props.backgroundColour === 'dark' && 'bg-gray-800 text-white',
                 props.backgroundColour === 'bright' && 'bg-primary',
                 props.backgroundColour === 'light' && 'bg-gray-100'

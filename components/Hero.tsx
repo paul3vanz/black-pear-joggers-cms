@@ -14,13 +14,22 @@ export default function Hero(props: { heading: string; copy: string | ReactNode;
                         <div className="copy mb-8">{props.copy}</div>
                     </div>
 
-                    <div className="text-gray-900">
-                        <Button link={props.link} title={props.linkTitle} backgroundColour="dark" />
+                    <div>
+                        <Button link={props.link} title={props.linkTitle} backgroundColour="dark" style="dark" />
                     </div>
                 </div>
             </div>
 
             <style jsx global>{`
+                .hero .copy {
+                    line-height: 36px;
+                    font-size: 20px;
+                }
+
+                .hero .copy a {
+                    white-space: nowrap;
+                }
+
                 .hero .copy p {
                     display: inline;
                     box-decoration-break: clone;

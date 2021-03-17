@@ -15,7 +15,7 @@ export default function PostsList(props: { posts: Entry<IBlogPostFields>[] }) {
                         <Link href={blogPostUrl(blogPost)}>
                             <a>{blogPost.fields.title}</a>
                         </Link>{' '}
-                        <span className="text-gray-400">{moment(blogPost.fields.publishDate).fromNow()}</span>
+                        <span className="text-gray-500">{moment(blogPost.fields.publishDate).fromNow()}</span>
                     </li>
                 ))}
             </ul>

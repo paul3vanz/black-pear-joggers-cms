@@ -1,11 +1,18 @@
 import Link from 'next/link';
 import classNames from 'classnames';
 
-export default function Button(props: { link: string; title: string; backgroundColour?: string }) {
+export default function Button(props: { link: string; title: string; style?: string; backgroundColour?: string }) {
     return (
         <>
             <Link href={props.link}>
-                <a className={classNames('link', props.backgroundColour === 'dark' && 'dark')}>{props.title}</a>
+                <a
+                    className={classNames(
+                        'link',
+                        props.style === 'dark' && 'dark',
+                        props.backgroundColour === 'dark' && 'bg-gray-900'
+                    )}>
+                    {props.title}
+                </a>
             </Link>
 
             <style jsx>{`

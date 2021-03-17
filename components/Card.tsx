@@ -13,14 +13,14 @@ export default function Card(props: {
 }) {
     const image = (
         <LazyLoad>
-            <img className="w-full" src={props.imageUrl} alt={props.imageUrl} />
+            <img className="w-full h-32 sm:h-48 object-cover object-center" src={props.imageUrl} alt={props.imageUrl} />
         </LazyLoad>
     );
 
     return (
         <div
             className={classNames(
-                'flex-1 mx-4 bg-white rounded-md overflow-hidden text-gray-900 text-center',
+                'flex-1 my-2 sm:mx-4 bg-white rounded-md overflow-hidden text-gray-900 text-center',
                 props.alignment === 'left' && 'text-left'
             )}>
             {props.imageUrl && (

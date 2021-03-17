@@ -12,7 +12,7 @@ export default function Footer() {
                 className="mb-8 mx-auto"
             />
 
-            <ul className="flex flex-col md:flex-row justify-center">
+            <ul className="flex flex-col space-y-4 md:space-y-0 md:flex-row justify-center">
                 <li>
                     <Link href="/club-constitution">
                         <a className="md:mx-3 no-underline">Club constitution</a>
