@@ -6,7 +6,7 @@ export default function LockUp(props: { image: string; content: string | ReactNo
     return (
         <div
             className={classNames(
-                'flex flex-col sm:flex-row items-center -mx-4',
+                'flex flex-col sm:flex-row items-center',
                 props.reverse ? 'sm:flex-row-reverse' : ''
             )}>
             {props.reverse}
@@ -20,7 +20,7 @@ export default function LockUp(props: { image: string; content: string | ReactNo
                 </LazyLoad>
             </div>
             <div className="flex-1">
-                <div className="sm:mx-4 lg:mx-24">{props.content}</div>
+                <div className="sm:mx-4 lg:mx-12 xl:mx-24">{props.content}</div>
             </div>
         </div>
     );

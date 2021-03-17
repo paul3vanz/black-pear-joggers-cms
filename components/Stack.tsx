@@ -15,11 +15,7 @@ const Stack = (props: PropsWithChildren<Props>) => (
             {props.backgroundImage && (
                 <div className="absolute z-10 top-0 bottom-0 w-full overflow-hidden pointer-events-none">
                     {/* <LazyLoad> */}
-                    <img
-                        className="w-full h-full object-cover object-center rounded-md"
-                        src={props.backgroundImage}
-                        alt=""
-                    />
+                    <img className="w-full h-full object-cover object-center" src={props.backgroundImage} alt="" />
                     {/* </LazyLoad> */}
                 </div>
             )}
