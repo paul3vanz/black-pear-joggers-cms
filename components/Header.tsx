@@ -54,6 +54,8 @@ export default function Header() {
                                     className="h-8 sm:h-12 w-auto"
                                     src="https://bpj.org.uk/download-logo/bpj-logo-alt.svg"
                                     alt="Black Pear Joggers Logo"
+                                    width="190"
+                                    height="54"
                                 />
                             </Link>
                         </div>

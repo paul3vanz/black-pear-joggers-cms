@@ -9,15 +9,14 @@ export default function Layout({ children }) {
         <div className="flex flex-col">
             <Head>
                 <link rel="icon" href="favicon.ico" type="image/x-icon" />
-                <link
-                    rel="stylesheet"
-                    href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-                />
+
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
                 <link
                     rel="stylesheet"
                     href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600;800&amp;display=swap"
                 />
+
                 <script src="https://kit.fontawesome.com/97736414dd.js" crossOrigin="anonymous"></script>
             </Head>
 
