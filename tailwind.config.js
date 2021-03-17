@@ -2,8 +2,8 @@ const colors = require('tailwindcss/colors');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-    purge: [],
-    darkMode: false, // or 'media' or 'class'
+    purge: ['./src/**/*.html', './src/**/*.jsx', './src/**/*.tsx'],
+    darkMode: false,
     theme: {
         extend: {
             margin: {
@@ -22,10 +22,6 @@ module.exports = {
                     300: '#FBBE78',
                     400: '#F9AB51',
                     500: '#F89829',
-                    // 600: '#F78A0B',
-                    // 700: '#DD7A07',
-                    // 800: '#BF6906',
-                    // 900: '#A15905',
                 },
             },
         },
