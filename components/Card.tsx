@@ -27,7 +27,7 @@ export default function Card(props: {
                 <div className="mb-4">
                     {props.link ? (
                         <Link href={props.link}>
-                            <a>{image}</a>
+                            <a aria-label={props.headline}>{image}</a>
                         </Link>
                     ) : (
                         image
@@ -38,7 +38,7 @@ export default function Card(props: {
                 {(props.headline || props.content) && (
                     <div>
                         {props.headline && (
-                            <h3>
+                            <h3 className="bg-gray-900 text-white inline-block px-3 py-1">
                                 <Link href={props.link}>
                                     <a>{props.headline}</a>
                                 </Link>

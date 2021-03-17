@@ -1,7 +1,5 @@
 import Link from 'next/link';
 
-// import styles from './Footer.module.scss';
-
 export default function Footer() {
     return (
         <footer className="text-center bg-gray-900 text-white py-8">
@@ -9,6 +7,7 @@ export default function Footer() {
                 src="https://bpj.org.uk/wp-content/themes/BPJ/england-athletics-logo.svg"
                 alt="England Athletics"
                 width="200"
+                height="68"
                 className="mb-8 mx-auto"
             />
 
