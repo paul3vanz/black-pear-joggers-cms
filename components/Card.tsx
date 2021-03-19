@@ -13,41 +13,78 @@ export default function Card(props: {
 }) {
     const image = (
         <LazyLoad>
-            <img className="w-full h-32 sm:h-48 object-cover object-center" src={props.imageUrl} alt={props.imageUrl} />
+            <img
+                className="absolute top-0 w-full h-full object-cover object-center"
+                src={props.imageUrl}
+                alt={props.imageUrl}
+            />
         </LazyLoad>
     );
 
     return (
-        <div
-            className={classNames(
-                'flex-1 my-2 sm:mx-4 bg-white rounded-md overflow-hidden text-gray-900 text-center',
-                props.alignment === 'left' && 'text-left'
-            )}>
-            {props.imageUrl && (
-                <div className="mb-4">
-                    {props.link ? (
-                        <Link href={props.link}>
-                            <a aria-label={props.headline}>{image}</a>
-                        </Link>
-                    ) : (
-                        image
-                    )}
-                </div>
-            )}
-            <div className="m-4">
-                {(props.headline || props.content) && (
+        <>
+            <div
+                className={classNames(
+                    'card h-52 sm:h-72 relative flex items-end w-full overflow-hidden bg-white rounded-md text-gray-900'
+                )}>
+                {props.imageUrl && (
                     <div>
-                        {props.headline && (
-                            <h3 className="bg-gray-900 text-white inline-block px-3 py-1">
-                                <Link href={props.link}>
-                                    <a>{props.headline}</a>
-                                </Link>
-                            </h3>
+                        {props.link ? (
+                            <Link href={props.link}>
+                                <a aria-label={props.headline}>{image}</a>
+                            </Link>
+                        ) : (
+                            image
                         )}
-                        {props.content && props.content}
                     </div>
                 )}
+                <div className="relative m-6 pointer-events-none">
+                    {(props.headline || props.content) && (
+                        <div>
+                            {props.headline && (
+                                <h3 className="bg-gray-900 text-white inline-block px-2 py-1 mb-2">
+                                    <Link href={props.link}>
+                                        <a>{props.headline}</a>
+                                    </Link>
+                                </h3>
+                            )}
+                            <div className="copy fade">{props.content && props.content}</div>
+                        </div>
+                    )}
+                </div>
             </div>
-        </div>
+
+            <style jsx global>{`
+                .card .copy {
+                    line-height: 36px;
+                    font-size: 20px;
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                }
+
+                .card img {
+                    transition: transform 0.4s ease-in-out;
+                }
+
+                .card:hover img {
+                    transform: scale3d(1.02, 1.02, 1.02);
+                }
+
+                .card .copy a {
+                    white-space: nowrap;
+                }
+
+                .card .copy p {
+                    display: inline;
+                    box-decoration-break: clone;
+                    -webkit-box-decoration-break: clone;
+                    background-color: #fff;
+                    color: #222;
+                    padding: 0 10px;
+                }
+            `}</style>
+        </>
     );
 }

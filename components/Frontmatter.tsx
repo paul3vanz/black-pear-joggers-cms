@@ -15,32 +15,41 @@ export default function Frontmatter(props: {
     };
 }) {
     return (
-        <div className="{styles.frontmatter}">
-            <Stack>
-                <Container>
-                    <h1>{props.title}</h1>
+        <>
+            <div className="text-center">
+                <Stack>
+                    <Container>
+                        <h1>{props.title}</h1>
 
-                    <div className="{styles.authorNameDate}">
-                        {props.author && (
-                            <div className="{styles.author}">
-                                <div className="{styles.avatar}">
-                                    <img src={props.author.avatarUrl} alt="" />
+                        <div className="flex items-center justify-center">
+                            {props.author && (
+                                <div className="flex items-center justify-center">
+                                    <div className="w-12 h-12 mr-2 overflow-hidden rounded-full bg-gray-200">
+                                        <img
+                                            src={props.author.avatarUrl}
+                                            alt={props.author.name}
+                                            width="30"
+                                            height="30"
+                                            className="object-cover w-full h-full"
+                                        />
+                                    </div>
+                                    <div className="mr-2">
+                                        Posted by&nbsp;
+                                        <strong>{props.author.name}</strong>
+                                    </div>
+                                    <div
+                                        className="text-gray-500"
+                                        title={moment(props.publishDate).format('dddd Do MMMM YYYY h:mma')}>
+                                        {moment(props.publishDate).fromNow()}
+                                    </div>
                                 </div>
-                                <div className="{styles.name}">
-                                    Posted by&nbsp;
-                                    <strong>{props.author.name}</strong>
-                                </div>
-                            </div>
-                        )}
-                        <div title={moment(props.publishDate).format('dddd Do MMMM YYYY hh:mma')}>
-                            {moment(props.publishDate).fromNow()}
+                            )}
                         </div>
-                    </div>
+                    </Container>
+                </Stack>
 
-                    <p className="{styles.description}">{props.description}</p>
-                </Container>
-            </Stack>
-            <img className="{styles.hero}" src={props.heroImageUrl} alt="" />
-        </div>
+                <img className="hero w-full" src={props.heroImageUrl} alt="" />
+            </div>
+        </>
     );
 }

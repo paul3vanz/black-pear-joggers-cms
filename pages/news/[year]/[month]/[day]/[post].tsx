@@ -1,18 +1,19 @@
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { getLayoutBySlug, getAllLayout, getAllBlogPosts, getBlogPostBySlug } from '../../../../../core/api';
-import { InferGetStaticPropsType, GetStaticPaths } from 'next';
-import CopyStack from '../../../../../components/CopyStack';
-import Head from 'next/head';
-import Layout from '../../../../../components/Layout';
-import { ICopy } from '../../../../../@types/generated/contentful';
-import { ParsedUrlQuery } from 'querystring';
+import { GetStaticPaths, InferGetStaticPropsType } from 'next';
+import { getAllBlogPosts, getAllLayout, getBlogPostBySlug, getLayoutBySlug } from '../../../../../core/api';
 
-import moment from 'moment-mini';
-import Frontmatter from '../../../../../components/Frontmatter';
-import Stack from '../../../../../components/Stack';
-import Container from '../../../../../components/Container';
 import Card from '../../../../../components/Card';
 import Cards from '../../../../../components/Cards';
+import Container from '../../../../../components/Container';
+import CopyStack from '../../../../../components/CopyStack';
+import Frontmatter from '../../../../../components/Frontmatter';
+import Head from 'next/head';
+import { ICopy } from '../../../../../@types/generated/contentful';
+import Layout from '../../../../../components/Layout';
+import { ParsedUrlQuery } from 'querystring';
+import { ReactNode } from 'react';
+import Stack from '../../../../../components/Stack';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import moment from 'moment-mini';
 
 export default function Home(props: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
@@ -32,10 +33,13 @@ export default function Home(props: InferGetStaticPropsType<typeof getStaticProp
                     author={{
                         name: props.blogPost.fields.author.fields.name,
                         avatarUrl: props.blogPost.fields.author.fields.image.fields.file.url,
-                    }}></Frontmatter>
+                    }}
+                />
+
                 <CopyStack>
                     <div className="post">{documentToReactComponents(props.blogPost.fields.body)}</div>
                 </CopyStack>
+
                 <Stack backgroundColour="light">
                     <Container>
                         <h2 className="u-push-bottom-md">Other news</h2>
@@ -46,7 +50,7 @@ export default function Home(props: InferGetStaticPropsType<typeof getStaticProp
                                     <Card
                                         headline={post.fields.title}
                                         imageUrl={post.fields.heroImage?.fields.file.url}
-                                        content={post.fields.description}
+                                        content={wrapParagraph(post.fields.description)}
                                         link={blogPostUrl(post)}></Card>
                                 ))}
                             </Cards>
@@ -98,4 +102,13 @@ function blogPostUrl(blogPost): string {
         publishDate.format('DD'),
         blogPost.fields.slug,
     ].join('/');
+}
+
+function wrapParagraph(html): JSX.Element {
+    return (
+        <p
+            dangerouslySetInnerHTML={{
+                __html: html,
+            }}></p>
+    );
 }

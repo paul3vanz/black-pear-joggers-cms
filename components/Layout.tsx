@@ -1,3 +1,4 @@
+import Announcement from './Announcement';
 import Footer from './Footer';
 import Head from 'next/head';
 import Header from './Header';
@@ -19,6 +20,8 @@ export default function Layout({ children }) {
 
                 <script src="https://kit.fontawesome.com/97736414dd.js" crossOrigin="anonymous"></script>
             </Head>
+
+            <Announcement />
 
             <Header></Header>
 

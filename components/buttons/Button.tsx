@@ -1,7 +1,13 @@
 import Link from 'next/link';
 import classNames from 'classnames';
 
-export default function Button(props: { link: string; title: string; style?: string; backgroundColour?: string }) {
+export default function Button(props: {
+    link: string;
+    title: string;
+    style?: string;
+    backgroundColour?: string;
+    size?: string;
+}) {
     return (
         <>
             <Link href={props.link}>
@@ -19,11 +25,11 @@ export default function Button(props: { link: string; title: string; style?: str
                 .link {
                     display: inline-block;
                     margin-top: 1rem;
-                    padding: 0.5rem 1rem;
                     transition: all 0.3s ease;
                     border: 2px solid #222;
                     border-radius: 3px;
-                    font-size: 1.25rem;
+                    padding: ${props.size === 'sm' ? '0.25rem 0.5rem' : '0.5rem 1rem'};
+                    font-size: ${props.size === 'sm' ? '1.125rem' : '1.25rem'};
                 }
 
                 .link:hover,

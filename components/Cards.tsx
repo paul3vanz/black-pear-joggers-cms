@@ -1,5 +1,3 @@
-// import styles from './Cards.module.scss';
-
 export default function Cards({ children }) {
-    return <div className="flex flex-col sm:flex-row -my-4 sm:-my-0 sm:-mx-4">{children}</div>;
+    return <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4">{children}</div>;
 }
