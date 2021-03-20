@@ -1,54 +1,45 @@
 import Link from 'next/link';
 import classNames from 'classnames';
+import styled from 'styled-components';
 
-export default function Button(props: {
+interface Props {
     link: string;
     title: string;
     style?: string;
     backgroundColour?: string;
     size?: string;
-}) {
+    onClick?: () => void;
+}
+
+const StyledButton = styled.a`
+    --color: ${(props) => (props.style === 'dark' ? '#fff' : '#222')};
+    --active-color: ${(props) => (props.style === 'dark' ? '#222' : '#fff')};
+    --background-color: ${(props) => (props.backgroundColour === 'dark' ? '#222' : 'transparent')};
+
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: 2px solid var(--color);
+    border-radius: 3px;
+    color: var(--color);
+    padding: ${(props) => (props.size === 'sm' ? '0.25rem 0.5rem' : '0.5rem 1rem')};
+    font-size: ${(props) => (props.size === 'sm' ? '1.125rem' : '1.25rem')};
+    background-color: var(--background-color);
+
+    &:hover,
+    &:focus {
+        background-color: var(--color);
+        color: var(--active-color);
+    }
+`;
+
+export default function Button(props: Props) {
     return (
-        <>
-            <Link href={props.link}>
-                <a
-                    className={classNames(
-                        'link',
-                        props.style === 'dark' && 'dark',
-                        props.backgroundColour === 'dark' && 'bg-gray-900'
-                    )}>
-                    {props.title}
-                </a>
-            </Link>
-
-            <style jsx>{`
-                .link {
-                    display: inline-block;
-                    margin-top: 1rem;
-                    transition: all 0.3s ease;
-                    border: 2px solid #222;
-                    border-radius: 3px;
-                    padding: ${props.size === 'sm' ? '0.25rem 0.5rem' : '0.5rem 1rem'};
-                    font-size: ${props.size === 'sm' ? '1.125rem' : '1.25rem'};
-                }
-
-                .link:hover,
-                .link:focus {
-                    background-color: rgba(10, 10, 10, 0.9);
-                    color: #fff;
-                }
-
-                .dark {
-                    border-color: #fff;
-                    color: #fff;
-                }
-
-                .dark:hover,
-                .dark:focus {
-                    background-color: rgba(255, 255, 255, 0.9);
-                    color: #222;
-                }
-            `}</style>
-        </>
+        <StyledButton
+            backgroundColour={props.backgroundColour}
+            style={props.style}
+            onClick={props.onClick}
+            href={props.link}>
+            {props.title}
+        </StyledButton>
     );
 }

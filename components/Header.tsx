@@ -11,7 +11,7 @@ export default function Header() {
                     <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                         <button
                             type="button"
-                            className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                            className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white transition-all hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                             aria-controls="mobile-menu"
                             aria-expanded="false">
                             <span className="sr-only">Open main menu</span>
@@ -64,77 +64,77 @@ export default function Header() {
                             <ul className="flex xl:space-x-4">
                                 <li>
                                     <a
-                                        className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                        className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                         href="/membership">
                                         Membership
                                     </a>
                                 </li>
                                 <li>
                                     <a
-                                        className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                        className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                         href="#">
                                         Club info
                                     </a>
                                     <ul className="hidden">
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://bpj.org.uk/when-we-run/">
                                                 When We Run
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://bpj.org.uk/the-history-of-black-pear-joggers/">
                                                 Our History
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://bpj.org.uk/meet-the-joggers/">
                                                 Meet the Joggers
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://bpj.org.uk/kit/">
                                                 Kit
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://bpj.org.uk/charity/">
                                                 Charity
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://bpj.org.uk/mental-health-and-wellbeing/">
                                                 Mental Health and Wellbeing
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://bpj.org.uk/london-marathon-club-ballot/">
                                                 London Ballot Places
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://bpj.org.uk/leading-a-group/">
                                                 Leading a Group
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://bpj.org.uk/social-events/">
                                                 Social Events
                                             </a>
@@ -143,49 +143,49 @@ export default function Header() {
                                 </li>
                                 <li>
                                     <a
-                                        className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                        className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                         href="#">
                                         Racing/leagues
                                     </a>
                                     <ul className="hidden">
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://black-pear-joggers.netlify.com/apps/club-standards/">
                                                 Club Standards Awards
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://bpj.org.uk/leagues/cross-country/">
                                                 Cross Country
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://black-pear-joggers.netlify.com/apps/magic-mile/">
                                                 Magic Mile
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://bpj.org.uk/leagues/parkrun-tours/">
                                                 parkrun tours
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://black-pear-joggers.netlify.com/apps/club-records/">
                                                 Club Records
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://black-pear-joggers.netlify.com/apps/race-results/">
                                                 Race Results
                                             </a>
@@ -194,28 +194,28 @@ export default function Header() {
                                 </li>
                                 <li>
                                     <a
-                                        className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                        className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                         href="/our-races">
                                         Our races
                                     </a>
                                     <ul className="hidden">
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://bpj.org.uk/our-races/croome-race/">
                                                 Croome Capability Canter
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://bpj.org.uk/our-races/wild-race/">
                                                 The Wild One
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://bpj.org.uk/the-virtual-wild-one/">
                                                 The Virtual One
                                             </a>
@@ -224,35 +224,35 @@ export default function Header() {
                                 </li>
                                 <li>
                                     <a
-                                        className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                        className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                         href="https://bpj.org.uk/news/">
                                         News
                                     </a>
                                 </li>
                                 <li>
                                     <a
-                                        className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                        className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                         href="#">
                                         Contact
                                     </a>
                                     <ul className="hidden">
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://bpj.org.uk/contact-the-club/">
                                                 Contact the Club
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://www.facebook.com/groups/blackpearjoggers/">
                                                 Facebook Community
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+                                                className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
                                                 href="https://bpj.typeform.com/to/pIodcN">
                                                 Incident Report Form
                                             </a>
@@ -266,7 +266,7 @@ export default function Header() {
                                 </a>
                                 <a
                                     href="#"
-                                    className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium">
+                                    className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium">
                                     Team
                                 </a> */}
                         </div>
@@ -281,17 +281,17 @@ export default function Header() {
                     </a>
                     <a
                         href="#"
-                        className="text-gray-100 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                        className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
                         Team
                     </a>
                     <a
                         href="#"
-                        className="text-gray-100 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                        className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
                         Projects
                     </a>
                     <a
                         href="#"
-                        className="text-gray-100 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                        className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
                         Calendar
                     </a>
                 </div>

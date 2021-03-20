@@ -9,7 +9,7 @@ import moment from 'moment-mini';
 export default function PostsList(props: { posts: Entry<IBlogPostFields>[] }) {
     return (
         <div className="block">
-            <ul>
+            <ul className="mb-4">
                 {props.posts?.map((blogPost) => (
                     <li key={blogPost.sys.id}>
                         <Link href={blogPostUrl(blogPost)}>
