@@ -15,7 +15,7 @@ export default function Hero(props: { heading: string; copy: string | ReactNode;
                     </div>
 
                     <div>
-                        <Button link={props.link} title={props.linkTitle} backgroundColour="dark" style="dark" />
+                        <Button link={props.link} text={props.linkTitle} backgroundColour="dark" style="dark" />
                     </div>
                 </div>
             </div>

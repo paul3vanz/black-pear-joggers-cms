@@ -6,19 +6,31 @@ import { Dialog } from './Dialog';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import Stack from './Stack';
+import moment from 'moment-mini';
+
+interface Props {
+    id: string;
+    timestamp: string;
+    title: string;
+    link: string;
+}
+
+interface State {
+    dismissed: boolean;
+    show: boolean;
+    readMore: boolean;
+}
 
 export default class Announcement extends React.Component {
-    state: {
-        dismissed: boolean;
-        open: boolean;
-    };
+    state: State;
 
-    constructor(props) {
+    constructor(props: Props) {
         super(props);
 
         this.state = {
             dismissed: false,
-            open: false,
+            show: false,
+            readMore: false,
         };
 
         this.onReadMoreClick = this.onReadMoreClick.bind(this);
@@ -26,51 +38,58 @@ export default class Announcement extends React.Component {
 
     onReadMoreClick() {
         this.setState({
-            open: true,
+            readMore: true,
         });
     }
 
     render() {
-        return null;
-
-        if (this.state.dismissed) {
+        if (!this.state.show) {
             return null;
         }
 
         return (
             <>
-                <div className={this.state.dismissed && 'hidden'}>
-                    <Stack backgroundColour="bright" padding="sm">
-                        <Container>
-                            <div className="flex justify-between items-center">
-                                <div className="flex items-center">
-                                    <div className="bg-primary-600 p-1 rounded-lg">
-                                        <FontAwesomeIcon icon={faBullhorn} size="lg" />
-                                    </div>
-
-                                    <div className="ml-3 h2 font-bold text-lg">
-                                        Announcement {JSON.stringify(this.state)}
-                                    </div>
+                <Stack backgroundColour="bright" padding="sm">
+                    <Container>
+                        <div className="flex justify-between items-center">
+                            <div className="flex items-center">
+                                <div className="bg-primary-600 p-1 rounded-lg">
+                                    <FontAwesomeIcon icon={faBullhorn} size="lg" />
                                 </div>
-                                <div className="flex justify-between items-center">
-                                    <Button
-                                        link="#"
-                                        title="Read more"
-                                        size="sm"
-                                        onClick={() => this.onReadMoreClick()}></Button>
 
-                                    <a className="ml-4" href="#" onClick={() => this.dismiss()}>
-                                        <FontAwesomeIcon icon={faTimesCircle} size="lg" />
-                                    </a>
+                                <div className="ml-3 h2 font-bold text-lg" title={JSON.stringify(this.state)}>
+                                    Groups now available to book
                                 </div>
                             </div>
-                        </Container>
-                    </Stack>
-                </div>
+                            <div className="flex justify-between items-center">
+                                <Button
+                                    link="javascript:void(0)"
+                                    text="Read more"
+                                    size="sm"
+                                    onClick={() => this.onReadMoreClick()}></Button>
 
-                <Dialog title="Announcement" open={this.state.open} onClose={this.setState({ open: false })}></Dialog>
+                                <a className="ml-4" href="#" onClick={() => this.dismiss()}>
+                                    <FontAwesomeIcon icon={faTimesCircle} size="lg" />
+                                </a>
+                            </div>
+                        </div>
+                    </Container>
+                </Stack>
 
-                <style jsx>{``}</style>
+                <Dialog
+                    title="Groups now available to book"
+                    open={this.state.readMore}
+                    onClose={() => this.setState({ readMore: false })}>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit vestibulum euismod. Sed
+                        eleifend, orci venenatis consectetur facilisis, erat urna scelerisque leo, in cursus orci diam
+                        sit amet leo. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                        mus. Proin fringilla pellentesque ante, vitae maximus velit posuere in. Mauris ac velit nunc.
+                        Nulla vehicula vel tellus in ultricies. Nam fermentum elementum felis vitae commodo.
+                    </p>
+
+                    <Button text="Continue reading" link="#"></Button>
+                </Dialog>
             </>
         );
     }
@@ -86,8 +105,22 @@ export default class Announcement extends React.Component {
             dismissed: true,
         });
 
-        // localStorage.setItem('bpj.announcement', 'true');
+        localStorage.setItem('bpj.announcement', moment().toISOString());
     }
 
-    componentDidMount(): void {}
+    componentDidMount(): void {
+        const lastDismissed = this.getLastDismissed();
+
+        if (!lastDismissed || moment(lastDismissed).isBefore(moment())) {
+            this.setState({
+                show: true,
+            });
+        }
+    }
+
+    getLastDismissed(): string {
+        try {
+            return localStorage.getItem('bpj.announcement');
+        } catch (e) {}
+    }
 }

@@ -20,7 +20,7 @@ export default function PostsList(props: { posts: Entry<IBlogPostFields>[] }) {
                 ))}
             </ul>
 
-            <Button link="/news" title="Read more news" />
+            <Button link="/news" text="Read more news" />
         </div>
     );
 }

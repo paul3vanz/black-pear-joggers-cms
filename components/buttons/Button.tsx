@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 interface Props {
     link: string;
-    title: string;
+    text: string;
     style?: string;
     backgroundColour?: string;
     size?: string;
@@ -34,12 +34,8 @@ const StyledButton = styled.a`
 
 export default function Button(props: Props) {
     return (
-        <StyledButton
-            backgroundColour={props.backgroundColour}
-            style={props.style}
-            onClick={props.onClick}
-            href={props.link}>
-            {props.title}
+        <StyledButton {...props} href={props.link}>
+            {props.text}
         </StyledButton>
     );
 }
