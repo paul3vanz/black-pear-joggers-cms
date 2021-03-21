@@ -51,8 +51,8 @@ export default class Announcement extends React.Component {
             <>
                 <Stack backgroundColour="bright" padding="sm">
                     <Container>
-                        <div className="flex justify-between items-center">
-                            <div className="flex items-center">
+                        <div className="flex flex-wrap justify-between items-center">
+                            <div className="flex items-center mb-4 sm:mb-0">
                                 <div className="bg-primary-600 p-1 rounded-lg">
                                     <FontAwesomeIcon icon={faBullhorn} size="lg" />
                                 </div>
@@ -61,7 +61,7 @@ export default class Announcement extends React.Component {
                                     Groups now available to book
                                 </div>
                             </div>
-                            <div className="flex justify-between items-center">
+                            <div className="flex justify-between items-center w-full sm:w-auto">
                                 <Button
                                     link="javascript:void(0)"
                                     text="Read more"
