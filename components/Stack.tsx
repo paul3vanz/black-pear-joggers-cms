@@ -1,3 +1,4 @@
+import Container from './Container';
 import LazyLoad from 'react-lazy-load';
 import { PropsWithChildren } from 'react';
 import classNames from 'classnames';
@@ -10,7 +11,7 @@ const Stack = (props: PropsWithChildren<Props>) => (
                 props.padding === 'larger' && 'py-16 sm:py-32',
                 props.padding === 'sm' && 'py-8',
                 !props.padding && 'py-12 sm:py-16',
-                props.backgroundColour === 'dark' && 'bg-gray-800 text-white',
+                props.backgroundColour === 'dark' && 'bg-gray-900 text-white',
                 props.backgroundColour === 'bright' && 'bg-primary',
                 props.backgroundColour === 'light' && 'bg-gray-100'
             )}>
@@ -23,9 +24,11 @@ const Stack = (props: PropsWithChildren<Props>) => (
             )}
             <div className="relative z-20">
                 {props.heading && (
-                    <div className="container mx-auto">
-                        <h2>{props.heading}</h2>
-                    </div>
+                    <Container>
+                        <div className="container mx-auto">
+                            <h2>{props.heading}</h2>
+                        </div>
+                    </Container>
                 )}
 
                 {props.children}

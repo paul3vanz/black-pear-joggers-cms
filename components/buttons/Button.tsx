@@ -1,5 +1,3 @@
-import Link from 'next/link';
-import classNames from 'classnames';
 import styled from 'styled-components';
 
 interface Props {

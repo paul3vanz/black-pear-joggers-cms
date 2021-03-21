@@ -43,7 +43,7 @@ export default class Announcement extends React.Component {
     }
 
     render() {
-        if (!this.state.show) {
+        if (!this.state.dismissed) {
             return null;
         }
 
@@ -109,6 +109,10 @@ export default class Announcement extends React.Component {
     }
 
     componentDidMount(): void {
+        this.setState({
+            dismissed: false,
+        });
+
         const lastDismissed = this.getLastDismissed();
 
         if (!lastDismissed || moment(lastDismissed).isBefore(moment())) {
