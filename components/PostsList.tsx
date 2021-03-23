@@ -1,7 +1,6 @@
-import Button from './buttons/Button';
+import { Button } from './buttons/Button';
 import { Entry } from 'contentful';
 import { IBlogPostFields } from '../@types/generated/contentful';
-// import styles from './PostsList.module.scss';
 import Link from 'next/link';
 import { blogPostUrl } from '../core/helpers';
 import moment from 'moment-mini';

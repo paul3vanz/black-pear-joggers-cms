@@ -1,6 +1,6 @@
 import { faBullhorn, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
-import Button from './buttons/Button';
+import { Button } from './buttons/Button';
 import Container from './Container';
 import { Dialog } from './Dialog';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -43,12 +43,15 @@ export default class Announcement extends React.Component {
     }
 
     render() {
-        if (!this.state.dismissed) {
+        const debug = <pre>{JSON.stringify(this.state)}</pre>;
+
+        if (!this.state.show || this.state.dismissed) {
             return null;
         }
 
         return (
             <>
+                <pre>Debug: {debug}</pre>
                 <Stack backgroundColour="bright" padding="sm">
                     <Container>
                         <div className="flex flex-wrap justify-between items-center">

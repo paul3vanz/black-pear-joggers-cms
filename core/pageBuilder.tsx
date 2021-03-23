@@ -3,12 +3,12 @@ import { ICards, ICopy, IHero, ILockUp, IPostsList } from '../@types/generated/c
 import { Options, documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import { Alignment } from '../models/alignment.model';
-import Button from '../components/buttons/Button';
-import Card from '../components/Card';
-import Cards from '../components/Cards';
+import { Button } from '../components/buttons/Button';
+import { Card } from '../components/Card';
+import { Cards } from '../components/Cards';
 import Container from '../components/Container';
 import Head from 'next/head';
-import Hero from '../components/Hero';
+import { Hero } from '../components/Hero';
 import Layout from '../components/Layout';
 import Link from 'next/link';
 import LockUp from '../components/LockUp';
@@ -143,7 +143,7 @@ function renderEmbeddedEntry(node, backgroundColour?: string) {
         case 'embedded-entry-inline':
             switch (node.data.target.sys.contentType.sys.id) {
                 case 'button':
-                    return <Button link={fields.link} text={fields.title} style={backgroundColour} />;
+                    return <Button link={fields.link} text={fields.title} colour={backgroundColour} />;
                 case 'list':
                     const listItems = fields.listItem;
 

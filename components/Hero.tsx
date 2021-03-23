@@ -1,4 +1,4 @@
-import Button from './buttons/Button';
+import { ButtonLightTextDarkBackground } from './buttons/Button';
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 
@@ -37,18 +37,16 @@ const Copy = styled.div.attrs(() => ({
     }
 `;
 
-export default function Hero(props: { heading: string; copy: string | ReactNode; link: string; linkTitle: string }) {
-    return (
-        <Wrapper>
-            <Heading>{props.heading}</Heading>
+export const Hero = (props: { heading: string; copy: string | ReactNode; link: string; linkTitle: string }) => (
+    <Wrapper>
+        <Heading>{props.heading}</Heading>
 
-            <CopyWrapper>
-                <Copy>{props.copy}</Copy>
-            </CopyWrapper>
+        <CopyWrapper>
+            <Copy>{props.copy}</Copy>
+        </CopyWrapper>
 
-            <div>
-                <Button link={props.link} text={props.linkTitle} backgroundColour="dark" style="dark" />
-            </div>
-        </Wrapper>
-    );
-}
+        <div>
+            <ButtonLightTextDarkBackground link={props.link} text={props.linkTitle} />
+        </div>
+    </Wrapper>
+);

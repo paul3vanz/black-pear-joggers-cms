@@ -1,7 +1,8 @@
-import { getLayoutBySlug, getAllLayout } from '../core/api';
-import { InferGetStaticPropsType, GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
+import { getAllLayout, getLayoutBySlug } from '../core/api';
+
 import { ILayoutFields } from '../@types/generated/contentful';
-import pageBuilder from '../core/page-builder';
+import pageBuilder from '../core/pageBuilder';
 
 export default function Page(props: InferGetStaticPropsType<typeof getStaticProps>) {
     return pageBuilder(props);

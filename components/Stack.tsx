@@ -1,20 +1,36 @@
 import Container from './Container';
-import LazyLoad from 'react-lazy-load';
 import { PropsWithChildren } from 'react';
-import classNames from 'classnames';
+import { classNames } from '../core/helpers';
+import styled from 'styled-components';
+import styledMap from 'styled-map';
+import tw from 'twin.macro';
+
+interface Props {
+    backgroundColour?: string;
+    backgroundImage?: string;
+    children: any;
+    heading?: string;
+    padding?: string;
+}
+
+const Section = styled.section<PropsWithChildren<Props>>`
+    ${tw`relative`}
+    ${styledMap('backgroundColour', {
+        dark: tw`bg-gray-900 text-white`,
+        bright: tw`bg-primary`,
+        light: tw`bg-gray-100`,
+        default: tw`bg-gray-100`,
+    })}
+    ${styledMap('padding', {
+        larger: tw`py-16 sm:py-32`,
+        sm: tw`py-8`,
+        default: tw`py-12 sm:py-16`,
+    })}
+`;
 
 const Stack = (props: PropsWithChildren<Props>) => (
     <>
-        <section
-            className={classNames(
-                'relative',
-                props.padding === 'larger' && 'py-16 sm:py-32',
-                props.padding === 'sm' && 'py-8',
-                !props.padding && 'py-12 sm:py-16',
-                props.backgroundColour === 'dark' && 'bg-gray-900 text-white',
-                props.backgroundColour === 'bright' && 'bg-primary',
-                props.backgroundColour === 'light' && 'bg-gray-100'
-            )}>
+        <Section backgroundColour={props.backgroundColour} padding={props.padding}>
             {props.backgroundImage && (
                 <div className="absolute z-10 top-0 bottom-0 w-full overflow-hidden pointer-events-none">
                     {/* <LazyLoad> */}
@@ -25,7 +41,7 @@ const Stack = (props: PropsWithChildren<Props>) => (
             <div className="relative z-20">
                 {props.heading && (
                     <Container>
-                        <div className="container mx-auto">
+                        <div className="mx-auto">
                             <h2>{props.heading}</h2>
                         </div>
                     </Container>
@@ -33,7 +49,7 @@ const Stack = (props: PropsWithChildren<Props>) => (
 
                 {props.children}
             </div>
-        </section>
+        </Section>
 
         <style jsx>{`
             .image img {
@@ -42,13 +58,5 @@ const Stack = (props: PropsWithChildren<Props>) => (
         `}</style>
     </>
 );
-
-interface Props {
-    backgroundColour?: string;
-    backgroundImage?: string;
-    children: any;
-    heading?: string;
-    padding?: string;
-}
 
 export default Stack;

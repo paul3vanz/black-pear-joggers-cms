@@ -4,7 +4,7 @@ export function blogPostUrl(blogPost): string {
     const publishDate = moment(blogPost.fields.publishDate);
 
     return [
-        'news',
+        '/news',
         publishDate.format('YYYY'),
         publishDate.format('MM'),
         publishDate.format('DD'),

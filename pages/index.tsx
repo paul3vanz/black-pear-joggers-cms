@@ -1,9 +1,8 @@
-import { getLayoutBySlug, getAllBlogPosts } from '../core/api';
-import { InferGetStaticPropsType, GetStaticProps } from 'next';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { getAllBlogPosts, getLayoutBySlug } from '../core/api';
+
 import { ILayoutFields } from '../@types/generated/contentful';
-import pageBuilder from '../core/page-builder';
-import PostsList from '../components/PostsList';
-import LockUp from '../components/LockUp';
+import pageBuilder from '../core/pageBuilder';
 
 export default function Page(props: InferGetStaticPropsType<typeof getStaticProps>) {
     return <div>{pageBuilder(props)}</div>;

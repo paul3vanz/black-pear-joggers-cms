@@ -1,39 +1,68 @@
 import styled from 'styled-components';
+import styledMap from 'styled-map';
 
 interface Props {
     link: string;
     text: string;
-    style?: string;
+    colour?: string;
     backgroundColour?: string;
     size?: string;
     onClick?: () => void;
 }
 
-const StyledButton = styled.a`
-    --color: ${(props) => (props.style === 'dark' ? '#fff' : '#222')};
-    --active-color: ${(props) => (props.style === 'dark' ? '#222' : '#fff')};
-    --background-color: ${(props) => (props.backgroundColour === 'dark' ? '#222' : 'transparent')};
+const styles = {
+    colour: styledMap('colour', {
+        light: '#fff',
+        default: '#232323',
+    }),
+    activeColour: styledMap('colour', {
+        light: '#232323',
+        default: '#fff',
+    }),
+    backgroundColour: styledMap('colour', {
+        light: '#232323',
+        default: 'transparent',
+    }),
+    padding: styledMap('size', {
+        sm: '0.25rem 0.5rem',
+        default: '0.5rem 1rem',
+    }),
+    fontSize: styledMap('size', {
+        sm: '1.125rem',
+        default: '1.25rem',
+    }),
+};
 
+const StyledButton = styled.a`
     display: inline-block;
     transition: all 0.3s ease;
-    border: 2px solid var(--color);
+    border: 2px solid ${styles.colour};
     border-radius: 3px;
-    color: var(--color);
-    padding: ${(props) => (props.size === 'sm' ? '0.25rem 0.5rem' : '0.5rem 1rem')};
-    font-size: ${(props) => (props.size === 'sm' ? '1.125rem' : '1.25rem')};
-    background-color: var(--background-color);
+    color: ${styles.colour};
+    padding: ${styles.padding};
+    font-size: ${styles.fontSize};
+    background-color: ${styles.backgroundColour};
 
     &:hover,
     &:focus {
-        background-color: var(--color);
-        color: var(--active-color);
+        background-color: ${styles.colour};
+        color: ${styles.activeColour};
     }
 `;
 
-export default function Button(props: Props) {
+export const Button = (props: Props) => {
     return (
         <StyledButton {...props} href={props.link}>
             {props.text}
         </StyledButton>
     );
-}
+};
+
+export const ButtonLightText = styled(Button).attrs((props: Props) => ({
+    colour: 'light',
+}))``;
+
+export const ButtonLightTextDarkBackground = styled(Button).attrs((props: Props) => ({
+    backgroundColour: 'dark',
+    colour: 'light',
+}))``;

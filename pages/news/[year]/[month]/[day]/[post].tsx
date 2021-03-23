@@ -1,16 +1,13 @@
 import { GetStaticPaths, InferGetStaticPropsType } from 'next';
 import { getAllBlogPosts, getAllLayout, getBlogPostBySlug, getLayoutBySlug } from '../../../../../core/api';
 
-import Card from '../../../../../components/Card';
-import Cards from '../../../../../components/Cards';
+import { Card } from '../../../../../components/Card';
+import { Cards } from '../../../../../components/Cards';
 import Container from '../../../../../components/Container';
 import CopyStack from '../../../../../components/CopyStack';
 import Frontmatter from '../../../../../components/Frontmatter';
 import Head from 'next/head';
-import { ICopy } from '../../../../../@types/generated/contentful';
 import Layout from '../../../../../components/Layout';
-import { ParsedUrlQuery } from 'querystring';
-import { ReactNode } from 'react';
 import Stack from '../../../../../components/Stack';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import moment from 'moment-mini';
@@ -40,7 +37,7 @@ export default function Home(props: InferGetStaticPropsType<typeof getStaticProp
                     <div className="post">{documentToReactComponents(props.blogPost.fields.body)}</div>
                 </CopyStack>
 
-                <Stack backgroundColour="light">
+                <Stack backgroundColour="dark">
                     <Container>
                         <h2 className="u-push-bottom-md">Other news</h2>
 
@@ -48,6 +45,7 @@ export default function Home(props: InferGetStaticPropsType<typeof getStaticProp
                             <Cards>
                                 {props.relatedBlogPosts?.map((post) => (
                                     <Card
+                                        key={post.sys.id}
                                         headline={post.fields.title}
                                         imageUrl={post.fields.heroImage?.fields.file.url}
                                         content={wrapParagraph(post.fields.description)}

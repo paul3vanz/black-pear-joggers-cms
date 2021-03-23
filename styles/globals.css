@@ -25,9 +25,3 @@ p {
 a {
     @apply font-bold underline;
 }
-
-/* Rules to tidy and remove */
-
-.fa-w-12 {
-    width: 20px;
-}

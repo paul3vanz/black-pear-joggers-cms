@@ -48,7 +48,7 @@ export default function Frontmatter(props: {
                     </Container>
                 </Stack>
 
-                <img className="hero w-full" src={props.heroImageUrl} alt="" />
+                <img className="w-full h-36 lg:h-52 xl:h-72 object-cover" src={props.heroImageUrl} alt="" />
             </div>
         </>
     );

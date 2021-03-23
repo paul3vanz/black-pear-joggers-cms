@@ -1,9 +1,8 @@
 import Announcement from './Announcement';
 import Footer from './Footer';
 import Head from 'next/head';
-import Header from './Header';
+import { Header } from './Header';
 import LazyLoad from 'react-lazy-load';
-import Navigation from './Navigation';
 
 export default function Layout({ children }) {
     return (

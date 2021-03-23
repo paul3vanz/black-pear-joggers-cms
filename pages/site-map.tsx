@@ -1,10 +1,10 @@
-import { getAllLayout, getAllBlogPosts } from '../core/api';
+import { getAllBlogPosts, getAllLayout } from '../core/api';
+
+import Container from '../components/Container';
 import { InferGetStaticPropsType } from 'next';
 import Layout from '../components/Layout';
-import Stack from '../components/Stack';
-import Container from '../components/Container';
 import Link from 'next/link';
-import moment from 'moment-mini';
+import Stack from '../components/Stack';
 import { blogPostUrl } from '../core/helpers';
 
 export default function SiteMap(props: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -16,7 +16,7 @@ export default function SiteMap(props: InferGetStaticPropsType<typeof getStaticP
 
                     <h2>Pages</h2>
 
-                    <ul>
+                    <ul className="mb-4">
                         {props.pages.map((page) => (
                             <li key={page.sys.id}>
                                 <Link href={page.fields.slug === 'home' ? '/' : page.fields.slug}>
