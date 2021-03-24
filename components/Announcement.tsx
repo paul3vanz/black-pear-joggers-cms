@@ -1,10 +1,10 @@
-import React, { MouseEventHandler } from 'react';
 import { faBullhorn, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 import { Button } from './buttons/Button';
 import Container from './Container';
 import { Dialog } from './Dialog';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
 import Stack from './Stack';
 import moment from 'moment-mini';
 
@@ -45,15 +45,12 @@ export default class Announcement extends React.Component {
     }
 
     render() {
-        // const debug = <pre>{JSON.stringify(this.state)}</pre>;
-
         if (!this.state.show || this.state.dismissed) {
             return null;
         }
 
         return (
             <>
-                {/* <pre>Debug: {debug}</pre> */}
                 <Stack backgroundColour="bright" padding="sm">
                     <Container>
                         <div className="flex flex-wrap justify-between items-center">

@@ -19,7 +19,7 @@ const Section = styled.section<PropsWithChildren<Props>>`
         dark: tw`bg-gray-900 text-white`,
         bright: tw`bg-primary`,
         light: tw`bg-gray-100`,
-        default: tw`bg-gray-100`,
+        default: tw`bg-white`,
     })}
     ${styledMap('padding', {
         larger: tw`py-16 sm:py-32`,
