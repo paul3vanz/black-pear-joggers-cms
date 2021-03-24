@@ -22,7 +22,7 @@ export const navigationLinks: NavigationLinkItem[] = [
         ],
     },
     {
-        link: '#',
+        link: 'https://bpj.org.uk/leagues/',
         text: 'Racing/leagues',
         items: [
             { link: 'https://black-pear-joggers.netlify.com/apps/club-standards/', text: 'Club Standards Awards' },
@@ -45,7 +45,7 @@ export const navigationLinks: NavigationLinkItem[] = [
 
     { link: 'https://bpj.org.uk/news/', text: 'News' },
     {
-        link: '#',
+        link: 'https://bpj.org.uk/contact-the-club/',
         text: 'Contact',
         items: [
             { link: 'https://bpj.org.uk/contact-the-club/', text: 'Contact the Club' },

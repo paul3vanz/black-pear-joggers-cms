@@ -23,13 +23,18 @@ const NavigationItem = (props: { item: NavigationLinkItem }) => {
     const [active, setActive] = useState(false);
 
     return (
-        <li className="relative" onMouseEnter={() => setActive(true)} onMouseLeave={() => setActive(false)}>
+        <li
+            className="relative"
+            onMouseEnter={() => setActive(true)}
+            onMouseLeave={() => setActive(false)}
+            onFocus={() => setActive(true)}
+            onBlur={() => setActive(false)}>
             <NavigationLink link={props.item.link} text={props.item.text} />
 
             {props.item.items && active && (
                 <ul className="bg-gray-900 rounded-md absolute z-30 w-64 top-8 py-2">
                     {props.item.items.map((item) => (
-                        <li>
+                        <li key={item.link}>
                             <SubmenuNavigationLink link={item.link} text={item.text} />
                         </li>
                     ))}
@@ -99,8 +104,8 @@ export const Header = () => (
 
                     <div className="hidden sm:flex sm:ml-6 items-center">
                         <ul className="flex xl:space-x-4">
-                            {navigationLinks.map((item, index) => (
-                                <NavigationItem key={index} item={item}></NavigationItem>
+                            {navigationLinks.map((item) => (
+                                <NavigationItem key={item.link} item={item}></NavigationItem>
                             ))}
                         </ul>
                     </div>

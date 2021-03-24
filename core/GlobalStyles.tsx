@@ -25,7 +25,7 @@ const CustomStyles = createGlobalStyle`
     ${tw`mb-4`}
   }
 
-  a:focus {
+  a:focus, button:focus {
     background-color: #ffbf47;
     outline: 3px solid #ffbf47;
     color: #000;

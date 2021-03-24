@@ -20,11 +20,15 @@ export default function Layout({ children }) {
                 <script src="https://kit.fontawesome.com/97736414dd.js" crossOrigin="anonymous"></script>
             </Head>
 
+            <a href="#content" className="sr-only focus:not-sr-only underline">
+                Skip to content
+            </a>
+
             <Announcement />
 
             <Header></Header>
 
-            <div className="flex-full">
+            <div className="flex-full" id="content">
                 <main>{children}</main>
             </div>
 

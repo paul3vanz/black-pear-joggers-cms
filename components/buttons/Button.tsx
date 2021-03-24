@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import styledMap from 'styled-map';
 
 interface Props {
-    link: string;
+    link?: string;
     text: string;
     colour?: string;
     backgroundColour?: string;
     size?: string;
-    onClick?: () => void;
+    onClick?: (e: React.MouseEvent) => void;
 }
 
 const styles = {
