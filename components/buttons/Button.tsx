@@ -53,13 +53,11 @@ const StyledButton = styled.a`
     }
 `;
 
-export const Button = (props: Props) => {
-    return (
-        <StyledButton {...props} href={props.link}>
-            {props.text}
-        </StyledButton>
-    );
-};
+export const Button = (props: Props) => (
+    <StyledButton {...props} href={props.link}>
+        {props.text}
+    </StyledButton>
+);
 
 export const ButtonLightText = styled(Button).attrs((props: Props) => ({
     colour: 'light',

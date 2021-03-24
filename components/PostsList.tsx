@@ -1,25 +1,29 @@
 import { Button } from './buttons/Button';
+import { Card } from './Card';
+import { Cards } from './Cards';
 import { Entry } from 'contentful';
 import { IBlogPostFields } from '../@types/generated/contentful';
 import Link from 'next/link';
+import { Paragraph } from './Paragraph';
 import { blogPostUrl } from '../core/helpers';
 import moment from 'moment-mini';
 
-export default function PostsList(props: { posts: Entry<IBlogPostFields>[] }) {
-    return (
-        <div className="block">
-            <ul className="mb-4">
-                {props.posts?.map((blogPost) => (
-                    <li key={blogPost.sys.id}>
-                        <Link href={blogPostUrl(blogPost)}>
-                            <a>{blogPost.fields.title}</a>
-                        </Link>{' '}
-                        <span className="text-gray-500">{moment(blogPost.fields.publishDate).fromNow()}</span>
-                    </li>
-                ))}
-            </ul>
+export const PostsList = (props: { posts: Entry<IBlogPostFields>[] }) => (
+    <div className="block">
+        <Cards>
+            {props.posts?.map((post) => (
+                <Card
+                    key={post.sys.id}
+                    headline={post.fields.title}
+                    link={blogPostUrl(post)}
+                    imageUrl={post.fields.heroImage?.fields.file.url}
+                    content={<Paragraph content={moment(post.fields.publishDate).fromNow()} />}
+                />
+            ))}
+        </Cards>
 
+        <div className="flex justify-center mt-8">
             <Button link="/news" text="Read more news" />
         </div>
-    );
-}
+    </div>
+);

@@ -12,7 +12,7 @@ import { Hero } from '../components/Hero';
 import Layout from '../components/Layout';
 import Link from 'next/link';
 import LockUp from '../components/LockUp';
-import PostsList from '../components/PostsList';
+import { PostsList } from '../components/PostsList';
 import Stack from '../components/Stack';
 import classNames from 'classnames';
 import { fileSize } from './helpers';
@@ -112,11 +112,11 @@ function getRichTextOptions(backgroundColour?: string): Options {
                         }
 
                         return (
-                            <div className="o-inline-icon">
-                                <i className={classNames('o-inline-icon__icon fas fa-2x', iconClass)}></i>
-                                <span className="o-inline-icon__text">
+                            <div className="flex items-center mb-4">
+                                <i className={classNames('mr-4 fas fa-2x', iconClass)}></i>
+                                <span className="ml-2">
                                     <Link href={fields.file.url}>
-                                        <a>
+                                        <a className="underline">
                                             {fields.title} ({extension}, {fileSize(fields.file.details.size)})
                                         </a>
                                     </Link>

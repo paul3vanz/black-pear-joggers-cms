@@ -16,7 +16,7 @@ export default function SiteMap(props: InferGetStaticPropsType<typeof getStaticP
 
                     <h2>Pages</h2>
 
-                    <ul className="mb-4">
+                    <ul className="list-disc mb-4 ml-5">
                         {props.pages.map((page) => (
                             <li key={page.sys.id}>
                                 <Link href={page.fields.slug === 'home' ? '/' : page.fields.slug}>
@@ -28,7 +28,7 @@ export default function SiteMap(props: InferGetStaticPropsType<typeof getStaticP
 
                     <h2>News</h2>
 
-                    <ul>
+                    <ul className="list-disc ml-5">
                         {props.blogPosts?.map((blogPost) => (
                             <li key={blogPost.sys.id}>
                                 <Link href={blogPostUrl(blogPost)}>

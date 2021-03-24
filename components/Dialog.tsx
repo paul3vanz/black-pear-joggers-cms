@@ -14,7 +14,9 @@ export const Dialog = (props: PropsWithChildren<Props>) => {
     const modalRef = createRef<HTMLDivElement>();
 
     useEffect(() => {
+        modalRef.current.setAttribute('tabIndex', '-1');
         modalRef.current.focus();
+        modalRef.current.removeAttribute('tabIndex');
 
         const keyListener = (e: KeyboardEvent) => {
             switch (e.key) {

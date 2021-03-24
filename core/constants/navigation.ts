@@ -43,7 +43,7 @@ export const navigationLinks: NavigationLinkItem[] = [
         ],
     },
 
-    { link: 'https://bpj.org.uk/news/', text: 'News' },
+    { link: '/news', text: 'News' },
     {
         link: 'https://bpj.org.uk/contact-the-club/',
         text: 'Contact',

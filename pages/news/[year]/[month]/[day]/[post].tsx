@@ -8,6 +8,7 @@ import CopyStack from '../../../../../components/CopyStack';
 import Frontmatter from '../../../../../components/Frontmatter';
 import Head from 'next/head';
 import Layout from '../../../../../components/Layout';
+import { Paragraph } from '../../../../../components/Paragraph';
 import Stack from '../../../../../components/Stack';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import moment from 'moment-mini';
@@ -39,20 +40,18 @@ export default function Home(props: InferGetStaticPropsType<typeof getStaticProp
 
                 <Stack backgroundColour="dark">
                     <Container>
-                        <h2 className="u-push-bottom-md">Other news</h2>
+                        <h2>Other news</h2>
 
-                        <div className="u-push-bottom-md">
-                            <Cards>
-                                {props.relatedBlogPosts?.map((post) => (
-                                    <Card
-                                        key={post.sys.id}
-                                        headline={post.fields.title}
-                                        imageUrl={post.fields.heroImage?.fields.file.url}
-                                        content={wrapParagraph(post.fields.description)}
-                                        link={blogPostUrl(post)}></Card>
-                                ))}
-                            </Cards>
-                        </div>
+                        <Cards>
+                            {props.relatedBlogPosts?.map((post) => (
+                                <Card
+                                    key={post.sys.id}
+                                    headline={post.fields.title}
+                                    imageUrl={post.fields.heroImage?.fields.file.url}
+                                    content={<Paragraph content={post.fields.description} />}
+                                    link={blogPostUrl(post)}></Card>
+                            ))}
+                        </Cards>
                     </Container>
                 </Stack>
             </Layout>
@@ -100,13 +99,4 @@ function blogPostUrl(blogPost): string {
         publishDate.format('DD'),
         blogPost.fields.slug,
     ].join('/');
-}
-
-function wrapParagraph(html): JSX.Element {
-    return (
-        <p
-            dangerouslySetInnerHTML={{
-                __html: html,
-            }}></p>
-    );
 }

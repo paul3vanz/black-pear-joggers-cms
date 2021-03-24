@@ -23,7 +23,7 @@ const Image = ({ src }) => (
 // const CardCop
 
 export const Card = (props: Props) => (
-    <div className={classNames('flex flex-col p-2 w-full overflow-hidden bg-white rounded-md text-gray-900')}>
+    <div className={classNames('flex flex-col p-2 w-full overflow-hidden bg-white rounded-md text-gray-900 shadow-xl')}>
         {props.imageUrl && (
             <div>
                 {props.link ? (
