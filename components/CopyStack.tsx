@@ -1,7 +1,7 @@
 import Container from './Container';
 import { PropsWithChildren } from 'react';
 import Stack from './Stack';
-// import styles from './CopyStack.module.scss';
+import { classNames } from '../core/helpers';
 
 export default function CopyStack(
     props: PropsWithChildren<{
@@ -15,10 +15,10 @@ export default function CopyStack(
             <Stack backgroundColour={props.backgroundColour}>
                 <Container>
                     <div
-                        className={[
+                        className={classNames(
                             hasTag(props.styleTags, 'alignCenter') && 'u-text-center',
-                            hasTag(props.styleTags, 'listInline') && 'styles.inlineList',
-                        ].join(' ')}>
+                            hasTag(props.styleTags, 'listInline') && 'styles.inlineList'
+                        )}>
                         {props.headline && <h2 className="h2">{props.headline}</h2>}
 
                         {props.children}

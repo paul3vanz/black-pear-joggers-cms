@@ -8,6 +8,7 @@ interface Props {
     backgroundColour?: string;
     size?: string;
     onClick?: (e: React.MouseEvent) => void;
+    as?: React.ElementType;
 }
 
 const styles = {
@@ -34,6 +35,8 @@ const styles = {
 };
 
 const StyledButton = styled.a`
+    font-weight: bold;
+    cursor: pointer;
     display: inline-block;
     transition: all 0.3s ease;
     border: 2px solid ${styles.colour};

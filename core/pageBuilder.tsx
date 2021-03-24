@@ -143,7 +143,13 @@ function renderEmbeddedEntry(node, backgroundColour?: string) {
         case 'embedded-entry-inline':
             switch (node.data.target.sys.contentType.sys.id) {
                 case 'button':
-                    return <Button link={fields.link} text={fields.title} colour={backgroundColour} />;
+                    return (
+                        <Button
+                            link={fields.link}
+                            text={fields.title}
+                            colour={backgroundColour === 'dark' ? 'light' : ''}
+                        />
+                    );
                 case 'list':
                     const listItems = fields.listItem;
 

@@ -66,12 +66,12 @@ export default class Announcement extends React.Component {
                                 </div>
                             </div>
                             <div className="flex justify-between items-center w-full sm:w-auto">
-                                <Button link="#" text="Read more" size="sm" onClick={this.onReadMoreClick}></Button>
+                                <Button as="button" text="Read more" size="sm" onClick={this.onReadMoreClick}></Button>
 
-                                <a className="ml-4" href="#" onClick={() => this.dismiss()}>
+                                <button className="ml-4" onClick={() => this.dismiss()}>
                                     <FontAwesomeIcon icon={faTimesCircle} size="lg" />
                                     <span className="sr-only">Hide announcement</span>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </Container>
