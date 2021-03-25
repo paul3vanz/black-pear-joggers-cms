@@ -57,7 +57,7 @@ export default class Announcement extends React.Component {
                         <Container>
                             <div className="flex flex-wrap justify-between items-center">
                                 <div className="flex items-center mb-4 sm:mb-0">
-                                    <div className="bg-primary-600 p-1 rounded-lg">
+                                    <div className="bg-primary-600 p-1 rounded-lg w-8 h-8 overflow-hidden">
                                         <FontAwesomeIcon icon={faBullhorn} size="lg" />
                                     </div>
 
