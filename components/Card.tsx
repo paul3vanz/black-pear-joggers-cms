@@ -1,5 +1,6 @@
 import { Alignment } from '../models/alignment.model';
 import LazyLoad from 'react-lazy-load';
+import { LazyLoadImage } from './LazyLoadImage';
 import Link from 'next/link';
 import { ReactNode } from 'react';
 import { classNames } from '../core/helpers';
@@ -13,11 +14,9 @@ interface Props {
 }
 
 const Image = ({ src }) => (
-    <div className="h-40 sm:h-52 mb-4 rounded-md bg-gray-100">
-        <LazyLoad offset={100}>
-            <img className="h-40 sm:h-52 w-full rounded-md object-cover object-center" src={src} alt="" />
-        </LazyLoad>
-    </div>
+    <LazyLoadImage className="h-40 sm:h-52 mb-4 rounded-md bg-gray-100">
+        <img className="h-40 sm:h-52 w-full rounded-md object-cover object-center" src={src} alt="" />
+    </LazyLoadImage>
 );
 
 // const CardCop

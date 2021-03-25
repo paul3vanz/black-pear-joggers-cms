@@ -1,4 +1,4 @@
-import { PropsWithChildren, RefObject, createRef, useEffect } from 'react';
+import { PropsWithChildren, createRef, useEffect } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Key } from '../core/enums/keyCodes';

@@ -3,6 +3,7 @@ import Footer from './Footer';
 import Head from 'next/head';
 import { Header } from './Header';
 import LazyLoad from 'react-lazy-load';
+import { LazyLoadImage } from './LazyLoadImage';
 
 export default function Layout({ children }) {
     return (
@@ -32,13 +33,13 @@ export default function Layout({ children }) {
                 <main>{children}</main>
             </div>
 
-            <LazyLoad>
+            <LazyLoadImage>
                 <img
                     src="https://bpj.org.uk/wp-content/uploads/2012/03/montage-2017.jpg"
                     alt=""
                     className="w-full object-cover image"
                 />
-            </LazyLoad>
+            </LazyLoadImage>
 
             <Footer></Footer>
 
