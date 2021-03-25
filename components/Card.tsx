@@ -13,9 +13,9 @@ interface Props {
 }
 
 const Image = ({ src }) => (
-    <div className="h-52 mb-4">
+    <div className="h-40 sm:h-52 mb-4 rounded-md bg-gray-100">
         <LazyLoad offset={100}>
-            <img className="h-52 w-full rounded-md object-cover object-center" src={src} alt="" />
+            <img className="h-40 sm:h-52 w-full rounded-md object-cover object-center" src={src} alt="" />
         </LazyLoad>
     </div>
 );
@@ -41,7 +41,7 @@ export const Card = (props: Props) => (
             {(props.headline || props.content) && (
                 <>
                     {props.headline && (
-                        <h3 className="mb-2 text-2xl underline">
+                        <h3 className="mb-2 text-xl sm:text-2xl underline">
                             <Link href={props.link}>
                                 <a>{props.headline}</a>
                             </Link>
