@@ -11,9 +11,9 @@ export default function LockUp(props: { image: string; content: string | ReactNo
             )}>
             {props.reverse}
 
-            <LazyLoadImage rounded={true} className="flex-1 h-56 xs:h-72 sm:h-96">
+            <LazyLoadImage rounded={true} className="sm:flex-1 h-56 xs:h-72 sm:h-96 mb-4 sm:mb-0 ">
                 <img
-                    className="mb-4 sm:mb-0 w-full h-56 xs:h-72 sm:h-96 object-cover object-center rounded-md"
+                    className="w-full h-56 xs:h-72 sm:h-96 object-cover object-center rounded-md"
                     src={props.image}
                     alt=""
                 />

@@ -33,11 +33,11 @@ export default function Layout({ children }) {
                 <main>{children}</main>
             </div>
 
-            <LazyLoadImage>
+            <LazyLoadImage className="h-48 sm:h-52 md:h-72">
                 <img
                     src="https://bpj.org.uk/wp-content/uploads/2012/03/montage-2017.jpg"
                     alt=""
-                    className="w-full object-cover image"
+                    className="w-full object-cover image h-48 sm:h-52 md:h-72"
                 />
             </LazyLoadImage>
 
