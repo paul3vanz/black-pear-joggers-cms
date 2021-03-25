@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import Stack from './Stack';
 import moment from 'moment-mini';
+import styled from 'styled-components';
 
 interface Props {
     id: string;
@@ -51,31 +52,38 @@ export default class Announcement extends React.Component {
 
         return (
             <>
-                <Stack backgroundColour="bright" padding="sm">
-                    <Container>
-                        <div className="flex flex-wrap justify-between items-center">
-                            <div className="flex items-center mb-4 sm:mb-0">
-                                <div className="bg-primary-600 p-1 rounded-lg">
-                                    <FontAwesomeIcon icon={faBullhorn} size="lg" />
-                                </div>
+                <div className="fixed bottom-0 z-40 w-full">
+                    <Stack backgroundColour="bright" padding="sm">
+                        <Container>
+                            <div className="flex flex-wrap justify-between items-center">
+                                <div className="flex items-center mb-4 sm:mb-0">
+                                    <div className="bg-primary-600 p-1 rounded-lg">
+                                        <FontAwesomeIcon icon={faBullhorn} size="lg" />
+                                    </div>
 
-                                <div className="ml-3 h2 font-bold text-lg" title={JSON.stringify(this.state)}>
-                                    <a href="#" onClick={this.onReadMoreClick} className="underline">
-                                        Groups now available to book
-                                    </a>
+                                    <div className="ml-3 h2 font-bold text-lg" title={JSON.stringify(this.state)}>
+                                        <a href="#" onClick={this.onReadMoreClick} className="underline">
+                                            Groups now available to book
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="flex justify-between items-center w-full sm:w-auto">
+                                    <Button
+                                        as="button"
+                                        text="Read more"
+                                        size="sm"
+                                        fullWidth={true}
+                                        onClick={this.onReadMoreClick}></Button>
+
+                                    <button className="ml-4" onClick={() => this.dismiss()}>
+                                        <FontAwesomeIcon icon={faTimesCircle} size="lg" />
+                                        <span className="sr-only">Hide announcement</span>
+                                    </button>
                                 </div>
                             </div>
-                            <div className="flex justify-between items-center w-full sm:w-auto">
-                                <Button as="button" text="Read more" size="sm" onClick={this.onReadMoreClick}></Button>
-
-                                <button className="ml-4" onClick={() => this.dismiss()}>
-                                    <FontAwesomeIcon icon={faTimesCircle} size="lg" />
-                                    <span className="sr-only">Hide announcement</span>
-                                </button>
-                            </div>
-                        </div>
-                    </Container>
-                </Stack>
+                        </Container>
+                    </Stack>
+                </div>
 
                 {this.state.readMore && (
                     <Dialog title="Groups now available to book" onClose={() => this.setState({ readMore: false })}>

@@ -1,5 +1,4 @@
 import { Alignment } from '../models/alignment.model';
-import LazyLoad from 'react-lazy-load';
 import { LazyLoadImage } from './LazyLoadImage';
 import Link from 'next/link';
 import { ReactNode } from 'react';

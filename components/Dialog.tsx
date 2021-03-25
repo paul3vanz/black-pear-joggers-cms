@@ -71,7 +71,7 @@ export const Dialog = (props: PropsWithChildren<Props>) => {
                         aria-modal="true"
                         aria-labelledby="modal-headline">
                         <div className="m-4 sm:m-8">
-                            <h2 id="modal-headline" className="text-2xl font-bold">
+                            <h2 id="modal-headline" className="text-2xl font-bold mr-6">
                                 {props.title}
                             </h2>
 

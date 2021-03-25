@@ -6,6 +6,7 @@ interface Props {
     text: string;
     colour?: string;
     backgroundColour?: string;
+    fullWidth?: boolean;
     size?: string;
     onClick?: (e: React.MouseEvent) => void;
     as?: React.ElementType;
@@ -45,6 +46,7 @@ const StyledButton = styled.a`
     padding: ${styles.padding};
     font-size: ${styles.fontSize};
     background-color: ${styles.backgroundColour};
+    width: ${(props) => (props.fullWidth ? '100%' : 'auto')};
 
     &:hover,
     &:focus {
