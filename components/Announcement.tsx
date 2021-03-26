@@ -1,13 +1,12 @@
 import { faBullhorn, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 import { Button } from './buttons/Button';
-import Container from './Container';
+import { Container } from './Container';
 import { Dialog } from './Dialog';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import Stack from './Stack';
+import { Stack } from './Stack';
 import moment from 'moment-mini';
-import styled from 'styled-components';
 
 interface Props {
     id: string;
@@ -52,37 +51,39 @@ export default class Announcement extends React.Component {
 
         return (
             <>
-                <div className="fixed bottom-0 z-40 w-full">
-                    <Stack backgroundColour="bright" padding="sm">
-                        <Container>
-                            <div className="flex flex-wrap justify-between items-center">
-                                <div className="flex items-center mb-4 sm:mb-0">
-                                    <div className="bg-primary-600 p-1 rounded-lg w-8 h-8 overflow-hidden">
-                                        <FontAwesomeIcon icon={faBullhorn} size="lg" />
-                                    </div>
+                <div className="fixed bottom-0 right-0 left-0 z-40 p-4 w-full">
+                    <div className="rounded-md overflow-hidden">
+                        <Stack backgroundColour="bright" padding="sm">
+                            <Container>
+                                <div className="flex flex-wrap justify-between items-center">
+                                    <div className="flex items-center mb-4 sm:mb-0">
+                                        <div className="bg-primary-600 p-1 rounded-lg w-8 h-8 overflow-hidden animate-pulse">
+                                            <FontAwesomeIcon icon={faBullhorn} size="lg" />
+                                        </div>
 
-                                    <div className="ml-3 h2 font-bold text-lg" title={JSON.stringify(this.state)}>
-                                        <a href="#" onClick={this.onReadMoreClick} className="underline">
-                                            Groups now available to book
-                                        </a>
+                                        <div className="ml-3 h2 font-bold text-lg" title={JSON.stringify(this.state)}>
+                                            <a href="#" onClick={this.onReadMoreClick} className="underline">
+                                                Groups now available to book
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div className="flex justify-between items-center w-full sm:w-auto">
+                                        <Button
+                                            as="button"
+                                            text="Read more"
+                                            size="sm"
+                                            fullWidth={true}
+                                            onClick={this.onReadMoreClick}></Button>
+
+                                        <button className="ml-4" onClick={() => this.dismiss()}>
+                                            <FontAwesomeIcon icon={faTimesCircle} size="lg" />
+                                            <span className="sr-only">Hide announcement</span>
+                                        </button>
                                     </div>
                                 </div>
-                                <div className="flex justify-between items-center w-full sm:w-auto">
-                                    <Button
-                                        as="button"
-                                        text="Read more"
-                                        size="sm"
-                                        fullWidth={true}
-                                        onClick={this.onReadMoreClick}></Button>
-
-                                    <button className="ml-4" onClick={() => this.dismiss()}>
-                                        <FontAwesomeIcon icon={faTimesCircle} size="lg" />
-                                        <span className="sr-only">Hide announcement</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </Container>
-                    </Stack>
+                            </Container>
+                        </Stack>
+                    </div>
                 </div>
 
                 {this.state.readMore && (

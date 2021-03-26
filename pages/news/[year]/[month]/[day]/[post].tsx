@@ -1,15 +1,15 @@
-import { GetStaticPaths, InferGetStaticPropsType } from 'next';
-import { getAllBlogPosts, getAllLayout, getBlogPostBySlug, getLayoutBySlug } from '../../../../../core/api';
+import { getAllBlogPosts, getBlogPostBySlug } from '../../../../../core/api';
 
 import { Card } from '../../../../../components/Card';
 import { Cards } from '../../../../../components/Cards';
-import Container from '../../../../../components/Container';
-import CopyStack from '../../../../../components/CopyStack';
+import { Container } from '../../../../../components/Container';
+import { CopyStack } from '../../../../../components/CopyStack';
 import Frontmatter from '../../../../../components/Frontmatter';
 import Head from 'next/head';
-import Layout from '../../../../../components/Layout';
+import { InferGetStaticPropsType } from 'next';
+import { Layout } from '../../../../../components/Layout';
 import { Paragraph } from '../../../../../components/Paragraph';
-import Stack from '../../../../../components/Stack';
+import { Stack } from '../../../../../components/Stack';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import moment from 'moment-mini';
 

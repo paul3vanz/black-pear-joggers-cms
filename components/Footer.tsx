@@ -1,43 +1,33 @@
 import Link from 'next/link';
 
-export default function Footer() {
-    return (
-        <footer className="text-center bg-gray-900 text-white py-8">
-            <img
-                src="https://bpj.org.uk/wp-content/themes/BPJ/england-athletics-logo.svg"
-                alt="England Athletics"
-                width="200"
-                height="68"
-                className="mb-8 mx-auto"
-            />
+const FooterLink = ({ link, text }) => (
+    <li>
+        <Link href={link}>
+            <a className="md:mx-3 no-underline">{text}</a>
+        </Link>
+    </li>
+);
 
-            <ul className="flex flex-col space-y-4 md:space-y-0 md:flex-row justify-center">
-                <li>
-                    <Link href="/club-constitution">
-                        <a className="md:mx-3 no-underline">Club constitution</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/health-and-safety-policy-and-risk-assessment">
-                        <a className="md:mx-3 no-underline">Health and safety policy</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/privacy-policy">
-                        <a className="md:mx-3 no-underline">Privacy policy</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/terms-of-use">
-                        <a className="md:mx-3 no-underline">Terms of use</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/site-map">
-                        <a className="md:mx-3 no-underline">Site map</a>
-                    </Link>
-                </li>
-            </ul>
-        </footer>
-    );
-}
+export const Footer = () => (
+    <footer className="text-center bg-gray-900 text-white py-8">
+        <img
+            src="https://bpj.org.uk/wp-content/themes/BPJ/england-athletics-logo.svg"
+            alt="England Athletics"
+            width="200"
+            height="68"
+            className="mb-8 mx-auto"
+        />
+
+        <ul className="flex flex-col space-y-4 md:space-y-0 md:flex-row justify-center">
+            <FooterLink link="club-constitution" text="Club constitution" />
+
+            <FooterLink link="health-and-safety-policy-and-risk-assessment" text="Health and safety policy" />
+
+            <FooterLink link="privacy-policy" text="Privacy policy" />
+
+            <FooterLink link="terms-of-use" text="Terms of use" />
+
+            <FooterLink link="site-map" text="Site map" />
+        </ul>
+    </footer>
+);

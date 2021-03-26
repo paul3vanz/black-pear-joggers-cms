@@ -31,3 +31,7 @@ export function fileSize(bytes: number, decimals = 2): string {
 export function mapClassNames(value: string, map: { [key: string]: string }) {
     return map[value] || map.default || undefined;
 }
+
+export function hasTag(tags: string[], tag: string): boolean {
+    return tags?.some((currentTag) => currentTag === tag);
+}

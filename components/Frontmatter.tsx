@@ -1,6 +1,6 @@
-import Container from './Container';
+import { Container } from './Container';
 import { LazyLoadImage } from './LazyLoadImage';
-import Stack from './Stack';
+import { Stack } from './Stack';
 import moment from 'moment-mini';
 
 export default function Frontmatter(props: {

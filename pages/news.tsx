@@ -1,12 +1,12 @@
 import { Card } from '../components/Card';
 import { Cards } from '../components/Cards';
-import Container from '../components/Container';
+import { Container } from '../components/Container';
 import { InferGetStaticPropsType } from 'next';
-import Layout from '../components/Layout';
+import { Layout } from '../components/Layout';
 import Link from 'next/link';
 import LockUp from '../components/LockUp';
 import { Paragraph } from '../components/Paragraph';
-import Stack from '../components/Stack';
+import { Stack } from '../components/Stack';
 import { blogPostUrl } from '../core/helpers';
 import { getAllBlogPosts } from '../core/api';
 import moment from 'moment-mini';

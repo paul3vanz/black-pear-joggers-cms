@@ -6,14 +6,14 @@ import { Alignment } from '../models/alignment.model';
 import { Button } from '../components/buttons/Button';
 import { Card } from '../components/Card';
 import { Cards } from '../components/Cards';
-import Container from '../components/Container';
+import { Container } from '../components/Container';
 import Head from 'next/head';
 import { Hero } from '../components/Hero';
-import Layout from '../components/Layout';
+import { Layout } from '../components/Layout';
 import Link from 'next/link';
 import LockUp from '../components/LockUp';
 import { PostsList } from '../components/PostsList';
-import Stack from '../components/Stack';
+import { Stack } from '../components/Stack';
 import classNames from 'classnames';
 import { fileSize } from './helpers';
 

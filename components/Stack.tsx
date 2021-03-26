@@ -1,6 +1,6 @@
 import { classNames, mapClassNames } from '../core/helpers';
 
-import Container from './Container';
+import { Container } from './Container';
 import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
@@ -29,7 +29,7 @@ const Section = styled.section.attrs((props: Props) => ({
     ),
 }))``;
 
-const Stack = (props: Props) => (
+export const Stack = (props: Props) => (
     <>
         <Section backgroundColour={props.backgroundColour} padding={props.padding}>
             {props.backgroundImage && (
@@ -59,5 +59,3 @@ const Stack = (props: Props) => (
         `}</style>
     </>
 );
-
-export default Stack;

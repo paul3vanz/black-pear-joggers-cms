@@ -1,10 +1,10 @@
 import { getAllBlogPosts, getAllLayout } from '../core/api';
 
-import Container from '../components/Container';
+import { Container } from '../components/Container';
 import { InferGetStaticPropsType } from 'next';
-import Layout from '../components/Layout';
+import { Layout } from '../components/Layout';
 import Link from 'next/link';
-import Stack from '../components/Stack';
+import { Stack } from '../components/Stack';
 import { blogPostUrl } from '../core/helpers';
 
 export default function SiteMap(props: InferGetStaticPropsType<typeof getStaticProps>) {
