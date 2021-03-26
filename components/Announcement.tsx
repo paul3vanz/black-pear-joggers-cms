@@ -17,11 +17,12 @@ interface Props {
 
 interface State {
     dismissed: boolean;
-    show: boolean;
     readMore: boolean;
 }
 
-export default class Announcement extends React.Component {
+export class Announcement extends React.Component {
+    readonly DISMISSED_STORAGE_KEY = 'bpj.announcement.dismissed';
+
     state: State;
 
     constructor(props: Props) {
@@ -29,7 +30,6 @@ export default class Announcement extends React.Component {
 
         this.state = {
             dismissed: false,
-            show: false,
             readMore: false,
         };
 
@@ -45,46 +45,42 @@ export default class Announcement extends React.Component {
     }
 
     render() {
-        if (!this.state.show || this.state.dismissed) {
-            return null;
+        if (this.state.dismissed) {
+            // return null;
         }
 
         return (
             <>
-                <div className="fixed bottom-0 right-0 left-0 z-40 p-4 w-full">
-                    <div className="rounded-md overflow-hidden">
-                        <Stack backgroundColour="bright" padding="sm">
-                            <Container>
-                                <div className="flex flex-wrap justify-between items-center">
-                                    <div className="flex items-center mb-4 sm:mb-0">
-                                        <div className="bg-primary-600 p-1 rounded-lg w-8 h-8 overflow-hidden animate-pulse">
-                                            <FontAwesomeIcon icon={faBullhorn} size="lg" />
-                                        </div>
-
-                                        <div className="ml-3 h2 font-bold text-lg" title={JSON.stringify(this.state)}>
-                                            <a href="#" onClick={this.onReadMoreClick} className="underline">
-                                                Groups now available to book
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div className="flex justify-between items-center w-full sm:w-auto">
-                                        <Button
-                                            as="button"
-                                            text="Read more"
-                                            size="sm"
-                                            fullWidth={true}
-                                            onClick={this.onReadMoreClick}></Button>
-
-                                        <button className="ml-4" onClick={() => this.dismiss()}>
-                                            <FontAwesomeIcon icon={faTimesCircle} size="lg" />
-                                            <span className="sr-only">Hide announcement</span>
-                                        </button>
-                                    </div>
+                <Stack backgroundColour="bright" padding="sm">
+                    <Container>
+                        <div className="flex flex-wrap justify-between items-center">
+                            <div className="flex items-center mb-4 sm:mb-0">
+                                <div className="bg-primary-600 p-1 rounded-lg w-8 h-8 overflow-hidden animate-pulse">
+                                    <FontAwesomeIcon icon={faBullhorn} size="lg" />
                                 </div>
-                            </Container>
-                        </Stack>
-                    </div>
-                </div>
+
+                                <div className="ml-3 h2 font-bold text-lg" title={JSON.stringify(this.state)}>
+                                    <a href="#" onClick={this.onReadMoreClick} className="underline">
+                                        Groups now available to book
+                                    </a>
+                                </div>
+                            </div>
+                            <div className="flex justify-between items-center w-full sm:w-auto">
+                                <Button
+                                    as="button"
+                                    text="Read more"
+                                    size="sm"
+                                    fullWidth={true}
+                                    onClick={this.onReadMoreClick}></Button>
+
+                                <button className="ml-4" onClick={() => this.dismiss()}>
+                                    <FontAwesomeIcon icon={faTimesCircle} size="lg" />
+                                    <span className="sr-only">Hide announcement</span>
+                                </button>
+                            </div>
+                        </div>
+                    </Container>
+                </Stack>
 
                 {this.state.readMore && (
                     <Dialog title="Groups now available to book" onClose={() => this.setState({ readMore: false })}>
@@ -109,26 +105,26 @@ export default class Announcement extends React.Component {
             dismissed: true,
         });
 
-        localStorage.setItem('bpj.announcement', moment().toISOString());
+        localStorage.setItem(this.DISMISSED_STORAGE_KEY, moment().toISOString());
     }
 
     componentDidMount(): void {
-        this.setState({
-            dismissed: false,
-        });
-
         const lastDismissed = this.getLastDismissed();
 
-        if (!lastDismissed || moment(lastDismissed).isBefore(moment())) {
-            this.setState({
-                show: true,
-            });
-        }
+        // if (lastDismissed && moment(lastDismissed, moment.ISO_8601).isAfter(moment())) {
+        //     console.log('set dismissed');
+
+        //     console.log('props', this.props);
+
+        //     this.setState({
+        //         dismissed: true,
+        //     });
+        // }
     }
 
     getLastDismissed(): string {
         try {
-            return localStorage.getItem('bpj.announcement');
+            return localStorage.getItem(this.DISMISSED_STORAGE_KEY);
         } catch (e) {}
     }
 }

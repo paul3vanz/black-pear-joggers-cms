@@ -19,15 +19,15 @@ export const Footer = () => (
         />
 
         <ul className="flex flex-col space-y-4 md:space-y-0 md:flex-row justify-center">
-            <FooterLink link="club-constitution" text="Club constitution" />
+            <FooterLink link="/club-constitution" text="Club constitution" />
 
-            <FooterLink link="health-and-safety-policy-and-risk-assessment" text="Health and safety policy" />
+            <FooterLink link="/health-and-safety-policy-and-risk-assessment" text="Health and safety policy" />
 
-            <FooterLink link="privacy-policy" text="Privacy policy" />
+            <FooterLink link="/privacy-policy" text="Privacy policy" />
 
-            <FooterLink link="terms-of-use" text="Terms of use" />
+            <FooterLink link="/terms-of-use" text="Terms of use" />
 
-            <FooterLink link="site-map" text="Site map" />
+            <FooterLink link="/site-map" text="Site map" />
         </ul>
     </footer>
 );
