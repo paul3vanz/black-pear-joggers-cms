@@ -10,6 +10,7 @@ import { InferGetStaticPropsType } from 'next';
 import { Layout } from '../../../../../components/Layout';
 import { Paragraph } from '../../../../../components/Paragraph';
 import { Stack } from '../../../../../components/Stack';
+import { blogPostUrl } from '../../../../../core/helpers';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import moment from 'moment-mini';
 
@@ -87,16 +88,4 @@ export async function getStaticProps({ params }) {
     return {
         props: { ...blogPost, relatedBlogPosts: relatedBlogPosts.slice(0, 3) },
     };
-}
-
-function blogPostUrl(blogPost): string {
-    const publishDate = moment(blogPost.fields.publishDate);
-
-    return [
-        '/news',
-        publishDate.format('YYYY'),
-        publishDate.format('MM'),
-        publishDate.format('DD'),
-        blogPost.fields.slug,
-    ].join('/');
 }

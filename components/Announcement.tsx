@@ -1,11 +1,13 @@
 import { faBullhorn, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 import { Button } from './buttons/Button';
+import { ConfigContext } from '../core/providers/Config';
 import { Container } from './Container';
 import { Dialog } from './Dialog';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Stack } from './Stack';
+import { blogPostUrl } from '../core/helpers';
 import moment from 'moment-mini';
 
 interface Props {
@@ -51,51 +53,57 @@ export class Announcement extends React.Component {
 
         return (
             <>
-                <Stack backgroundColour="bright" padding="sm">
-                    <Container>
-                        <div className="flex flex-wrap justify-between items-center">
-                            <div className="flex items-center mb-4 sm:mb-0">
-                                <div className="bg-primary-600 p-1 rounded-lg w-8 h-8 overflow-hidden animate-pulse">
-                                    <FontAwesomeIcon icon={faBullhorn} size="lg" />
-                                </div>
+                <ConfigContext.Consumer>
+                    {({ announcement }) =>
+                        announcement && (
+                            <>
+                                <Stack backgroundColour="bright" padding="sm">
+                                    <Container>
+                                        <div className="flex flex-wrap justify-between items-center">
+                                            <div className="flex items-center mb-4 sm:mb-0">
+                                                <div className="bg-primary-600 p-1 rounded-lg w-8 h-8 overflow-hidden animate-pulse">
+                                                    <FontAwesomeIcon icon={faBullhorn} size="lg" />
+                                                </div>
 
-                                <div className="ml-3 h2 font-bold text-lg" title={JSON.stringify(this.state)}>
-                                    <a href="#" onClick={this.onReadMoreClick} className="underline">
-                                        Groups now available to book
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="flex justify-between items-center w-full sm:w-auto">
-                                <Button
-                                    as="button"
-                                    text="Read more"
-                                    size="sm"
-                                    fullWidth={true}
-                                    onClick={this.onReadMoreClick}></Button>
+                                                <div
+                                                    className="ml-3 h2 font-bold text-lg"
+                                                    title={JSON.stringify(this.state)}>
+                                                    <a href="#" onClick={this.onReadMoreClick} className="underline">
+                                                        {announcement.fields.title}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div className="flex justify-between items-center w-full sm:w-auto">
+                                                <Button
+                                                    as="button"
+                                                    text="Read more"
+                                                    size="sm"
+                                                    fullWidth={true}
+                                                    onClick={this.onReadMoreClick}></Button>
 
-                                <button className="ml-4" onClick={() => this.dismiss()}>
-                                    <FontAwesomeIcon icon={faTimesCircle} size="lg" />
-                                    <span className="sr-only">Hide announcement</span>
-                                </button>
-                            </div>
-                        </div>
-                    </Container>
-                </Stack>
+                                                <button className="ml-4" onClick={() => this.dismiss()}>
+                                                    <FontAwesomeIcon icon={faTimesCircle} size="lg" />
 
-                {this.state.readMore && (
-                    <Dialog title="Groups now available to book" onClose={() => this.setState({ readMore: false })}>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit vestibulum euismod. Sed
-                            eleifend, orci venenatis consectetur facilisis, erat urna scelerisque leo, in cursus orci
-                            diam sit amet leo. Orci varius natoque penatibus et magnis dis parturient montes, nascetur
-                            ridiculus mus. Proin fringilla pellentesque ante, vitae maximus velit posuere in. Mauris ac
-                            velit nunc. Nulla vehicula vel tellus in ultricies. Nam fermentum elementum felis vitae
-                            commodo.
-                        </p>
+                                                    <span className="sr-only">Hide announcement</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </Container>
+                                </Stack>
 
-                        <Button text="Continue reading" link="#"></Button>
-                    </Dialog>
-                )}
+                                {this.state.readMore && (
+                                    <Dialog
+                                        title={announcement.fields.title}
+                                        onClose={() => this.setState({ readMore: false })}>
+                                        <p>{announcement.fields.description}</p>
+
+                                        <Button text="Continue reading" link={blogPostUrl(announcement)}></Button>
+                                    </Dialog>
+                                )}
+                            </>
+                        )
+                    }
+                </ConfigContext.Consumer>
             </>
         );
     }
@@ -109,7 +117,13 @@ export class Announcement extends React.Component {
     }
 
     componentDidMount(): void {
+        // console.log('did mount');
+
         const lastDismissed = this.getLastDismissed();
+
+        // console.log(lastDismissed);
+
+        // console.log(this.props);
 
         // if (lastDismissed && moment(lastDismissed, moment.ISO_8601).isAfter(moment())) {
         //     console.log('set dismissed');

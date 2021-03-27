@@ -1,8 +1,7 @@
-import { PropsWithChildren, createRef, useEffect } from 'react';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Key } from '../core/enums/keyCodes';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { createRef, PropsWithChildren, useEffect } from 'react';
+import { Key } from '../core/enums/keyCodes';
 
 interface Props {
     opener?: any;
