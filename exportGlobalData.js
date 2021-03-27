@@ -34,7 +34,9 @@ async function getAnnouncement() {
 async function exportGlobalDataFromCMS() {
     const announcement = await getAnnouncement();
 
-    fs.writeFile('./public/config.json', JSON.stringify({ announcement }, null, 2), (err) => {
+    const config = JSON.parse(fs.readFileSync('./public/config.json'));
+
+    fs.writeFile('./public/config.json', JSON.stringify({ ...config, announcement }, null, 2), (err) => {
         if (err) throw err;
         console.info('Global data manifest written to file');
     });

@@ -1,5 +1,6 @@
 const { default: axios } = require('axios');
 const moment = require('moment-mini');
+var fs = require('fs');
 
 var monthsToFetch = 1;
 
@@ -26,7 +27,18 @@ async function fetchMonth(month) {
             };
         });
 
-    console.log(parsedSessions);
+    return parsedSessions;
 }
 
-fetchMonth(0);
+async function exportTrainingSessions() {
+    const sessions = await fetchMonth(0);
+
+    const config = JSON.parse(fs.readFileSync('./public/config.json'));
+
+    fs.writeFile('./public/config.json', JSON.stringify({ ...config, sessions }, null, 2), (err) => {
+        if (err) throw err;
+        console.info('Training sessions written to file');
+    });
+}
+
+exportTrainingSessions();
