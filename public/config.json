@@ -18,13 +18,13 @@
   },
   "sessions": [
     {
-      "id": 17876,
-      "training_id": 8627,
-      "title": "8:45 min/mile",
-      "location": "Newton Rd (exact location tbc)",
-      "leader": "Mat Capel",
-      "time": "16:00",
-      "date": "2021-03-04"
+      "id": 17891,
+      "training_id": 8635,
+      "title": "10 min/mile",
+      "location": "Perdiswell ",
+      "leader": "Alison  Law",
+      "time": "18:30",
+      "date": "2021-03-01"
     },
     {
       "id": 17890,
@@ -36,15 +36,6 @@
       "date": "2021-03-02"
     },
     {
-      "id": 17891,
-      "training_id": 8635,
-      "title": "10 min/mile",
-      "location": "Perdiswell ",
-      "leader": "Alison  Law",
-      "time": "18:30",
-      "date": "2021-03-01"
-    },
-    {
       "id": 17897,
       "training_id": 8639,
       "title": "10 min/mile",
@@ -54,13 +45,13 @@
       "date": "2021-03-03"
     },
     {
-      "id": 17937,
-      "training_id": 8658,
-      "title": "Technical Tuesday",
-      "location": "Tesco Warndon (traffic lights by Lyppards shops)",
-      "leader": "Claire Shacklock",
-      "time": "18:00",
-      "date": "2021-03-30"
+      "id": 17876,
+      "training_id": 8627,
+      "title": "8:45 min/mile",
+      "location": "Newton Rd (exact location tbc)",
+      "leader": "Mat Capel",
+      "time": "16:00",
+      "date": "2021-03-04"
     },
     {
       "id": 17942,
@@ -97,24 +88,6 @@
       "leader": "Jo Evans",
       "time": "19:00",
       "date": "2021-03-29"
-    },
-    {
-      "id": 18046,
-      "training_id": 8719,
-      "title": "8:45 min/mile",
-      "location": "Perdiswell Leisure Centre",
-      "leader": "Paul Evans",
-      "time": "19:00",
-      "date": "2021-03-30"
-    },
-    {
-      "id": 18050,
-      "training_id": 8723,
-      "title": "10 min/mile",
-      "location": "The Range, Hylton Road. Worcester. WR2 5JW",
-      "leader": "Martin Jukes",
-      "time": "19:00",
-      "date": "2021-03-30"
     },
     {
       "id": 18055,
@@ -169,6 +142,188 @@
       "leader": "Peter Darwen",
       "time": "18:30",
       "date": "2021-03-29"
+    },
+    {
+      "id": 17937,
+      "training_id": 8658,
+      "title": "Technical Tuesday",
+      "location": "Tesco Warndon (traffic lights by Lyppards shops)",
+      "leader": "Claire Shacklock",
+      "time": "18:00",
+      "date": "2021-03-30"
+    },
+    {
+      "id": 18046,
+      "training_id": 8719,
+      "title": "8:45 min/mile",
+      "location": "Perdiswell Leisure Centre",
+      "leader": "Paul Evans",
+      "time": "19:00",
+      "date": "2021-03-30"
+    },
+    {
+      "id": 18050,
+      "training_id": 8723,
+      "title": "10 min/mile",
+      "location": "The Range, Hylton Road. Worcester. WR2 5JW",
+      "leader": "Martin Jukes",
+      "time": "19:00",
+      "date": "2021-03-30"
+    }
+  ],
+  "sortedSessions": [
+    {
+      "id": 17891,
+      "training_id": 8635,
+      "title": "10 min/mile",
+      "location": "Perdiswell ",
+      "leader": "Alison  Law",
+      "time": "18:30",
+      "date": "2021-03-01"
+    },
+    {
+      "id": 17890,
+      "training_id": 8634,
+      "title": "10 min/mile",
+      "location": "The Range Car Park, Hylton Road. WR2 5JW",
+      "leader": "Andy Southall",
+      "time": "19:00",
+      "date": "2021-03-02"
+    },
+    {
+      "id": 17897,
+      "training_id": 8639,
+      "title": "10 min/mile",
+      "location": "Perdiswell ",
+      "leader": "Alison  Law",
+      "time": "19:00",
+      "date": "2021-03-03"
+    },
+    {
+      "id": 17876,
+      "training_id": 8627,
+      "title": "8:45 min/mile",
+      "location": "Newton Rd (exact location tbc)",
+      "leader": "Mat Capel",
+      "time": "16:00",
+      "date": "2021-03-04"
+    },
+    {
+      "id": 17942,
+      "training_id": 8663,
+      "title": "9:30 min/mile",
+      "location": "Perdiswell sports center ",
+      "leader": "David Shacklock",
+      "time": "08:00",
+      "date": "2021-03-14"
+    },
+    {
+      "id": 17943,
+      "training_id": 8664,
+      "title": "10 min/mile",
+      "location": "Northwick Lodge, Northwick Road",
+      "leader": "Steve Jones",
+      "time": "18:00",
+      "date": "2021-03-29"
+    },
+    {
+      "id": 18029,
+      "training_id": 8706,
+      "title": "9:15 min/mile",
+      "location": "Perdiswell Leisure Centre",
+      "leader": "Stuart Munday",
+      "time": "18:00",
+      "date": "2021-03-29"
+    },
+    {
+      "id": 18045,
+      "training_id": 8718,
+      "title": "11:30 min/mile",
+      "location": "Perdiswell Leisure Centre",
+      "leader": "Jo Evans",
+      "time": "19:00",
+      "date": "2021-03-29"
+    },
+    {
+      "id": 18055,
+      "training_id": 8728,
+      "title": "9:30 min/mile",
+      "location": "Countryside Centre",
+      "leader": "Ann Hewlett",
+      "time": "18:00",
+      "date": "2021-03-29"
+    },
+    {
+      "id": 18056,
+      "training_id": 8729,
+      "title": "11 min/mile",
+      "location": "Perdiswell Leisure centre ",
+      "leader": "Ian Hornabrook",
+      "time": "19:00",
+      "date": "2021-03-29"
+    },
+    {
+      "id": 18112,
+      "training_id": 8767,
+      "title": "Jog Walk",
+      "location": "King George V Playing Field, Brickfields Road",
+      "leader": "Darren Fletcher ",
+      "time": "18:30",
+      "date": "2021-03-29"
+    },
+    {
+      "id": 18114,
+      "training_id": 8769,
+      "title": "Couch to 5K",
+      "location": "Perdiswell Leisure Centre",
+      "leader": "Rachel Hornabrook",
+      "time": "19:00",
+      "date": "2021-03-29"
+    },
+    {
+      "id": 18115,
+      "training_id": 8664,
+      "title": "9:30 min/mile",
+      "location": "Perdiswell",
+      "leader": "Helen Burton",
+      "time": "18:00",
+      "date": "2021-03-29"
+    },
+    {
+      "id": 18147,
+      "training_id": 8767,
+      "title": "8 min/mile",
+      "location": "The Range",
+      "leader": "Peter Darwen",
+      "time": "18:30",
+      "date": "2021-03-29"
+    },
+    {
+      "id": 17937,
+      "training_id": 8658,
+      "title": "Technical Tuesday",
+      "location": "Tesco Warndon (traffic lights by Lyppards shops)",
+      "leader": "Claire Shacklock",
+      "time": "18:00",
+      "date": "2021-03-30"
+    },
+    {
+      "id": 18046,
+      "training_id": 8719,
+      "title": "8:45 min/mile",
+      "location": "Perdiswell Leisure Centre",
+      "leader": "Paul Evans",
+      "time": "19:00",
+      "date": "2021-03-30"
+    },
+    {
+      "id": 18050,
+      "training_id": 8723,
+      "title": "10 min/mile",
+      "location": "The Range, Hylton Road. Worcester. WR2 5JW",
+      "leader": "Martin Jukes",
+      "time": "19:00",
+      "date": "2021-03-30"
     }
   ]
 }

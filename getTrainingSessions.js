@@ -13,9 +13,6 @@ async function fetchMonth(month) {
 
     var { sessions, dates } = data.training;
 
-    console.log(dates);
-    console.log(sessions);
-
     var parsedSessions = data.training.groups
         .filter((group) => group.location.indexOf('CANCELLED') === -1)
         .map((group) => {
@@ -35,10 +32,20 @@ async function exportTrainingSessions() {
 
     const config = JSON.parse(fs.readFileSync('./public/config.json'));
 
-    fs.writeFile('./public/config.json', JSON.stringify({ ...config, sessions }, null, 2), (err) => {
+    const sortedSessions = sortByDate(sessions);
+
+    fs.writeFile('./public/config.json', JSON.stringify({ ...config, sessions: sortedSessions }, null, 2), (err) => {
         if (err) throw err;
         console.info('Training sessions written to file');
     });
 }
 
+function sortByDate(sessions) {
+    return sessions.sort((a, b) => a.date.localeCompare(b.date));
+}
+
 exportTrainingSessions();
+
+// exports.handler = async function (event, context) {
+//     return { statusCode: 200, body: exportTrainingSessions() };
+// };

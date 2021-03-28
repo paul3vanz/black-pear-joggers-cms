@@ -35,3 +35,22 @@ export function mapClassNames(value: string, map: { [key: string]: string }) {
 export function hasTag(tags: string[], tag: string): boolean {
     return tags?.some((currentTag) => currentTag === tag);
 }
+
+export function friendlyTime(time: string) {
+    const timeAsMoment = moment(time, 'HH:mm');
+
+    return timeAsMoment.minutes() ? timeAsMoment.format('h:mma') : timeAsMoment.format('ha');
+}
+
+export function friendlyDate(dateString: string) {
+    const today = moment().startOf('day').format('YYYY-MM-DD');
+    const tomorrow = moment().add(1, 'days').format('YYYY-MM-DD');
+
+    if (dateString === today) {
+        return 'Today';
+    } else if (dateString === tomorrow) {
+        return 'Tomorrow';
+    } else {
+        return moment(dateString, 'YYYY-MM-DD').format('dddd, Do MMMM');
+    }
+}
