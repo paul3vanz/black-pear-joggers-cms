@@ -2,7 +2,7 @@ import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { ICards, ICopy, IHero, ILockUp, IPostsList } from '../@types/generated/contentful';
 import { Options, documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-import { Alignment } from '../models/alignment.model';
+import { Alignment } from './models/alignment.model';
 import { Button } from '../components/buttons/Button';
 import { Card } from '../components/Card';
 import { Cards } from '../components/Cards';

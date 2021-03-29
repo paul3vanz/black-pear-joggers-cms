@@ -1,4 +1,3 @@
-import { Announcement } from './Announcement';
 import { Favicon } from './Favicon';
 import { Footer } from './Footer';
 import Head from 'next/head';
@@ -27,7 +26,7 @@ export const Layout = (props: PropsWithChildren<{}>) => (
 
         <Header></Header>
 
-        <Announcement />
+        {/* <Announcement /> */}
 
         <div className="flex-full" id="content">
             <main>{props.children}</main>

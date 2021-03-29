@@ -2,33 +2,47 @@ const { default: axios } = require('axios');
 const moment = require('moment-mini');
 var fs = require('fs');
 
-var monthsToFetch = 1;
+var monthsToFetch = 2;
 
 async function fetchMonth(month) {
     var html = await axios
-        .get('https://app.connectmyclub.co.uk/clubs/training/ac9-5f817f76/0')
+        .get(`https://app.connectmyclub.co.uk/clubs/training/ac9-5f817f76/${month}`)
         .then((response) => response.data);
 
     var data = JSON.parse(html.match(/<script>\s*var page\s*=(.+)(?=;)/s)[1]);
 
     var { sessions, dates } = data.training;
 
-    var parsedSessions = data.training.groups
-        .filter((group) => group.location.indexOf('CANCELLED') === -1)
-        .map((group) => {
-            return {
-                ...group,
-                date: moment(dates.first_day)
-                    .add(Number(sessions.find((session) => session.id === group.training_id).date) - 1, 'day')
-                    .format('YYYY-MM-DD'),
-            };
-        });
+    // console.log(data);
+
+    var parsedSessions = Object.keys(sessions)
+        .reduce((accumulator, currentValue, index, array) => {
+            return [
+                ...accumulator,
+                ...Object.keys(data.training.sessions[currentValue].groups).map((group) => ({
+                    ...data.training.sessions[currentValue].groups[group],
+                    date: moment(dates.first_day)
+                        .add(Number(data.training.sessions[currentValue].date) - 1, 'day')
+                        .format('YYYY-MM-DD'),
+                    time: data.training.sessions[currentValue].time,
+                    id: undefined,
+                    training_id: undefined,
+                })),
+            ];
+        }, [])
+        .filter((group) => group.leader && group.location.indexOf('CANCELLED') === -1);
 
     return parsedSessions;
 }
 
 async function exportTrainingSessions() {
-    const sessions = await fetchMonth(0);
+    let sessions = [];
+
+    for (let i = 0; i < monthsToFetch; i++) {
+        const currentMonthSessions = await fetchMonth(i);
+
+        sessions = [...sessions, ...currentMonthSessions];
+    }
 
     const config = JSON.parse(fs.readFileSync('./public/config.json'));
 
