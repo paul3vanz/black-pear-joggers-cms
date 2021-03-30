@@ -1,14 +1,16 @@
 import React, { useContext } from 'react';
 import { classNames, friendlyDate, friendlyTime } from '../core/helpers';
 
-import { ConfigContext } from '../core/providers/Config';
 import { Container } from './Container';
 import { Group } from '../core/models/group.model';
 import { Stack } from './Stack';
+import { TrainingContext } from '../core/providers/Training';
 import moment from 'moment-mini';
 
 export const SessionsList = () => {
-    const sessions: Group[] = useContext(ConfigContext).sessions;
+    console.log(TrainingContext);
+
+    const sessions: Group[] = useContext(TrainingContext);
 
     let upcomingSortedGroups;
     let dates;
@@ -21,6 +23,8 @@ export const SessionsList = () => {
         console.log(upcomingSortedGroups);
 
         dates = Array.from(new Set(upcomingSortedGroups.map((session) => session.date)));
+    } else {
+        console.log('no sessions');
     }
 
     return (

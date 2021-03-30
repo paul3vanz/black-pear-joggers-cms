@@ -13,8 +13,6 @@ async function fetchMonth(month) {
 
     var { sessions, dates } = data.training;
 
-    // console.log(data);
-
     var parsedSessions = Object.keys(sessions)
         .reduce((accumulator, currentValue, index, array) => {
             return [

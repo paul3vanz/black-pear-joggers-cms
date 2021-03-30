@@ -24,11 +24,7 @@ export const ConfigProvider = (props: PropsWithChildren<{}>) => {
         };
 
         fetchConfig();
-
-        console.log('effect');
     }, []);
 
     return <ConfigContext.Provider value={config}>{props.children}</ConfigContext.Provider>;
 };
-
-// const fetchConfig = { announcement: { title: 'from fetchConfig' } };
