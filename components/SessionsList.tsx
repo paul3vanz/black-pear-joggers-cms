@@ -15,7 +15,7 @@ export const SessionsList = () => {
     let upcomingSortedGroups;
     let dates;
 
-    if (sessions) {
+    if (sessions && sessions.length) {
         upcomingSortedGroups = sessions.filter((session) =>
             moment(session.date, 'YYYY-MM-DD').startOf('day').isSameOrAfter(moment().startOf('day'))
         );
@@ -23,8 +23,6 @@ export const SessionsList = () => {
         console.log(upcomingSortedGroups);
 
         dates = Array.from(new Set(upcomingSortedGroups.map((session) => session.date)));
-    } else {
-        console.log('no sessions');
     }
 
     return (
