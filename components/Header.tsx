@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 const NavigationLink = (props: { link: string; text: string }) => (
     <a
-        className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-bold no-underline"
+        className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-sm font-bold no-underline"
         href={props.link}>
         {props.text}
     </a>
@@ -32,7 +32,7 @@ const NavigationItem = (props: { item: NavigationLinkItem }) => {
             <NavigationLink link={props.item.link} text={props.item.text} />
 
             {props.item.items && active && (
-                <ul className="bg-gray-900 rounded-md absolute z-30 w-64 top-8 py-2">
+                <ul className="bg-gray-900 rounded-sm absolute z-30 w-64 top-8 py-2">
                     {props.item.items.map((item) => (
                         <li key={item.link}>
                             <SubmenuNavigationLink link={item.link} text={item.text} />
@@ -51,7 +51,7 @@ export const Header = () => (
                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                     <button
                         type="button"
-                        className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white transition-all hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        className="inline-flex items-center justify-center p-2 rounded-sm text-gray-400 hover:text-white transition-all hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                         aria-controls="mobile-menu"
                         aria-expanded="false">
                         <span className="sr-only">Open main menu</span>
@@ -115,22 +115,22 @@ export const Header = () => (
 
         <div className="hidden sm:hidden" id="mobile-menu">
             <div className="px-2 pt-2 pb-3 space-y-1">
-                <a href="#" className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">
+                <a href="#" className="bg-gray-900 text-white block px-3 py-2 rounded-sm text-base font-medium">
                     Dashboard
                 </a>
                 <a
                     href="#"
-                    className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                    className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-sm text-base font-medium">
                     Team
                 </a>
                 <a
                     href="#"
-                    className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                    className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-sm text-base font-medium">
                     Projects
                 </a>
                 <a
                     href="#"
-                    className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                    className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-sm text-base font-medium">
                     Calendar
                 </a>
             </div>

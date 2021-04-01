@@ -3,7 +3,7 @@ import { getAllBlogPosts, getBlogPostBySlug } from '../../../../../core/api';
 import { Card } from '../../../../../components/Card';
 import { Cards } from '../../../../../components/Cards';
 import { Container } from '../../../../../components/Container';
-import { CopyStack } from '../../../../../components/CopyStack';
+import { Copy } from '../../../../../components/Copy';
 import Frontmatter from '../../../../../components/Frontmatter';
 import Head from 'next/head';
 import { InferGetStaticPropsType } from 'next';
@@ -35,9 +35,13 @@ export default function Home(props: InferGetStaticPropsType<typeof getStaticProp
                     }}
                 />
 
-                <CopyStack>
-                    <div className="post">{documentToReactComponents(props.blogPost.fields.body)}</div>
-                </CopyStack>
+                <Stack>
+                    <Container>
+                        <Copy>
+                            <div className="post">{documentToReactComponents(props.blogPost.fields.body)}</div>
+                        </Copy>
+                    </Container>
+                </Stack>
 
                 <Stack backgroundColour="dark">
                     <Container>

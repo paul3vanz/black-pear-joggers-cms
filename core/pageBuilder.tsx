@@ -7,6 +7,7 @@ import { Button } from '../components/buttons/Button';
 import { Card } from '../components/Card';
 import { Cards } from '../components/Cards';
 import { Container } from '../components/Container';
+import { Copy } from '../components/Copy';
 import Head from 'next/head';
 import { Hero } from '../components/Hero';
 import { Layout } from '../components/Layout';
@@ -176,9 +177,11 @@ function renderEmbeddedEntry(node, backgroundColour?: string) {
 
 function renderCopy(copy: ICopy, alignment?: string, backgroundColour?: string) {
     return (
-        <div className={classNames(alignment && `u-text-${alignment}`)}>
-            {documentToReactComponents(copy.fields.copy, getRichTextOptions(backgroundColour))}
-        </div>
+        <Copy>
+            <div className={classNames(alignment && `u-text-${alignment}`)}>
+                {documentToReactComponents(copy.fields.copy, getRichTextOptions(backgroundColour))}
+            </div>
+        </Copy>
     );
 }
 

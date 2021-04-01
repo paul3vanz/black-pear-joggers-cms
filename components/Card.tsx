@@ -13,15 +13,13 @@ interface Props {
 }
 
 const Image = ({ src }) => (
-    <LazyLoadImage className="h-40 sm:h-52 mb-4 rounded-md bg-gray-100">
-        <img className="h-40 sm:h-52 w-full rounded-md object-cover object-center" src={src} alt="" />
+    <LazyLoadImage className="h-40 sm:h-52 mb-4 rounded-sm bg-gray-100">
+        <img className="h-40 sm:h-52 w-full rounded-sm object-cover object-center" src={src} alt="" />
     </LazyLoadImage>
 );
 
-// const CardCop
-
 export const Card = (props: Props) => (
-    <div className={classNames('flex flex-col p-2 w-full overflow-hidden bg-white rounded-md text-gray-900 shadow-xl')}>
+    <div className={classNames('flex flex-col p-2 w-full overflow-hidden bg-white rounded-sm text-gray-900 shadow-xl')}>
         {props.imageUrl && (
             <div>
                 {props.link ? (
@@ -39,7 +37,7 @@ export const Card = (props: Props) => (
             {(props.headline || props.content) && (
                 <>
                     {props.headline && (
-                        <h3 className="mb-2 text-xl sm:text-2xl underline">
+                        <h3 className="mb-2 text-lg sm:text-xl underline">
                             <Link href={props.link}>
                                 <a>{props.headline}</a>
                             </Link>

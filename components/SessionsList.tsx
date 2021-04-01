@@ -29,10 +29,20 @@ export const SessionsList = () => {
         <>
             {upcomingSortedGroups && (
                 <>
-                    <Stack backgroundColour="light">
+                    <Stack>
                         <Container>
                             <h1>Upcoming training sessions</h1>
 
+                            <p>
+                                To book on to a group, please use the{' '}
+                                <a href="https://bpj.org.uk/2021/03/groups-now-available-to-book/">My Running Club</a>{' '}
+                                app.
+                            </p>
+                        </Container>
+                    </Stack>
+
+                    <Stack backgroundColour="light">
+                        <Container>
                             {dates.map((date) => (
                                 <div key={date}>
                                     <h2>{friendlyDate(date)}</h2>
@@ -70,7 +80,7 @@ const GroupAvailability = (props: { group: Group }) => {
     const backgroundClass = isFull ? 'bg-red-600' : 'bg-green-600';
 
     return (
-        <span className={classNames('rounded-md text-white font-bold text-sm px-2', backgroundClass)}>
+        <span className={classNames('rounded-sm text-white font-bold text-sm px-2', backgroundClass)}>
             {isFull ? 'Full' : 'Spaces'}
         </span>
     );

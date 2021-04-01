@@ -3,7 +3,6 @@ import { Card } from './Card';
 import { Cards } from './Cards';
 import { Entry } from 'contentful';
 import { IBlogPostFields } from '../@types/generated/contentful';
-import Link from 'next/link';
 import { Paragraph } from './Paragraph';
 import { blogPostUrl } from '../core/helpers';
 import moment from 'moment-mini';
@@ -22,7 +21,7 @@ export const PostsList = (props: { posts: Entry<IBlogPostFields>[] }) => (
             ))}
         </Cards>
 
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-center mt-16">
             <Button link="/news" text="Read more news" />
         </div>
     </div>

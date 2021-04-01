@@ -47,7 +47,6 @@ export const Stack = (props: Props) => (
                         </div>
                     </Container>
                 )}
-
                 {props.children}
             </div>
         </Section>
