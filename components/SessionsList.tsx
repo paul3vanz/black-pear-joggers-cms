@@ -3,6 +3,7 @@ import { classNames, friendlyDate, friendlyTime } from '../core/helpers';
 
 import { Container } from './Container';
 import { Group } from '../core/models/group.model';
+import { Shimmer } from './Shimmer';
 import { Stack } from './Stack';
 import { TrainingContext } from '../core/providers/Training';
 import moment from 'moment-mini';
@@ -20,29 +21,26 @@ export const SessionsList = () => {
             moment(session.date, 'YYYY-MM-DD').startOf('day').isSameOrAfter(moment().startOf('day'))
         );
 
-        console.log(upcomingSortedGroups);
-
         dates = Array.from(new Set(upcomingSortedGroups.map((session) => session.date)));
     }
 
     return (
         <>
-            {upcomingSortedGroups && (
-                <>
-                    <Stack>
-                        <Container>
-                            <h1>Upcoming training sessions</h1>
+            <Stack>
+                <Container>
+                    <h1>Upcoming training sessions</h1>
 
-                            <p>
-                                To book on to a group, please use the{' '}
-                                <a href="https://bpj.org.uk/2021/03/groups-now-available-to-book/">My Running Club</a>{' '}
-                                app.
-                            </p>
-                        </Container>
-                    </Stack>
+                    <p>
+                        To book on to a group, please use the{' '}
+                        <a href="https://bpj.org.uk/2021/03/groups-now-available-to-book/">My Running Club</a> app.
+                    </p>
+                </Container>
+            </Stack>
 
-                    <Stack backgroundColour="light">
-                        <Container>
+            <Stack backgroundColour="light">
+                <Container>
+                    {upcomingSortedGroups ? (
+                        <>
                             {dates.map((date) => (
                                 <div key={date}>
                                     <h2>{friendlyDate(date)}</h2>
@@ -51,8 +49,6 @@ export const SessionsList = () => {
                                         {upcomingSortedGroups
                                             .filter((group) => group.date === date)
                                             .sort((a, b) => {
-                                                console.log(a.time, b.time);
-
                                                 return `${a.time}`.localeCompare(b.time) === -1 ? -1 : 0;
                                             })
                                             .map((group) => (
@@ -66,10 +62,38 @@ export const SessionsList = () => {
                                     </ul>
                                 </div>
                             ))}
-                        </Container>
-                    </Stack>
-                </>
-            )}
+                        </>
+                    ) : (
+                        <>
+                            <h2>
+                                <Shimmer width="150" />
+                            </h2>
+
+                            <ul>
+                                <li className="list-disc ml-5 mb-4">
+                                    <Shimmer width="400" />
+                                </li>
+                            </ul>
+
+                            <h2>
+                                <Shimmer width="150" />
+                            </h2>
+
+                            <ul>
+                                <li className="list-disc ml-5 mb-4">
+                                    <Shimmer width="400" />
+                                </li>
+                                <li className="list-disc ml-5 mb-4">
+                                    <Shimmer width="400" />
+                                </li>
+                                <li className="list-disc ml-5 mb-4">
+                                    <Shimmer width="400" />
+                                </li>
+                            </ul>
+                        </>
+                    )}
+                </Container>
+            </Stack>
         </>
     );
 };
