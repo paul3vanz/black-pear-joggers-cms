@@ -99,17 +99,16 @@ export const SessionsList = () => {
 };
 
 const GroupAvailability = (props: { group: Group }) => {
-    const isFull = !placesRemaining(props.group);
+    const placesRemaining = props.group.places - props.group.attending;
+    let backgroundClass = 'bg-green-600';
+    let label = `${placesRemaining} space${placesRemaining > 1 ? 's' : ''}`;
 
-    const backgroundClass = isFull ? 'bg-red-600' : 'bg-green-600';
+    if (placesRemaining <= 0) {
+        backgroundClass = 'bg-red-600';
+        label = 'Full';
+    } else if (placesRemaining <= 2) {
+        backgroundClass = 'bg-yellow-600';
+    }
 
-    return (
-        <span className={classNames('rounded-sm text-white font-bold text-sm px-2', backgroundClass)}>
-            {isFull ? 'Full' : 'Spaces'}
-        </span>
-    );
+    return <span className={classNames('rounded-sm text-white font-bold text-sm px-2', backgroundClass)}>{label}</span>;
 };
-
-function placesRemaining(group: Group): boolean {
-    return group.places - group.attending > 0;
-}
