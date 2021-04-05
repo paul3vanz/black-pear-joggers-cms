@@ -1,4 +1,5 @@
 module.exports = {
+    basePath: 'https://cms.bpj.org.uk',
     images: {
         domains: ['bpj.org.uk'],
     },
