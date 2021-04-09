@@ -3,7 +3,7 @@ import Link from 'next/link';
 const FooterLink = ({ link, text }) => (
     <li>
         <Link href={link}>
-            <a className="md:mx-3 no-underline">{text}</a>
+            <a className="md:mx-3 no-underline hover:underline">{text}</a>
         </Link>
     </li>
 );

@@ -1,7 +1,7 @@
 import { NavigationLinkItem, navigationLinks } from '../core/constants/navigation';
+import { useEffect, useState } from 'react';
 
 import Link from 'next/link';
-import { useState } from 'react';
 
 const NavigationLink = (props: { link: string; text: string }) => (
     <a
@@ -22,19 +22,30 @@ const SubmenuNavigationLink = (props: { link: string; text: string }) => (
 const NavigationItem = (props: { item: NavigationLinkItem }) => {
     const [active, setActive] = useState(false);
 
+    const handleClick = (e: MouseEvent) => {
+        setActive(false);
+    };
+
+    useEffect(() => {
+        if (!active) {
+            return;
+        }
+
+        document.addEventListener('click', handleClick);
+
+        return () => {
+            document.removeEventListener('click', handleClick);
+        };
+    }, [handleClick, active]);
+
     return (
-        <li
-            className="relative"
-            onMouseEnter={() => setActive(true)}
-            onMouseLeave={() => setActive(false)}
-            onFocus={() => setActive(true)}
-            onBlur={() => setActive(false)}>
+        <li className="relative" onClick={() => setActive(!active)}>
             <NavigationLink link={props.item.link} text={props.item.text} />
 
             {props.item.items && active && (
                 <ul className="bg-gray-900 rounded-sm absolute z-30 w-64 top-8 py-2">
-                    {props.item.items.map((item) => (
-                        <li key={item.link}>
+                    {props.item.items.map((item, index) => (
+                        <li key={index}>
                             <SubmenuNavigationLink link={item.link} text={item.text} />
                         </li>
                     ))}
@@ -104,8 +115,8 @@ export const Header = () => (
 
                     <div className="hidden sm:flex sm:ml-6 items-center">
                         <ul className="flex xl:space-x-4">
-                            {navigationLinks.map((item) => (
-                                <NavigationItem key={item.link} item={item}></NavigationItem>
+                            {navigationLinks.map((item, index) => (
+                                <NavigationItem key={index} item={item}></NavigationItem>
                             ))}
                         </ul>
                     </div>
