@@ -24,7 +24,7 @@ export const Card = (props: Props) => (
             <div>
                 {props.link ? (
                     <Link href={props.link}>
-                        <a aria-label={props.headline}>
+                        <a aria-label={props.headline} tabIndex={-1}>
                             <Image src={props.imageUrl} />
                         </a>
                     </Link>
