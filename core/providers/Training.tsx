@@ -7,12 +7,7 @@ export const TrainingProvider = (props: PropsWithChildren<{}>) => {
 
     useEffect(() => {
         const fetchTraining = async () => {
-            const training = await fetch('https://training.bpj.workers.dev', {
-                headers: {
-                    'Content-Type': 'application/json',
-                    Accept: 'application/json',
-                },
-            }).then((response) => response.json());
+            const training = await fetch('https://training.bpj.workers.dev').then((response) => response.json());
 
             setTraining(training);
         };
