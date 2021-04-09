@@ -220,6 +220,34 @@ export interface IHero extends Entry<IHeroFields> {
     };
 }
 
+export interface IImageFields {
+    /** large */
+    large?: string | undefined;
+
+    /** medium */
+    medium?: string | undefined;
+
+    /** small */
+    small?: string | undefined;
+}
+
+export interface IImage extends Entry<IImageFields> {
+    sys: {
+        id: string;
+        type: string;
+        createdAt: string;
+        updatedAt: string;
+        locale: string;
+        contentType: {
+            sys: {
+                id: 'image';
+                linkType: 'ContentType';
+                type: 'Link';
+            };
+        };
+    };
+}
+
 export interface ILayoutFields {
     /** Title */
     title: string;
@@ -350,6 +378,9 @@ export interface ILockUpFields {
 
     /** Image External */
     imageExternal?: string | undefined;
+
+    /** Image External */
+    imageExternalResponsive?: IImage | undefined;
 
     /** Content */
     content?: Document | undefined;
@@ -503,6 +534,7 @@ export type CONTENT_TYPE =
     | 'cards'
     | 'copy'
     | 'hero'
+    | 'image'
     | 'layout'
     | 'layoutHeroImage'
     | 'layoutStackCards'

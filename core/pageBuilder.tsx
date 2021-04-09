@@ -218,11 +218,18 @@ function renderPostsList(postsList: IPostsList, posts) {
 }
 
 function renderLockUp(lockUp: ILockUp, backgroundColour?: string) {
+    const imageResponsive = lockUp.fields.imageExternalResponsive
+        ? {
+              ...lockUp.fields.imageExternalResponsive.fields,
+          }
+        : null;
+
     return (
         <LockUp
             content={documentToReactComponents(lockUp.fields.content, getRichTextOptions(backgroundColour))}
             reverse={lockUp.fields.reverse}
             image={lockUp.fields.image ? lockUp.fields.image.fields.file.url : lockUp.fields.imageExternal}
+            imageResponsive={imageResponsive}
         />
     );
 }
