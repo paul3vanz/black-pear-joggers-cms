@@ -39,11 +39,11 @@ const NavigationItem = (props: { item: NavigationLinkItem }) => {
     }, [handleClick, active]);
 
     return (
-        <li className="relative" onClick={() => setActive(!active)}>
+        <li className="relative text-center lg:text-left" onClick={() => setActive(!active)}>
             <NavigationLink link={props.item.link} text={props.item.text} />
 
             {props.item.items && active && (
-                <ul className="bg-gray-900 rounded-sm absolute z-30 w-64 top-8 py-2">
+                <ul className="bg-gray-900 rounded-sm lg:absolute z-30 w-64 top-8 py-2">
                     {props.item.items.map((item, index) => (
                         <li key={index}>
                             <SubmenuNavigationLink link={item.link} text={item.text} />
