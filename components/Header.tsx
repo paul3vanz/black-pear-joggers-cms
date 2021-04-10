@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const NavigationLink = (props: { link: string; text: string }) => (
     <a
-        className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-2 rounded-sm font-bold no-underline"
+        className="text-gray-100 transition-all hover:bg-gray-700 hover:text-white px-3 py-1 inline-block rounded-sm font-bold no-underline"
         href={props.link}>
         {props.text}
     </a>
@@ -119,7 +119,7 @@ export const Header = () => {
                 </div>
 
                 {menuOpen && (
-                    <ul className="lg:flex flex-shrink flex-col lg:flex-row lg:ml-6 items-center">
+                    <ul className="lg:flex flex-shrink flex-col lg:flex-row lg:ml-6 items-center mb-4 lg:mb-0">
                         {navigationLinks.map((item, index) => (
                             <NavigationItem key={index} item={item}></NavigationItem>
                         ))}
