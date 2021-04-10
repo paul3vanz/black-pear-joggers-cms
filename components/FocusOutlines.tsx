@@ -11,12 +11,10 @@ const GlobalStyle = createGlobalStyle`
 
 export const FocusOutlines = () => {
     const handleClick = () => {
-        console.log('click');
         document.body.classList.remove('show-focus-outlines');
     };
 
     const handleKeyDown = () => {
-        console.log('key down');
         document.body.classList.add('show-focus-outlines');
     };
 
