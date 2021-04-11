@@ -2,6 +2,7 @@ import { NavigationLinkItem, navigationLinks } from '../core/constants/navigatio
 import { useEffect, useState } from 'react';
 
 import Link from 'next/link';
+import { classNames } from '../core/helpers';
 
 const NavigationLink = (props: { link: string; text: string }) => (
     <a
@@ -118,13 +119,15 @@ export const Header = () => {
                     </div>
                 </div>
 
-                {menuOpen && (
-                    <ul className="lg:flex flex-shrink flex-col lg:flex-row lg:ml-6 items-center mb-4 lg:mb-0">
-                        {navigationLinks.map((item, index) => (
-                            <NavigationItem key={index} item={item}></NavigationItem>
-                        ))}
-                    </ul>
-                )}
+                <ul
+                    className={classNames(
+                        !menuOpen && 'hidden',
+                        'lg:flex flex-shrink flex-col lg:flex-row lg:ml-6 items-center mb-4 lg:mb-0'
+                    )}>
+                    {navigationLinks.map((item, index) => (
+                        <NavigationItem key={index} item={item}></NavigationItem>
+                    ))}
+                </ul>
             </div>
         </nav>
     );
