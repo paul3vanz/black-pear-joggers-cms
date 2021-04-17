@@ -1,0 +1,31 @@
+---
+title: "Race report - Cheltenham half marathon"
+date: "2016-10-01"
+categories: 
+  - "races-and-events"
+  - "race-reports"
+---
+
+Anybody who knows me also knows I'm a glass half full kinda gal... a tad over sensitive sometimes, but generally a very positive spinner of marketing.  Oh dear, Cheltenham event organisers ... your write up will not be very flattering I'm afraid. I had to take more than a couple of days to muse my scribbli![mark-birchall](https://bpj.org.uk/wp-content/uploads/2016/10/Mark-Birchall.jpg)ngs for this one and tone it down, as this forum is no place for an emotional outburst. (Not that that has stopped me before, but not in a professional capacity Mister Chairman, I promise. ;-))
+
+So where ![cheltenham-half](https://bpj.org.uk/wp-content/uploads/2016/10/Cheltenham-half-795x447.jpg)do I start? Obligatory  BPJ pre race group photo... oh that was missed as most people were still sat in traffic. I did manage to bagsy a picture of **Mark Birchall** and I and a few pictures with some of the Hereford Ghost Runners, but I didn't see any of my other BPJ counterparts before the race.
+
+The race start.... cough cough .... so many were still in the debacle of logistical hell that they didn't get to start and those that did were often up to 45 minutes late giving them a false ![rob-gilbert](https://bpj.org.uk/wp-content/uploads/2016/10/Rob-Gilbert-795x596.jpg)time. The last two years it started from Pittville and this year it started and finished at Cheltenham race course. An inspired idea you might think as surely they must know how to host massive events? Erm, well maybe it is down to the organisers after all. The poor marshals were getting so much abuse for the imposed one way system, inability to park in some of the car parks and the rather jobsworth instructions they must have received that probably seemed like a good idea at the time. It wasn't pretty.
+
+Okay, the race itself. Well, a few positives here. Lovely flat course, huge amounts of support from locals despite the organisers closing roads way before they should have done and causing absolute traffic chaos for residents and visitors alike. Jelly babies, lots of water stations, ingenious little spray showers to cool you down and best of all, fellow BPJs and friends thereof saying hello along the way, slowing a bit to chat about lovely orange finger nail co-ordination and purple trainers ??? **Neaty Jayne** .. or just a word of encouragement or support.
+
+![bpj-t-shirt](https://bpj.org.uk/wp-content/uploads/2016/10/bpj-t-shirt.jpg)Thanks to the original committee, we have a superbly unique recognisable kit so ALWAYS make sure you say hello and acknowledge your fellow Pears as you zip or meander past. We are, after all, a friendly club... and if you don't have official kit yet.... well get onto **Jo Evan![bpj-vest](https://bpj.org.uk/wp-content/uploads/2016/10/bpj-vest.jpg)s** and secure yourself some. Have a look [here](https://bpj.org.uk/kit/). It is lovely to belong and so encouraging when complete strangers shout 'Go Black Pears' or 'Well done Trizz' cos you have your name or nickname printed on your shirt. Believe me, it gives you that much needed little boost when you are blowing out of your a\*\*e from the effort of that last hill. You will be so thankful for it.
+
+The final laps of the race course at the end were kind of a killer, but the atmosphere was also fabulous and the cheering as you come in.... well if only you could bottle that sensation and feeling.... so many more of you would race.
+
+![chris](https://bpj.org.uk/wp-content/uploads/2016/10/Chris-795x596.jpg)First BPJ gent across the finish line was **Chris Attwood** in 1.25.38 (see left) and first lady (not very far behind him at all) was **Sophie Booth** in 1.32.32. Plenty of other BPJ participants including some great performances and pbs from **Jamie Warner, Rob Gilbert, Michael Harte, Steve McNelis, Peter Darwen, Matt Nicholls, Mark Bradley, Becky Hardie, Nick Adams, Ashley Brown, Lorraine Griffiths, Chris (Bomber) Harris, Laura Samuel, Iwona Hudson, Sarah Morris, Neaty Jayne, Anita Hennessey, Campbell McClory, Me - Tracy Kennish, Anna Borecka ![sarah-2](https://bpj.org.uk/wp-content/uploads/2016/10/Sarah-2-795x530.jpg)** who was guide running for **Lee Greatbatch** from the Pershore Plums**, Mary Jeynes, Mark Birchall, Kate Parsons, Hannah Sharp** and **Laura Clarke**. **Nichola Robinson** was running for a charity and **Annie Bird** was not a BPJ when she registered, but they also flew the BPJ banner for us.
+
+A  couple of other positives included the personalised post race email to your individual picture album which was a nice touch and the race results were actually quite cool too. There was a finish overview section at the bottom that showed the times of the people you pip to the post if you click on them.... I actually beat some of the people in front of me chip time wise even though they crossed the line first. Great technology. Nice to see 10k split times, average times and paces as well. You just have to put in your name or bib number on their site, then click on your name once it is highlighted and the following shows.
+
+![cheltenahm-half](https://bpj.org.uk/wp-content/uploads/2016/10/Cheltenahm-half-795x794.jpg)
+
+Full race results can be found [here](http://www.cheltenhamhalf.co.uk/)
+
+There was no t-shirt but a great medal and the goodie bag was also quite respectable. Even after a post race llllooooonnnggg drawn out coffee, we were still stuck in traffic jam hell trying to get out. To be fair if they don't sort that out next year, I think there will be a mass sit out. We'll see what they come up with. Races much bigger than this one get it right, so it's not like it is rocket science. What a good job this was a half marathon, cos if it had been a full marathon then maybe they would have 'ballsed up' the logistics twice as badly? Who knows, but let's just hope that this local race is better organised next year, or I can't see many of us Black Pears turning up... or maybe reading this race report will just help you be better prepared.
+
+![rob-gilbert-phil-deeley](https://bpj.org.uk/wp-content/uploads/2016/10/Rob-Gilbert-Phil-Deeley-795x794.jpg)
