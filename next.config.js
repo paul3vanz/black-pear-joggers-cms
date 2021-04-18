@@ -9,6 +9,11 @@ module.exports = {
             config.node = { fs: 'empty', module: 'empty' };
         }
 
+        config.module.rules.push({
+            test: /\.md$/,
+            use: 'raw-loader',
+        });
+
         return config;
     },
 };
