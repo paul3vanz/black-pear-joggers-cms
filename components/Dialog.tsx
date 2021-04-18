@@ -1,15 +1,16 @@
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { createRef, PropsWithChildren, useEffect } from 'react';
-import { Key } from '../core/enums/keyCodes';
+import { PropsWithChildren, createRef, useEffect } from 'react';
 
-interface Props {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Key } from '../core/enums/keyCodes';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+
+interface DialogProps {
     opener?: any;
     title: string;
     onClose: any;
 }
 
-export const Dialog = (props: PropsWithChildren<Props>) => {
+export const Dialog = (props: PropsWithChildren<DialogProps>) => {
     const modalRef = createRef<HTMLDivElement>();
 
     useEffect(() => {
@@ -47,10 +48,6 @@ export const Dialog = (props: PropsWithChildren<Props>) => {
         }
     };
 
-    const handleKeyPress = (e) => {
-        console.log('keypress', e);
-    };
-
     return (
         <>
             <div className="fixed z-30 inset-0 overflow-y-auto">
@@ -76,10 +73,7 @@ export const Dialog = (props: PropsWithChildren<Props>) => {
 
                             {props.children}
 
-                            <button
-                                className="absolute top-3 right-3 cursor-pointer"
-                                onClick={() => props.onClose()}
-                                onKeyDown={() => handleKeyPress}>
+                            <button className="absolute top-3 right-3 cursor-pointer" onClick={() => props.onClose()}>
                                 <FontAwesomeIcon icon={faTimesCircle} size="lg" />
                                 <span className="sr-only">Close modal</span>
                             </button>

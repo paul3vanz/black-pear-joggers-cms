@@ -12,7 +12,7 @@ export function blogPostUrl(blogPost): string {
     ].join('/');
 }
 
-export function classNames(...classNames): string {
+export function classNames(...classNames: string[]): string {
     return classNames.filter(Boolean).join(' ');
 }
 

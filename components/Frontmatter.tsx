@@ -3,7 +3,7 @@ import { LazyLoadImage } from './LazyLoadImage';
 import { Stack } from './Stack';
 import moment from 'moment-mini';
 
-export default function Frontmatter(props: {
+interface FrontmatterProps {
     title: string;
     description: string;
     publishDate: string;
@@ -13,7 +13,9 @@ export default function Frontmatter(props: {
         name: string;
         avatarUrl: string;
     };
-}) {
+}
+
+export default function Frontmatter(props: FrontmatterProps) {
     return (
         <>
             <div className="text-center">
@@ -23,15 +25,17 @@ export default function Frontmatter(props: {
 
                         {props.author && (
                             <div className="flex flex-wrap flex-col sm:flex-row items-center justify-center">
-                                <div className="w-12 h-12 mr-2 mb-2 sm:mb-0 overflow-hidden rounded-full bg-gray-200 flex-shrink-0">
-                                    <img
-                                        src={props.author.avatarUrl}
-                                        alt={props.author.name}
-                                        width="30"
-                                        height="30"
-                                        className="object-cover w-full h-full"
-                                    />
-                                </div>
+                                {props.author.avatarUrl && (
+                                    <div className="w-12 h-12 mr-2 mb-2 sm:mb-0 overflow-hidden rounded-full bg-gray-200 flex-shrink-0">
+                                        <img
+                                            src={props.author.avatarUrl}
+                                            alt={props.author.name}
+                                            width="30"
+                                            height="30"
+                                            className="object-cover w-full h-full"
+                                        />
+                                    </div>
+                                )}
                                 <div className="mr-2">
                                     Posted by&nbsp;
                                     <strong>{props.author.name}</strong>

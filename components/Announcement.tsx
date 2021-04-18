@@ -10,7 +10,7 @@ import { Stack } from './Stack';
 import { blogPostUrl } from '../core/helpers';
 import moment from 'moment-mini';
 
-interface Props {
+interface AnnouncementProps {
     id: string;
     timestamp: string;
     title: string;
@@ -27,7 +27,7 @@ export class Announcement extends React.Component {
 
     state: State;
 
-    constructor(props: Props) {
+    constructor(props: AnnouncementProps) {
         super(props);
 
         this.state = {

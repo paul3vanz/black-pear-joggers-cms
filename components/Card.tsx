@@ -4,7 +4,12 @@ import Link from 'next/link';
 import { ReactNode } from 'react';
 import { classNames } from '../core/helpers';
 
-interface Props {
+interface ImageProps {
+    src: string;
+    alt?: string;
+}
+
+interface CardProps {
     imageUrl?: string;
     headline?: string;
     content?: string | ReactNode;
@@ -12,13 +17,13 @@ interface Props {
     alignment?: Alignment;
 }
 
-const Image = ({ src }) => (
+const Image = ({ src, alt }: ImageProps) => (
     <LazyLoadImage className="h-40 sm:h-52 mb-4 rounded-sm bg-gray-100">
-        <img className="h-40 sm:h-52 w-full rounded-sm object-cover object-center" src={src} alt="" />
+        <img className="h-40 sm:h-52 w-full rounded-sm object-cover object-center" src={src} alt={alt} />
     </LazyLoadImage>
 );
 
-export const Card = (props: Props) => (
+export const Card = (props: CardProps) => (
     <div className={classNames('flex flex-col p-2 w-full overflow-hidden bg-white rounded-sm text-gray-900 shadow-xl')}>
         {props.imageUrl && (
             <div>
