@@ -21,8 +21,17 @@ const CustomStyles = createGlobalStyle`
     ${tw`text-xl`}
   }
 
-  p {
+  p, ul {
     ${tw`mb-4`}
+  }
+
+  li {
+    ${tw`mb-1`}
+  }
+
+  a {
+    ${tw`underline`}
+    color: #f89829;
   }
 
   *:focus {
